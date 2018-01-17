@@ -15,6 +15,7 @@ class IDViewController: UIViewController {
     @IBOutlet weak var lastnameLabel: UILabel!
     
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailDomain: UILabel!
     @IBOutlet weak var portfolioLabel: UILabel!
     
     @IBOutlet weak var termSeasonLabel: UILabel!
@@ -35,6 +36,10 @@ class IDViewController: UIViewController {
     }
     
     func updateStudent(student: Student) {
+        let splitEmail = student.email.components(separatedBy: "@")
+        let emailPrefix = splitEmail[0]
+        let emailDomain = splitEmail[1]
+        
         self.profileImageView.image = student.image
         self.profileImageView.layer.cornerRadius = 10
         self.profileImageView.layer.masksToBounds = true
@@ -44,8 +49,9 @@ class IDViewController: UIViewController {
         self.firstnameLabel.text = student.firstname
         self.lastnameLabel.text = student.lastname
         
-        self.emailLabel.text = student.email
-        self.portfolioLabel.text = "makeschool.com/portfolio/\(student.portfolio)"
+        self.emailLabel.text = emailPrefix
+        self.emailDomain.text = "@\(emailDomain)"
+        self.portfolioLabel.text = "portfolio/\(student.portfolio!)"
         
         self.termSeasonLabel.text = "SPRING"
         self.yearLabel.text = "2018"

@@ -92,8 +92,14 @@
                                                 <color key="textColor" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="email@students.makeschool.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hj-DN-hnS">
-                                                <rect key="frame" x="0.0" y="30.666666666666686" width="325" height="75"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="emailprefix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hj-DN-hnS">
+                                                <rect key="frame" x="0.0" y="30.666666666666686" width="325" height="48"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="22"/>
+                                                <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="@students.makeschool.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wb7-aU-uHz">
+                                                <rect key="frame" x="0.0" y="78.666666666666686" width="325" height="27"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="22"/>
                                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -109,8 +115,14 @@
                                                 <color key="textColor" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="make.sc/portfolio/student" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2av-yD-AF9">
-                                                <rect key="frame" x="0.0" y="30.666666666666636" width="325" height="74.666666666666686"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="makeschool.com/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2av-yD-AF9">
+                                                <rect key="frame" x="0.0" y="30.666666666666629" width="325" height="44"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="25"/>
+                                                <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="portfolio/student-name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5z-CN-3ga">
+                                                <rect key="frame" x="0.0" y="74.666666666666629" width="325" height="30.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="25"/>
                                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -147,10 +159,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="emailDomain" destination="Wb7-aU-uHz" id="oYA-Mg-Ais"/>
                         <outlet property="emailLabel" destination="6hj-DN-hnS" id="MaV-dc-7K0"/>
                         <outlet property="firstnameLabel" destination="8mw-Vd-jv6" id="6AH-y7-bKX"/>
                         <outlet property="lastnameLabel" destination="e1s-03-ZF7" id="RrF-Td-C6i"/>
-                        <outlet property="portfolioLabel" destination="2av-yD-AF9" id="Xiv-wu-no5"/>
+                        <outlet property="portfolioLabel" destination="Z5z-CN-3ga" id="Hgj-4m-hZl"/>
                         <outlet property="profileImageView" destination="xRs-GT-4zO" id="BYc-XN-R69"/>
                         <outlet property="termSeasonLabel" destination="Aby-dl-iaM" id="AqT-gp-Xp6"/>
                         <outlet property="yearLabel" destination="W7O-JU-fUB" id="TP4-lk-iXS"/>
