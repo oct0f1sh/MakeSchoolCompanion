@@ -12,6 +12,10 @@ import UIKit
 class StudentTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func unwindToTableView(segue: UIStoryboardSegue) {
+    
+    }
+    
     var students: [Student] = []
     
     override func viewDidLoad() {
