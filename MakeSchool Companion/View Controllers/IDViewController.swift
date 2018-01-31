@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
-class IDViewController: UIViewController {
+class IDViewController: UIViewController, CLLocationManagerDelegate {
+    var beaconRegion: CLBeaconRegion!
+    var locationManager: CLLocationManager!
+    var isSearchingForBeacons = true
+    var lastFoundBeacon: CLBeacon = CLBeacon()
+    var lastProximity: CLProximity! = CLProximity.unknown
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var firstnameLabel: UILabel!
@@ -20,6 +27,8 @@ class IDViewController: UIViewController {
     
     @IBOutlet weak var termSeasonLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
+    
+    @IBOutlet weak var testLabel: UILabel!
     
     var student: Student! = nil
     
@@ -33,7 +42,54 @@ class IDViewController: UIViewController {
                 }
             }
         }
+        
+        // BEACON INITIALIZATION
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        
+        let uuid = UUID(uuidString: "BC93FB2E-6CFA-4A8E-BDAE-0D2664F9216F")
+        beaconRegion = CLBeaconRegion(proximityUUID: uuid!, major: 7527, minor: 8551, identifier: "us.duncanmacdonald.MakeSchool-Companion")
+//        beaconRegion = CLBeaconRegion(proximityUUID: uuid!, identifier: "us.duncanmacdonald.MakeSchool-Companion")
+        
+        beaconRegion.notifyOnEntry = true
+        beaconRegion.notifyOnExit = true
+        // END BEACON INITIALIZATION
+        
+        // BEACON CHECKING
+        if isSearchingForBeacons {
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startMonitoring(for: beaconRegion)
+            locationManager.startUpdatingLocation()
+        }
+        // END BEACON CHECKING
     }
+    
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        locationManager.requestState(for: beaconRegion)
+        testLabel.text = "searching..."
+        print("started monitoring for beacons")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+        if state == CLRegionState.inside {
+            print("device is inside beacon region")
+            testLabel.text = "inside beacon region"
+            locationManager.startRangingBeacons(in: beaconRegion)
+        } else {
+            print("not inside beacon region")
+            testLabel.text = "not in beacon region"
+            //locationManager.stopRangingBeacons(in: beaconRegion)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        testLabel.text = "entered"
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        testLabel.text = "exited"
+    }
+    
     
     func updateStudent(student: Student) {
         let splitEmail = student.email.components(separatedBy: "@")

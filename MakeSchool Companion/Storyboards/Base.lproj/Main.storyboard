@@ -135,6 +135,13 @@
                                 <color key="textColor" red="0.99999064207077026" green="0.99999362230300903" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc0-Mo-wIw">
+                                <rect key="frame" x="105" y="472" width="216" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -169,6 +176,7 @@
                         <outlet property="portfolioLabel" destination="Z5z-CN-3ga" id="Hgj-4m-hZl"/>
                         <outlet property="profileImageView" destination="xRs-GT-4zO" id="BYc-XN-R69"/>
                         <outlet property="termSeasonLabel" destination="Aby-dl-iaM" id="AqT-gp-Xp6"/>
+                        <outlet property="testLabel" destination="kc0-Mo-wIw" id="apy-fv-hGp"/>
                         <outlet property="yearLabel" destination="W7O-JU-fUB" id="TP4-lk-iXS"/>
                     </connections>
                 </viewController>
