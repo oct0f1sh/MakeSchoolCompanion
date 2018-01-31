@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4562A12010083400CC9E13 /* StudentTableViewController.swift */; };
+		AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD612022836C00DEB016 /* BeaconManager.swift */; };
 		AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE75D4F620100744007B0D69 /* NameCellView.swift */; };
 		AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FB82009305800D173B3 /* AppDelegate.swift */; };
 		AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FBA2009305800D173B3 /* IDViewController.swift */; };
@@ -28,6 +29,7 @@
 		8FC997D73A52790601BFDE8C /* Pods-MakeSchool Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4562A12010083400CC9E13 /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
 		AE4562A3201807EF00CC9E13 /* MakeSchool Companion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MakeSchool Companion.entitlements"; sourceTree = "<group>"; };
+		AE48CD612022836C00DEB016 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		AE75D4F620100744007B0D69 /* NameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCellView.swift; sourceTree = "<group>"; };
 		AEF69FB52009305800D173B3 /* MakeSchool Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MakeSchool Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF69FB82009305800D173B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AE48CD602022835D00DEB016 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AE48CD612022836C00DEB016 /* BeaconManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		AE75D4F2200FED17007B0D69 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				AE4562A3201807EF00CC9E13 /* MakeSchool Companion.entitlements */,
+				AE48CD602022835D00DEB016 /* Helpers */,
 				AE75D4F520100736007B0D69 /* Views */,
 				AE75D4F2200FED17007B0D69 /* Storyboards */,
 				AEF69FD12009723300D173B3 /* View Controllers */,
@@ -302,6 +313,7 @@
 				AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */,
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,
 				AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */,
+				AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
