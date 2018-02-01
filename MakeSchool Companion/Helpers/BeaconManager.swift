@@ -16,9 +16,6 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     var isSearchingForBeacons = true
     var status: BeaconStatus = .started
     
-//    var lastFoundBeacon: CLBeacon = CLBeacon()
-//    var lastProximity: CLProximity! = CLProximity.unknown
-    
     weak var delegate: BeaconManagerDelegate?
     
     override init() {
