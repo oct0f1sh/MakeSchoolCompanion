@@ -14,8 +14,12 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     var beaconRegion: CLBeaconRegion!
     var locationManager: CLLocationManager!
     var isSearchingForBeacons = true
-    var lastFoundBeacon: CLBeacon = CLBeacon()
-    var lastProximity: CLProximity! = CLProximity.unknown
+    var status: BeaconStatus = .started
+    
+//    var lastFoundBeacon: CLBeacon = CLBeacon()
+//    var lastProximity: CLProximity! = CLProximity.unknown
+    
+    weak var delegate: BeaconManagerDelegate?
     
     override init() {
         super.init()
@@ -23,7 +27,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         
         let uuid = UUID(uuidString: "BC93FB2E-6CFA-4A8E-BDAE-0D2664F9216F")
-        beaconRegion = CLBeaconRegion(proximityUUID: uuid!, major: 7527, minor: 8551, identifier: "us.duncanmacdonald.MakeSchool-Companion")
+        beaconRegion = CLBeaconRegion(proximityUUID: uuid!, major: 7527, minor: 8551, identifier: "test beacon")
         
         beaconRegion.notifyOnEntry = true
         beaconRegion.notifyOnExit = true
@@ -35,30 +39,53 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print(error.localizedDescription)
+    }
     
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         locationManager.requestState(for: beaconRegion)
-//        testLabel.text = "searching..."
+        delegate?.beaconManager(sender: self, searchingInRegion: region)
         print("started monitoring for beacons")
+        status = .searching
     }
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         if state == CLRegionState.inside {
             print("device is inside beacon region")
-//            testLabel.text = "inside beacon region"
-            locationManager.startRangingBeacons(in: beaconRegion)
+            delegate?.beaconManager(sender: self, isInBeaconRange: region)
+            status = .inBeaconRange
         } else {
             print("not inside beacon region")
-//            testLabel.text = "not in beacon region"
-            //locationManager.stopRangingBeacons(in: beaconRegion)
+            status = .notInBeaconRange
+            delegate?.beaconManager(sender: self, isNotInBeaconRange: region)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-//        testLabel.text = "entered"
+        delegate?.beaconManager(sender: self, enteredBeaconRegion: region)
+        status = .enteredBeaconRange
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-//        testLabel.text = "exited"
+        delegate?.beaconManager(sender: self, exitedBeaconRegion: region)
+        status = .exitedBeaconRange
     }
+}
+
+protocol BeaconManagerDelegate: class {
+    func beaconManager(sender: BeaconManager, isInBeaconRange region: CLRegion)
+    func beaconManager(sender: BeaconManager, isNotInBeaconRange region: CLRegion)
+    func beaconManager(sender: BeaconManager, searchingInRegion region: CLRegion)
+    func beaconManager(sender: BeaconManager, enteredBeaconRegion region: CLRegion)
+    func beaconManager(sender: BeaconManager, exitedBeaconRegion region: CLRegion)
+}
+
+enum BeaconStatus {
+    case started
+    case inBeaconRange
+    case notInBeaconRange
+    case searching
+    case enteredBeaconRange
+    case exitedBeaconRange
 }

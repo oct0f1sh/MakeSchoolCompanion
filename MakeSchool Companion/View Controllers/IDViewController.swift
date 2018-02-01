@@ -27,7 +27,9 @@ class IDViewController: UIViewController {
     var student: Student! = nil
     
     override func viewDidLoad() {
-        // let _ = BeaconManager()
+        AppDelegate.shared.beaconManager.delegate = self
+        var beacon = AppDelegate.shared.beaconManager
+        
         NetworkingService.downloadImage(imgUrl: student.imageURL) { (img) in
             if let img = img {
                 self.student.image = img
@@ -36,6 +38,20 @@ class IDViewController: UIViewController {
                     self.updateStudent(student: self.student)
                 }
             }
+        }
+        switch AppDelegate.shared.beaconManager.status {
+        case .enteredBeaconRange:
+            testLabel.text = "entered beacon region: \(beacon.beaconRegion.identifier)"
+        case .exitedBeaconRange:
+            testLabel.text = "exited beacon region: \(beacon.beaconRegion.identifier)"
+        case .inBeaconRange:
+            testLabel.text = "in range of beacon: \(beacon.beaconRegion.identifier)"
+        case .notInBeaconRange:
+            testLabel.text = "not in beacon range"
+        case .searching:
+            testLabel.text = "searching..."
+        case .started:
+            testLabel.text = "started beacon manager"
         }
     }
     
@@ -63,3 +79,24 @@ class IDViewController: UIViewController {
     }
 }
 
+extension IDViewController: BeaconManagerDelegate {
+    func beaconManager(sender: BeaconManager, isInBeaconRange region: CLRegion) {
+        testLabel.text = "in range of beacon: \(region.identifier)"
+    }
+    
+    func beaconManager(sender: BeaconManager, isNotInBeaconRange region: CLRegion) {
+        testLabel.text = "not in beacon range"
+    }
+    
+    func beaconManager(sender: BeaconManager, searchingInRegion region: CLRegion) {
+        testLabel.text = "searching..."
+    }
+    
+    func beaconManager(sender: BeaconManager, enteredBeaconRegion region: CLRegion) {
+        testLabel.text = "entered beacon region: \(region.identifier)"
+    }
+    
+    func beaconManager(sender: BeaconManager, exitedBeaconRegion region: CLRegion) {
+        testLabel.text = "exited beacon region: \(region.identifier)"
+    }
+}
