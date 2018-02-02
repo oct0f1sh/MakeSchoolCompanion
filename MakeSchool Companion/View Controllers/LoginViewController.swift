@@ -10,18 +10,23 @@ import Foundation
 import UIKit
 import PMSuperButton
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var loginButton: PMSuperButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     var allStudents: [Student] = []
     
-    @IBAction func tap(_ sender: Any) {
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+        self.textField.text = ""
+        self.errorLabel.isHidden = true
     }
     
     override func viewDidLoad() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        textField.delegate = self
         
         loginButton.showLoader(userInteraction: false)
         
@@ -35,9 +40,15 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.textField.resignFirstResponder()
+        return true
+    }
+    
     @IBAction func loginTapped(_ sender: Any) {
         if !(textField.text?.contains("."))! {
-            print("bad input")
+            errorLabel.isHidden = false
+            errorLabel.text = "format must be firstname.lastname"
             return
         }
         
@@ -47,7 +58,7 @@ class LoginViewController: UIViewController {
         
         for student in allStudents {
             if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastname {
-                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IDView") as! IDViewController
+                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
                 idView.student = student
                 DispatchQueue.main.async {
                     self.present(idView, animated: true, completion: nil)
@@ -56,7 +67,8 @@ class LoginViewController: UIViewController {
             }
         }
         
-        print("not found")
+        errorLabel.text = "user not found"
+        errorLabel.isHidden = false
     }
     
     @objc func tap(gesture: UIGestureRecognizer) {

@@ -11,7 +11,6 @@
 		AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD612022836C00DEB016 /* BeaconManager.swift */; };
 		AE48CD642024E62400DEB016 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE48CD632024E62400DEB016 /* Login.storyboard */; };
 		AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD652024ECCD00DEB016 /* LoginViewController.swift */; };
-		AE48CD682024F5DA00DEB016 /* LoginViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD672024F5DA00DEB016 /* LoginViewController2.swift */; };
 		AE48CD6B2024F72700DEB016 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD6A2024F72700DEB016 /* Style.swift */; };
 		AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE75D4F620100744007B0D69 /* NameCellView.swift */; };
 		AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FB82009305800D173B3 /* AppDelegate.swift */; };
@@ -36,7 +35,6 @@
 		AE48CD612022836C00DEB016 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		AE48CD632024E62400DEB016 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		AE48CD652024ECCD00DEB016 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AE48CD672024F5DA00DEB016 /* LoginViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController2.swift; sourceTree = "<group>"; };
 		AE48CD6A2024F72700DEB016 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		AE75D4F620100744007B0D69 /* NameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCellView.swift; sourceTree = "<group>"; };
 		AEF69FB52009305800D173B3 /* MakeSchool Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MakeSchool Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +167,6 @@
 				AEF69FBA2009305800D173B3 /* IDViewController.swift */,
 				AE4562A12010083400CC9E13 /* StudentTableViewController.swift */,
 				AE48CD652024ECCD00DEB016 /* LoginViewController.swift */,
-				AE48CD672024F5DA00DEB016 /* LoginViewController2.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 				AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */,
 				AEF69FD42009730E00D173B3 /* Student.swift in Sources */,
 				AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */,
-				AE48CD682024F5DA00DEB016 /* LoginViewController2.swift in Sources */,
 				AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */,
 				AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */,
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,

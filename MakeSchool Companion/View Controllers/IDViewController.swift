@@ -39,17 +39,18 @@ class IDViewController: UIViewController {
                 }
             }
         }
+        
         switch AppDelegate.shared.beaconManager.status {
         case .enteredBeaconRange:
             testLabel.text = "entered beacon region: \(beacon.beaconRegion.identifier)"
         case .exitedBeaconRange:
             testLabel.text = "exited beacon region: \(beacon.beaconRegion.identifier)"
         case .inBeaconRange:
-            testLabel.text = "in range of beacon: \(beacon.beaconRegion.identifier)"
+            testLabel.text = "📡✅"
         case .notInBeaconRange:
-            testLabel.text = "not in beacon range"
+            testLabel.text = "📡❌"
         case .searching:
-            testLabel.text = "searching..."
+            testLabel.text = "📡🌀"
         case .started:
             testLabel.text = "started beacon manager"
         }
@@ -81,15 +82,15 @@ class IDViewController: UIViewController {
 
 extension IDViewController: BeaconManagerDelegate {
     func beaconManager(sender: BeaconManager, isInBeaconRange region: CLRegion) {
-        testLabel.text = "in range of beacon: \(region.identifier)"
+        testLabel.text = "📡✅"
     }
     
     func beaconManager(sender: BeaconManager, isNotInBeaconRange region: CLRegion) {
-        testLabel.text = "not in beacon range"
+        testLabel.text = "📡❌"
     }
     
     func beaconManager(sender: BeaconManager, searchingInRegion region: CLRegion) {
-        testLabel.text = "searching..."
+        testLabel.text = "📡🌀"
     }
     
     func beaconManager(sender: BeaconManager, enteredBeaconRegion region: CLRegion) {
