@@ -104,9 +104,13 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aER-sU-vXR">
                                 <rect key="frame" x="166.66666666666666" y="488" width="41.666666666666657" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.82089294678714864" green="0.11088400958439369" blue="0.17727954055090925" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.81960784313725488" green="0.10980392156862745" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="cUt-cN-Qnc">
+                                <rect key="frame" x="112.66666666666669" y="331" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
@@ -126,9 +130,14 @@
                         <viewLayoutGuide key="safeArea" id="MqS-3O-cYy"/>
                     </view>
                     <connections>
+                        <outlet property="animLogo" destination="cUt-cN-Qnc" id="zT4-ae-coE"/>
+                        <outlet property="atLabel" destination="UKH-uR-7Qq" id="BXo-s9-P2a"/>
+                        <outlet property="domainLabel" destination="MlV-t0-Qkz" id="YGN-YO-Bqi"/>
                         <outlet property="errorLabel" destination="aER-sU-vXR" id="X68-ug-Ebw"/>
                         <outlet property="loginButton" destination="Gs0-EN-729" id="SX6-yn-gyz"/>
+                        <outlet property="makeLogo" destination="JYE-Zc-hNQ" id="5ae-nh-gTQ"/>
                         <outlet property="textField" destination="l6H-f7-P6a" id="5co-sb-dQR"/>
+                        <outlet property="underlineView" destination="sUi-Mo-i2d" id="S0w-zh-h73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcw-jj-sUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,6 +146,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="450" height="450"/>
         <image name="logonamewhite" width="450" height="124"/>
     </resources>
 </document>

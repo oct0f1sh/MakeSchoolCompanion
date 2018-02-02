@@ -66,7 +66,7 @@ class IDViewController: UIViewController {
         self.profileImageView.layer.cornerRadius = 10
         self.profileImageView.layer.masksToBounds = true
         self.profileImageView.layer.borderWidth = 5
-        self.profileImageView.layer.borderColor = UIColor(red: 74, green: 74, blue: 74, alpha: 74).cgColor
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
         
         self.firstnameLabel.text = student.firstname
         self.lastnameLabel.text = student.lastname
