@@ -22,7 +22,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IDViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IDView" id="BYZ-38-t0r" customClass="IDViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,6 +141,14 @@
                                 <color key="textColor" red="1" green="0.038406966862786551" blue="0.059711782909348754" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sR-ri-SRr">
+                                <rect key="frame" x="304" y="381" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="PdM-69-RX3" kind="show" id="G0k-bl-LzR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -188,6 +196,14 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="36.945812807881772"/>
         </scene>
+        <!--Login-->
+        <scene sceneID="bcf-ZA-lxx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="PdM-69-RX3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNP-hv-ley" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621" y="117"/>
+        </scene>
         <!--Student Table View Controller-->
         <scene sceneID="B7J-Zl-qPv">
             <objects>
@@ -196,6 +212,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dgx-eK-aak">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SoG-uP-eMO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,7 +254,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SoG-uP-eMO" firstAttribute="top" secondItem="af3-X3-QsA" secondAttribute="top" id="0pH-C8-xwC"/>
+                            <constraint firstItem="L6a-MU-SnD" firstAttribute="bottom" secondItem="Dgx-eK-aak" secondAttribute="bottom" id="21T-7V-dEv"/>
+                            <constraint firstItem="Dgx-eK-aak" firstAttribute="leading" secondItem="L6a-MU-SnD" secondAttribute="leading" id="5De-R6-qO2"/>
+                            <constraint firstItem="L6a-MU-SnD" firstAttribute="trailing" secondItem="Dgx-eK-aak" secondAttribute="trailing" id="ElM-lk-l21"/>
                             <constraint firstItem="SoG-uP-eMO" firstAttribute="leading" secondItem="af3-X3-QsA" secondAttribute="leading" id="c2j-un-ihq"/>
+                            <constraint firstItem="Dgx-eK-aak" firstAttribute="top" secondItem="L6a-MU-SnD" secondAttribute="top" id="cba-Zz-tng"/>
                             <constraint firstAttribute="trailing" secondItem="SoG-uP-eMO" secondAttribute="trailing" id="l55-cn-8et"/>
                             <constraint firstAttribute="bottom" secondItem="SoG-uP-eMO" secondAttribute="bottom" id="ls5-UA-GJ2"/>
                         </constraints>
