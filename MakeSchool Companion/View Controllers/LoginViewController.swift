@@ -50,26 +50,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func animate() {
         self.textField.alpha = 0
+        self.textField.isUserInteractionEnabled = false
         self.loginButton.alpha = 0
+        self.loginButton.isUserInteractionEnabled = false
         self.underlineView.alpha = 0
         self.domainLabel.alpha = 0
         self.atLabel.alpha = 0
         self.makeLogo.alpha = 0
         
-        UIView.animate(withDuration: 1, delay: 1, options: [], animations: {
+        UIView.animate(withDuration: 0.8, delay: 1, options: [], animations: {
             self.animLogo.frame.origin.x = 36
             self.animLogo.frame.origin.y = 181
             self.animLogo.bounds = CGRect(x: 67, y: 207, width: 88, height: 99)
         }, completion: nil)
         
-        UIView.animate(withDuration: 1, delay: 2, options: [], animations: {
+        UIView.animate(withDuration: 0.8, delay: 1.8, options: [], animations: {
             self.textField.alpha = 1
             self.loginButton.alpha = 1
             self.underlineView.alpha = 1
             self.domainLabel.alpha = 1
             self.atLabel.alpha = 1
             self.makeLogo.alpha = 1
-        }, completion: nil)
+        }, completion: { (_) in
+            self.textField.isUserInteractionEnabled = true
+            self.loginButton.isUserInteractionEnabled = true
+        })
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
