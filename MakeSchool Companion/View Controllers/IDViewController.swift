@@ -54,6 +54,12 @@ class IDViewController: UIViewController {
         case .started:
             testLabel.text = "started beacon manager"
         }
+        
+//        let beaconLogic = BeaconNetworkingLayer()
+//        beaconLogic.fetchBeaconData(route: .attendances(), requestRoute: .getRequest) { (data) in
+//           let json = try? JSONDecoder().decode(AttendancesModel.self, from: data)
+//            print(json)
+//        }
     }
     
     

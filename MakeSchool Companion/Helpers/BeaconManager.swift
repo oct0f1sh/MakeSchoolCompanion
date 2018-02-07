@@ -49,7 +49,8 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         if state == CLRegionState.inside {
-            print("device is inside beacon region")
+            let date = Date()
+            print("device is inside beacon region \(state.rawValue)")
             delegate?.beaconManager(sender: self, isInBeaconRange: region)
             status = .inBeaconRange
         } else {
@@ -61,6 +62,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         delegate?.beaconManager(sender: self, enteredBeaconRegion: region)
+        print(region)
         status = .enteredBeaconRange
     }
     
