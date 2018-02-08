@@ -55,15 +55,15 @@ class BeaconNetworkingLayer {
         getRequest.addValue("Token token=6c05c1f3c23c4925717c4f21d77c8381", forHTTPHeaderField: "Authorization")
         getRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
-//        if student != nil {
-//            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
-//        }
-//        
-//        if attendances != nil {
-//            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
-//        }
-        getRequest.httpMethod = requestRoute.rawValue
+        if student != nil {
+            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+        }
         
+        if attendances != nil {
+            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+        }
+//        getRequest.httpMethod = requestRoute.rawValue
+            getRequest.httpMethod = "POST"
         let task = session.dataTask(with: getRequest) { (data, response, error) in
           
             if let data = data {

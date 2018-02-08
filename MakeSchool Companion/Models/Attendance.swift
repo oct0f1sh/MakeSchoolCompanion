@@ -19,7 +19,7 @@ struct AttendancesModel: Codable {
         self.beaconID = beaconID
         self.event = event
         self.user_id = user_id
-        self.eventTime = self.event
+        self.eventTime = event_time
     }
 }
 
