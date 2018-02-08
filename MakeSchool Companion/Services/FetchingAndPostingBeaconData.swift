@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-let session = URLSession.shared
-
 enum Route {
     case users()
     case attendances()
@@ -47,30 +45,31 @@ enum DifferentHttpVerbs: String {
 }
 
 class BeaconNetworkingLayer {
-    var baseUrl = "http://localhost:3000"
+    let session = URLSession.shared
+    var baseUrl = "https://make-school-companion.herokuapp.com"
     func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, requestRoute: DifferentHttpVerbs, completionHandler: @escaping(Data) -> Void) {
         
-        var fullUrlString = URL(string: baseUrl.appending(route.path()))
+        let fullUrlString = URL(string: baseUrl.appending(route.path()))
+        print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
-        getRequest.addValue("Token token=3cc3345b2fdfe38c7fe0cf46f4ee7a86", forHTTPHeaderField: "Authorization")
+        getRequest.addValue("Token token=6c05c1f3c23c4925717c4f21d77c8381", forHTTPHeaderField: "Authorization")
         getRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
-        if student != nil {
-            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
-        }
-        
-        if attendances != nil {
-            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
-        }
+//        if student != nil {
+//            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+//        }
+//        
+//        if attendances != nil {
+//            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+//        }
         getRequest.httpMethod = requestRoute.rawValue
         
-        session.dataTask(with: getRequest) { (data, response, error) in
+        let task = session.dataTask(with: getRequest) { (data, response, error) in
           
-            print(response)
             if let data = data {
-                print(response)
                 completionHandler(data)
             }
-        }.resume()
+        }
+        task.resume()
     }
 }

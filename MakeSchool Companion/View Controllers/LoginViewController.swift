@@ -41,6 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         NetworkingService.getAllStudents { (students) in
             if let students = students {
                 self.allStudents = students
+                print("These are the students \(students)")
                 DispatchQueue.main.async {
                     self.loginButton.hideLoader()
                 }

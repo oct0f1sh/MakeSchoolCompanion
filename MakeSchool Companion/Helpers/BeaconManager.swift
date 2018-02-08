@@ -18,6 +18,8 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     
     weak var delegate: BeaconManagerDelegate?
     
+    var beaconLogic = BeaconNetworkingLayer()
+    
     override init() {
         super.init()
         locationManager = CLLocationManager()
@@ -53,6 +55,11 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
             print("device is inside beacon region \(state.rawValue)")
             delegate?.beaconManager(sender: self, isInBeaconRange: region)
             status = .inBeaconRange
+            
+            beaconLogic.fetchBeaconData(route: .attendances(), requestRoute: .getRequest) { (data) in
+                guard let json = try? JSONDecoder().decode([AttendancesModel].self, from: data) else {return}
+                print("This is the json \(json)")
+            }
         } else {
             print("not inside beacon region")
             status = .notInBeaconRange
@@ -87,4 +94,10 @@ enum BeaconStatus {
     case searching
     case enteredBeaconRange
     case exitedBeaconRange
+}
+
+
+func printTimestamp() -> String {
+    let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .long)
+    return timestamp
 }

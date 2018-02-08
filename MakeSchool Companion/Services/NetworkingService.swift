@@ -26,7 +26,7 @@ class NetworkingService {
             
             if let data = data {
                 let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                //print(json)
+//                print(json)
                 let students = try? JSONDecoder().decode([Student].self, from: data)
                 completion(students)
             }
