@@ -11,7 +11,7 @@ import UIKit
 
 enum Route {
     case users()
-    case attendances()
+    case attendances
     
     func path() -> String {
         switch self {
@@ -23,7 +23,7 @@ enum Route {
     }
     func postBody(users: Student? = nil, attendances: AttendancesModel?=nil) -> Data? {
         switch self {
-        case .attendances():
+        case .attendances:
             var jsonBody = Data()
             do {
                 jsonBody = try! JSONEncoder().encode(attendances)

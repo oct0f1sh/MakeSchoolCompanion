@@ -56,10 +56,14 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
             delegate?.beaconManager(sender: self, isInBeaconRange: region)
             status = .inBeaconRange
             
-            beaconLogic.fetchBeaconData(route: .attendances(), requestRoute: .getRequest) { (data) in
+            beaconLogic.fetchBeaconData(route: .attendances, requestRoute: .getRequest) { (data) in
                 guard let json = try? JSONDecoder().decode([AttendancesModel].self, from: data) else {return}
                 print("This is the json \(json)")
             }
+            let attendance = AttendancesModel(beaconID: "13233", event: "in", user_id: 2, event_time: "1323232")
+            beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, requestRoute: .postReuqest, completionHandler: { (data) in
+                print(data.base64EncodedData())
+            })
         } else {
             print("not inside beacon region")
             status = .notInBeaconRange
