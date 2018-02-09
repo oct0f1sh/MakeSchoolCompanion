@@ -30,6 +30,7 @@ class IDViewController: UIViewController {
         AppDelegate.shared.beaconManager.delegate = self
         var beacon = AppDelegate.shared.beaconManager
         
+        
         NetworkingService.downloadImage(imgUrl: student.imageURL) { (img) in
             if let img = img {
                 self.student.image = img
