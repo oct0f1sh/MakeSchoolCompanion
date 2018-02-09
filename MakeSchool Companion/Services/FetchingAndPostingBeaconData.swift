@@ -47,17 +47,17 @@ enum DifferentHttpVerbs: String {
 class BeaconNetworkingLayer {
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void) {
+    func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
         
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
-//        fullUrlString?.appendingQueryParameters(["id": "1"])
+
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
         
         getRequest.addValue("Token token=89f462208cc4c74cd93c2549811e8da5", forHTTPHeaderField: "Authorization")
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 
-        getRequest.httpMethod = "POST"
+        getRequest.httpMethod = requestRoute.rawValue
         if student != nil {
             getRequest.httpBody = route.postBody(users: student, attendances: attendances)
         }
@@ -65,7 +65,7 @@ class BeaconNetworkingLayer {
         if attendances != nil {
             getRequest.httpBody = route.postBody(attendances: attendances)
         }
-//        getRequest.httpMethod = requestRoute.rawValue
+
         
         let task = session.dataTask(with: getRequest) { (data, response, error) in
                 print("This is the response \(response)")
