@@ -19,7 +19,6 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     weak var delegate: BeaconManagerDelegate?
     
     var beaconLogic = BeaconNetworkingLayer()
-    var attendance = AttendancesModel(beacon_id: "Test Beacon", event:"out", event_time: printTimestamp())
     
     override init() {
         super.init()
@@ -55,14 +54,10 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
             print("device is inside beacon region \(state.rawValue)")
             delegate?.beaconManager(sender: self, isInBeaconRange: region)
             status = .inBeaconRange
-            
-//            beaconLogic.fetchBeaconData(route: .attendances, requestRoute: .getRequest) { (data) in
-//                guard let json = try? JSONDecoder().decode([AttendancesModel].self, from: data) else {return}
-////                print("This is the json \(json)")
-//            }
-            
+            var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
+
             beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
-                
+            print("This is the beacon status \(self.status)")
             }, requestRoute: .postReuqest)
     
            
@@ -77,11 +72,21 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         delegate?.beaconManager(sender: self, enteredBeaconRegion: region)
         print(region)
         status = .enteredBeaconRange
+        var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
+        
+        beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
+            print("This is the beacon status \(self.status)")
+        }, requestRoute: .postReuqest)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         delegate?.beaconManager(sender: self, exitedBeaconRegion: region)
         status = .exitedBeaconRange
+        var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
+        
+        beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
+            print("This is the beacon status \(self.status)")
+        }, requestRoute: .postReuqest)
     }
 }
 

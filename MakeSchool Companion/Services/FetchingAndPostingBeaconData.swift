@@ -50,6 +50,8 @@ class BeaconNetworkingLayer {
     func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
         
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
+        
+        fullUrlString?.appendingQueryParameters(["id": "1"])
 
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
@@ -65,18 +67,15 @@ class BeaconNetworkingLayer {
         if attendances != nil {
             getRequest.httpBody = route.postBody(attendances: attendances)
         }
-
         
+
         let task = session.dataTask(with: getRequest) { (data, response, error) in
-                print("This is the response \(response)")
+            print(response)
             completionHandler(data!)
-            
         }
         task.resume()
     }
 }
-
-
 
 protocol URLQueryParameterStringConvertible {
     var queryParameters: String {get}
