@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum Route {
-    case users()
+    case users
     case attendances
     
     func path() -> String {
@@ -29,7 +29,7 @@ enum Route {
                 jsonBody = try! JSONEncoder().encode(attendances)
             }
             return jsonBody
-        case .users():
+        case .users:
             var jsonBody = Data()
             do {
                 jsonBody = try! JSONEncoder().encode(users)
