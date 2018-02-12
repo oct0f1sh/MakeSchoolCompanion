@@ -25,6 +25,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Change this later</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Change this later</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ProximaNovaBold.otf</string>
@@ -33,7 +37,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Login</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

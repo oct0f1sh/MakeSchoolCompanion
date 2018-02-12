@@ -7,27 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C24E43A202BA2C70087B470 /* Mark Simonson - Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C24E438202BA2C60087B470 /* Mark Simonson - Proxima Nova Thin.otf */; };
+		1C24E43B202BA2C70087B470 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */; };
+		1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */; };
+		1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43E202BB71D0087B470 /* Attendance.swift */; };
+		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
+		1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */; };
+		1C65B0CF202F449A007AADDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CE202F449A007AADDE /* User.swift */; };
+		AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */; };
+		1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */; };
+		1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */; };
 		AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4562A12010083400CC9E13 /* StudentTableViewController.swift */; };
+		AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD612022836C00DEB016 /* BeaconManager.swift */; };
+		AE48CD642024E62400DEB016 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE48CD632024E62400DEB016 /* Login.storyboard */; };
+		AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD652024ECCD00DEB016 /* LoginViewController.swift */; };
+		AE48CD6B2024F72700DEB016 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD6A2024F72700DEB016 /* Style.swift */; };
 		AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE75D4F620100744007B0D69 /* NameCellView.swift */; };
 		AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FB82009305800D173B3 /* AppDelegate.swift */; };
 		AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FBA2009305800D173B3 /* IDViewController.swift */; };
 		AEF69FBE2009305800D173B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF69FBC2009305800D173B3 /* Main.storyboard */; };
 		AEF69FC02009305800D173B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEF69FBF2009305800D173B3 /* Assets.xcassets */; };
 		AEF69FC32009305800D173B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF69FC12009305800D173B3 /* LaunchScreen.storyboard */; };
-		AEF69FCE20093E1600D173B3 /* ProximaNovaRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AEF69FCB20093E1500D173B3 /* ProximaNovaRegular.otf */; };
-		AEF69FCF20093E1600D173B3 /* proximanova-semibold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF69FCC20093E1500D173B3 /* proximanova-semibold-webfont.ttf */; };
-		AEF69FD020093E1600D173B3 /* ProximaNovaBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AEF69FCD20093E1500D173B3 /* ProximaNovaBold.otf */; };
 		AEF69FD42009730E00D173B3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FD32009730E00D173B3 /* Student.swift */; };
 		AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FD6200973B300D173B3 /* NetworkingService.swift */; };
 		C61A292D93E54AF0ABA181F9 /* Pods_MakeSchool_Companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C24E438202BA2C60087B470 /* Mark Simonson - Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Thin.otf"; sourceTree = "<group>"; };
+		1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
+		1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingAndPostingBeaconData.swift; sourceTree = "<group>"; };
+		1C24E43E202BB71D0087B470 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
+		1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		1C65B0CE202F449A007AADDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUserUp.swift; sourceTree = "<group>"; };
 		49BA543D8DDB5199BF9EEECF /* Pods-MakeSchool Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.release.xcconfig"; sourceTree = "<group>"; };
 		6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeSchool_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC997D73A52790601BFDE8C /* Pods-MakeSchool Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.debug.xcconfig"; sourceTree = "<group>"; };
+		AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
 		AE4562A12010083400CC9E13 /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
 		AE4562A3201807EF00CC9E13 /* MakeSchool Companion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MakeSchool Companion.entitlements"; sourceTree = "<group>"; };
+		AE48CD612022836C00DEB016 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		AE48CD632024E62400DEB016 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		AE48CD652024ECCD00DEB016 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AE48CD6A2024F72700DEB016 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		AE75D4F620100744007B0D69 /* NameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCellView.swift; sourceTree = "<group>"; };
 		AEF69FB52009305800D173B3 /* MakeSchool Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MakeSchool Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF69FB82009305800D173B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,9 +61,6 @@
 		AEF69FBF2009305800D173B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEF69FC22009305800D173B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEF69FC42009305800D173B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEF69FCB20093E1500D173B3 /* ProximaNovaRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ProximaNovaRegular.otf; path = "../../../../../Downloads/Response/response/Response/Response/Supporting /Fonts/ProximaNovaRegular.otf"; sourceTree = "<group>"; };
-		AEF69FCC20093E1500D173B3 /* proximanova-semibold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "proximanova-semibold-webfont.ttf"; path = "../../../../../Downloads/proximanova-semibold-webfont.ttf"; sourceTree = "<group>"; };
-		AEF69FCD20093E1500D173B3 /* ProximaNovaBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ProximaNovaBold.otf; path = "../../../../../Downloads/Response/response/Response/Response/Supporting /Fonts/ProximaNovaBold.otf"; sourceTree = "<group>"; };
 		AEF69FD32009730E00D173B3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		AEF69FD6200973B300D173B3 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,10 +94,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AE48CD602022835D00DEB016 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AE48CD612022836C00DEB016 /* BeaconManager.swift */,
+				1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AE48CD692024F70D00DEB016 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEF69FB82009305800D173B3 /* AppDelegate.swift */,
+				AEF69FC12009305800D173B3 /* LaunchScreen.storyboard */,
+				AE48CD6A2024F72700DEB016 /* Style.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		AE75D4F2200FED17007B0D69 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				AEF69FBC2009305800D173B3 /* Main.storyboard */,
+				AE48CD632024E62400DEB016 /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -109,16 +151,16 @@
 		AEF69FB72009305800D173B3 /* MakeSchool Companion */ = {
 			isa = PBXGroup;
 			children = (
+				AE48CD692024F70D00DEB016 /* Supporting Files */,
 				AE4562A3201807EF00CC9E13 /* MakeSchool Companion.entitlements */,
+				AE48CD602022835D00DEB016 /* Helpers */,
 				AE75D4F520100736007B0D69 /* Views */,
 				AE75D4F2200FED17007B0D69 /* Storyboards */,
 				AEF69FD12009723300D173B3 /* View Controllers */,
 				AEF69FD52009739200D173B3 /* Services */,
 				AEF69FD2200972F400D173B3 /* Models */,
 				AEF69FCA20093DE000D173B3 /* Fonts */,
-				AEF69FB82009305800D173B3 /* AppDelegate.swift */,
 				AEF69FBF2009305800D173B3 /* Assets.xcassets */,
-				AEF69FC12009305800D173B3 /* LaunchScreen.storyboard */,
 				AEF69FC42009305800D173B3 /* Info.plist */,
 			);
 			path = "MakeSchool Companion";
@@ -127,9 +169,8 @@
 		AEF69FCA20093DE000D173B3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				AEF69FCC20093E1500D173B3 /* proximanova-semibold-webfont.ttf */,
-				AEF69FCD20093E1500D173B3 /* ProximaNovaBold.otf */,
-				AEF69FCB20093E1500D173B3 /* ProximaNovaRegular.otf */,
+				1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */,
+				1C24E438202BA2C60087B470 /* Mark Simonson - Proxima Nova Thin.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -139,6 +180,12 @@
 			children = (
 				AEF69FBA2009305800D173B3 /* IDViewController.swift */,
 				AE4562A12010083400CC9E13 /* StudentTableViewController.swift */,
+				AE48CD652024ECCD00DEB016 /* LoginViewController.swift */,
+<<<<<<< HEAD
+				1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */,
+=======
+				AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */,
+>>>>>>> 5893153e90ec6a4bf8405b54209a9bf82d2ca648
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -147,6 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				AEF69FD32009730E00D173B3 /* Student.swift */,
+				1C24E43E202BB71D0087B470 /* Attendance.swift */,
+				1C65B0CE202F449A007AADDE /* User.swift */,
+				1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				AEF69FD6200973B300D173B3 /* NetworkingService.swift */,
+				1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */,
+				1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -227,11 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF69FC32009305800D173B3 /* LaunchScreen.storyboard in Resources */,
-				AEF69FCF20093E1600D173B3 /* proximanova-semibold-webfont.ttf in Resources */,
+				1C24E43B202BA2C70087B470 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */,
+				1C24E43A202BA2C70087B470 /* Mark Simonson - Proxima Nova Thin.otf in Resources */,
+				AE48CD642024E62400DEB016 /* Login.storyboard in Resources */,
 				AEF69FC02009305800D173B3 /* Assets.xcassets in Resources */,
-				AEF69FD020093E1600D173B3 /* ProximaNovaBold.otf in Resources */,
 				AEF69FBE2009305800D173B3 /* Main.storyboard in Resources */,
-				AEF69FCE20093E1600D173B3 /* ProximaNovaRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,11 +330,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -296,12 +358,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */,
+				1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */,
+				1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */,
 				AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */,
 				AEF69FD42009730E00D173B3 /* Student.swift in Sources */,
 				AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */,
+				AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */,
 				AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */,
+				1C65B0CF202F449A007AADDE /* User.swift in Sources */,
+				AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */,
+				1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */,
+				1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */,
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,
+				1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */,
 				AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */,
+				AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */,
+				AE48CD6B2024F72700DEB016 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P4PBGN25JV;
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "us.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -461,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P4PBGN25JV;
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "us.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
