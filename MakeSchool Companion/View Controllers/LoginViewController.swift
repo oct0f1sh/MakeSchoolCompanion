@@ -22,7 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var allStudents: [Student] = []
     
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+    @IBAction func _unwindToLogin(segue: UIStoryboardSegue) {
         self.textField.text = ""
         self.underlineView.backgroundColor = Style.Colors.makeGray
         self.errorLabel.isHidden = true
