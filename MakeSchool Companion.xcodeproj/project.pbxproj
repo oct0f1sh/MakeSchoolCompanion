@@ -14,6 +14,8 @@
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
 		1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */; };
 		1C65B0CF202F449A007AADDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CE202F449A007AADDE /* User.swift */; };
+		1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */; };
+		1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */; };
 		AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4562A12010083400CC9E13 /* StudentTableViewController.swift */; };
 		AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD612022836C00DEB016 /* BeaconManager.swift */; };
 		AE48CD642024E62400DEB016 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE48CD632024E62400DEB016 /* Login.storyboard */; };
@@ -38,6 +40,8 @@
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
 		1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		1C65B0CE202F449A007AADDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUserUp.swift; sourceTree = "<group>"; };
 		49BA543D8DDB5199BF9EEECF /* Pods-MakeSchool Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.release.xcconfig"; sourceTree = "<group>"; };
 		6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeSchool_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC997D73A52790601BFDE8C /* Pods-MakeSchool Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				AEF69FBA2009305800D173B3 /* IDViewController.swift */,
 				AE4562A12010083400CC9E13 /* StudentTableViewController.swift */,
 				AE48CD652024ECCD00DEB016 /* LoginViewController.swift */,
+				1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				AEF69FD32009730E00D173B3 /* Student.swift */,
 				1C24E43E202BB71D0087B470 /* Attendance.swift */,
 				1C65B0CE202F449A007AADDE /* User.swift */,
+				1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */,
 				1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */,
 				1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */,
 				AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */,
@@ -355,6 +362,7 @@
 				1C65B0CF202F449A007AADDE /* User.swift in Sources */,
 				AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */,
 				1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */,
+				1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */,
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,
 				1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */,
 				AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */,

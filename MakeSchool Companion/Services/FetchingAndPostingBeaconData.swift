@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+struct DynamicToken {
+    static var token = ""
+}
+
 enum Route {
     case users
     case attendances
@@ -21,7 +25,7 @@ enum Route {
             return "/users"
         }
     }
-    func postBody(users: Student? = nil, attendances: AttendancesModel?=nil) -> Data? {
+    func postBody(users: SignUserUp? = nil, attendances: AttendancesModel?=nil) -> Data? {
         switch self {
         case .attendances:
             var jsonBody = Data()
@@ -33,6 +37,7 @@ enum Route {
             var jsonBody = Data()
             do {
                 jsonBody = try! JSONEncoder().encode(users)
+                print(jsonBody.base64EncodedString())
             }
         return jsonBody
         }
@@ -47,21 +52,23 @@ enum DifferentHttpVerbs: String {
 class BeaconNetworkingLayer {
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
+    func fetchBeaconData(route: Route, user: SignUserUp? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
         
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
         
-        fullUrlString?.appendingQueryParameters(["id": "1"])
+//        fullUrlString?.appendingQueryParameters(["id": "1"])
 
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
-        
-        getRequest.addValue("Token token=89f462208cc4c74cd93c2549811e8da5", forHTTPHeaderField: "Authorization")
+        if getRequest.httpMethod != "POST" {
+          getRequest.addValue("Token token=\(DynamicToken.token)", forHTTPHeaderField: "Authorization")
+        }
+
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 
         getRequest.httpMethod = requestRoute.rawValue
-        if student != nil {
-            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+        if user != nil {
+            getRequest.httpBody = route.postBody(users: user)
         }
         
         if attendances != nil {
@@ -70,7 +77,7 @@ class BeaconNetworkingLayer {
         
 
         let task = session.dataTask(with: getRequest) { (data, response, error) in
-            print(response)
+            print("This is the data from the log in \(data?.base64EncodedString())")
             completionHandler(data!)
         }
         task.resume()
