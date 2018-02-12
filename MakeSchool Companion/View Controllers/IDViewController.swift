@@ -26,19 +26,39 @@ class IDViewController: UIViewController {
     
     var student: Student! = nil
     
-    override func viewDidLoad() {
+    var identificationNumbers = [Any]()
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         AppDelegate.shared.beaconManager.delegate = self
         var beacon = AppDelegate.shared.beaconManager
+        
         
         NetworkingService.downloadImage(imgUrl: student.imageURL) { (img) in
             if let img = img {
                 self.student.image = img
-                
+
                 DispatchQueue.main.async {
                     self.updateStudent(student: self.student)
                 }
             }
         }
+        
+        fetchStudentIdentification(target: .myStudents, success: { (success) in
+            guard let json = try? success.mapJSON() else {return}
+            for element in json as! [AnyObject]{
+                self.identificationNumbers.append(element)
+            }
+            print(self.identificationNumbers)
+            
+            
+        }, error: { (error) in
+            print(error)
+        }, failure: { (moyaError) in
+            print(moyaError)
+        })
         
         switch AppDelegate.shared.beaconManager.status {
         case .enteredBeaconRange:
@@ -56,6 +76,10 @@ class IDViewController: UIViewController {
         }
         
         
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     

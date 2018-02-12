@@ -9,5 +9,5 @@ target 'MakeSchool Companion' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'PMSuperButton'
   pod 'TextFieldEffects', '~> 1.4'
-
+  pod 'Moya'
 end

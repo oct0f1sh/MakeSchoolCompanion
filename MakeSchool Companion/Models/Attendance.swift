@@ -10,33 +10,29 @@ import Foundation
 import UIKit
 
 struct AttendancesModel: Codable {
-    var date = Date()
-    var beaconID: String?
-    var event: String?
-    var user_id: Int?
-    var eventTime: String?
-    init(beaconID: String?, event: String?, user_id: Int?, event_time: String?) {
-        self.beaconID = beaconID
+    var beacon_id: String
+    var event: String
+    var event_time: String
+    init(beacon_id: String, event: String, event_time: String) {
+        self.beacon_id = beacon_id
         self.event = event
-        self.user_id = user_id
-        self.eventTime = event_time
+        self.event_time = event_time
     }
+    
 }
 
 extension AttendancesModel {
     enum TopLevelKeys: String, CodingKey {
         case event
-        case eventTime = "event_time"
-        case beaconID = "beacon_id"
-        case user_id
+        case event_time = "event_time"
+        case beacon_id = "beacon_id"
     }
     
     init(from decoder: Decoder) throws {
         let container = try? decoder.container(keyedBy: TopLevelKeys.self)
         let event = try container?.decodeIfPresent(String.self, forKey: .event)
-        let eventTime = try? container?.decodeIfPresent(String.self, forKey: .eventTime)
-        let beaconID = try? container?.decodeIfPresent(String.self, forKey: .beaconID)
-        let user_id = try? container?.decodeIfPresent(Int.self, forKey: .user_id)
-        self.init(beaconID: beaconID!, event: event!, user_id: user_id!, event_time: eventTime!)
+        let event_time = try? container?.decodeIfPresent(String.self, forKey: .event_time)
+        let beacon_id = try? container?.decodeIfPresent(String.self, forKey: .beacon_id)
+        self.init(beacon_id: beacon_id as! String, event: event!, event_time: event_time as! String)
     }
 }

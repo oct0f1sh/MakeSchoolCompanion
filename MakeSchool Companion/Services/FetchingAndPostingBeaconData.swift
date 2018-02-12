@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum Route {
-    case users()
+    case users
     case attendances
     
     func path() -> String {
@@ -29,7 +29,7 @@ enum Route {
                 jsonBody = try! JSONEncoder().encode(attendances)
             }
             return jsonBody
-        case .users():
+        case .users:
             var jsonBody = Data()
             do {
                 jsonBody = try! JSONEncoder().encode(users)
@@ -47,29 +47,72 @@ enum DifferentHttpVerbs: String {
 class BeaconNetworkingLayer {
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, requestRoute: DifferentHttpVerbs, completionHandler: @escaping(Data) -> Void) {
+    func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
         
-        let fullUrlString = URL(string: baseUrl.appending(route.path()))
+        var fullUrlString = URL(string: baseUrl.appending(route.path()))
+        
+        fullUrlString?.appendingQueryParameters(["id": "1"])
+
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
-        getRequest.addValue("Token token=6c05c1f3c23c4925717c4f21d77c8381", forHTTPHeaderField: "Authorization")
-        getRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
+        getRequest.addValue("Token token=89f462208cc4c74cd93c2549811e8da5", forHTTPHeaderField: "Authorization")
+        getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+
+        getRequest.httpMethod = requestRoute.rawValue
         if student != nil {
             getRequest.httpBody = route.postBody(users: student, attendances: attendances)
         }
         
         if attendances != nil {
-            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+            getRequest.httpBody = route.postBody(attendances: attendances)
         }
-//        getRequest.httpMethod = requestRoute.rawValue
-            getRequest.httpMethod = "POST"
+        
+
         let task = session.dataTask(with: getRequest) { (data, response, error) in
-          
-            if let data = data {
-                completionHandler(data)
-            }
+            print(response)
+            completionHandler(data!)
         }
         task.resume()
     }
 }
+
+protocol URLQueryParameterStringConvertible {
+    var queryParameters: String {get}
+}
+
+
+extension Dictionary : URLQueryParameterStringConvertible {
+    /**
+     This computed property returns a query parameters string from the given NSDictionary. For
+     example, if the input is @{@"day":@"Tuesday", @"month":@"January"}, the output
+     string will be @"day=Tuesday&month=January".
+     @return The computed parameters string.
+     */
+    var queryParameters: String {
+        var parts: [String] = []
+        for (key, value) in self {
+            let part = String(format: "%@=%@",
+                              String(describing: key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
+                              String(describing: value).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            parts.append(part as String)
+        }
+        return parts.joined(separator: "&")
+    }
+    
+}
+
+extension URL {
+    /**
+     Creates a new URL by adding the given query parameters.
+     @param parametersDictionary The query parameter dictionary to add.
+     @return A new URL.
+     */
+    func appendingQueryParameters(_ parametersDictionary : Dictionary<String, String>) -> URL {
+        let URLString : String = String(format: "%@?%@", self.absoluteString, parametersDictionary.queryParameters)
+        return URL(string: URLString)!
+    }
+}
+
+
+
