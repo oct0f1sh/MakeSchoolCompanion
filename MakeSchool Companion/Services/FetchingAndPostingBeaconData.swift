@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+struct EmailandPassword {
+    static var email = ""
+    static var password = ""
+}
+
 enum Route {
     case users
     case attendances
@@ -18,10 +23,10 @@ enum Route {
         case .attendances:
             return "/attendances"
         case .users:
-            return "/users"
+            return "/active_sessions?email=\(EmailandPassword.email)&password=\(EmailandPassword.password)"
         }
     }
-    func postBody(users: Student? = nil, attendances: AttendancesModel?=nil) -> Data? {
+    func postBody(users: ActiveUser? = nil, attendances: AttendancesModel?=nil) -> Data? {
         switch self {
         case .attendances:
             var jsonBody = Data()
@@ -47,21 +52,25 @@ enum DifferentHttpVerbs: String {
 class BeaconNetworkingLayer {
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
+    func fetchBeaconData(route: Route, student: ActiveUser? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
         
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
         
-        fullUrlString?.appendingQueryParameters(["id": "1"])
+//        fullUrlString?.appendingQueryParameters(["email": "matthew@gmail.com",
+//                                                 "password": "matthewharrilal"])
 
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
         
-        getRequest.addValue("Token token=89f462208cc4c74cd93c2549811e8da5", forHTTPHeaderField: "Authorization")
+//        if getRequest.httpMethod != "GET" || getRequest.httpMethod != "POST" {
+//            getRequest.addValue("Token token=89f462208cc4c74cd93c2549811e8da5", forHTTPHeaderField: "Authorization")
+//        }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 
         getRequest.httpMethod = requestRoute.rawValue
         if student != nil {
-            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+//            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+            getRequest.httpBody = route.postBody(users:student)
         }
         
         if attendances != nil {

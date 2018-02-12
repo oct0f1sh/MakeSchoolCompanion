@@ -73,6 +73,17 @@ class TestLoginViewController: UIViewController {
         }
     }
     
+    @IBAction func loginButton(_ sender: Any) {
+        EmailandPassword.email = emailField.text!
+        EmailandPassword.password = passwordField.text!
+                 let beaconLogic = BeaconNetworkingLayer()
+                beaconLogic.fetchBeaconData(route: .users, completionHandler: { (data) in
+                    let json = try? JSONDecoder().decode(User.self, from: data)
+                    print("This is the json \(json)")
+                }, requestRoute: .getRequest)
+    }
+    
+    
     override func viewDidLoad() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         self.view.addGestureRecognizer(tapGesture)
