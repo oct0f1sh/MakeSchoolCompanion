@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var allUsers: [User] = []
     var allStudents: [Student] = []
     
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+    @IBAction func _unwindToLogin(segue: UIStoryboardSegue) {
         self.textField.text = ""
         self.underlineView.backgroundColor = Style.Colors.makeGray
         self.errorLabel.isHidden = true
