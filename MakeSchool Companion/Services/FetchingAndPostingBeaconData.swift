@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-struct EmailandPassword {
+struct EmailandPasswordandToken {
     static var email = ""
     static var password = ""
+    static var token = ""
 }
 
 enum Route {
@@ -23,7 +24,7 @@ enum Route {
         case .attendances:
             return "/attendances"
         case .users:
-            return "/active_sessions?email=\(EmailandPassword.email)&password=\(EmailandPassword.password)"
+            return "/active_sessions?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
         }
     }
     func postBody(users: ActiveUser? = nil, attendances: AttendancesModel?=nil) -> Data? {
@@ -52,7 +53,7 @@ enum DifferentHttpVerbs: String {
 class BeaconNetworkingLayer {
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, student: ActiveUser? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
+    func fetchBeaconData(route: Route, student: ActiveUser? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data, Int) -> Void, requestRoute: DifferentHttpVerbs) {
         
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
         
@@ -61,10 +62,11 @@ class BeaconNetworkingLayer {
 
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
+        getRequest.httpMethod = requestRoute.rawValue
         
-//        if getRequest.httpMethod != "GET" || getRequest.httpMethod != "POST" {
-//            getRequest.addValue("Token token=89f462208cc4c74cd93c2549811e8da5", forHTTPHeaderField: "Authorization")
-//        }
+        if getRequest.httpMethod != "GET" {
+            getRequest.addValue("Token token=\(EmailandPasswordandToken.token)", forHTTPHeaderField: "Authorization")
+        }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 
         getRequest.httpMethod = requestRoute.rawValue
@@ -79,8 +81,9 @@ class BeaconNetworkingLayer {
         
 
         let task = session.dataTask(with: getRequest) { (data, response, error) in
+            let statusCode: Int = (response as! HTTPURLResponse).statusCode
             print(response)
-            completionHandler(data!)
+            completionHandler(data!, statusCode)
         }
         task.resume()
     }

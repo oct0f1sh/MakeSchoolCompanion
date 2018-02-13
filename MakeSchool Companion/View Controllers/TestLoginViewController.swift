@@ -22,6 +22,13 @@ class TestLoginViewController: UIViewController {
     var logoTranslation: CGFloat = 125
     var stackTranslation: CGFloat = 280
     
+    var allStudents: [Student] = []
+    
+    var student: Student? = nil
+    
+    var user: User? = nil
+    
+    
     var keyboardIsPresent = false
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
@@ -30,14 +37,13 @@ class TestLoginViewController: UIViewController {
     }
     
     @IBAction func emailDidBeginEditing(_ sender: Any) {
-        print("email")
-
+        
+        
         animateUp()
         keyboardIsPresent = true
     }
     
     @IBAction func passwordDidBeginEditing(_ sender: Any) {
-        print("password")
         
         animateUp()
         keyboardIsPresent = true
@@ -74,19 +80,49 @@ class TestLoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        EmailandPassword.email = emailField.text!
-        EmailandPassword.password = passwordField.text!
-                 let beaconLogic = BeaconNetworkingLayer()
-                beaconLogic.fetchBeaconData(route: .users, completionHandler: { (data) in
-                    let json = try? JSONDecoder().decode(User.self, from: data)
-                    print("This is the json \(json)")
+        EmailandPasswordandToken.email = emailField.text!
+        EmailandPasswordandToken.password = passwordField.text!
+        let beaconLogic = BeaconNetworkingLayer()
+        
+        let nameString = emailField.text?.components(separatedBy: ".")
+      
+        let firstname = nameString![0].lowercased()
+        
+        var tempLastName = nameString![1].lowercased()
+        var formattingLastName = tempLastName.components(separatedBy: "@")
+        var lastName = formattingLastName[0].lowercased()
+        
+        
+        for student in allStudents {
+            if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastName {
+                self.student = student
+                beaconLogic.fetchBeaconData(route: .users, completionHandler: { (data, response) in
+                    if response >= 200 && response < 300 {
+                        let json = try? JSONDecoder().decode(User.self, from: data)
+                        print("This is the user \(json)")
+                        let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
+                        EmailandPasswordandToken.token = (json?.token)!
+                        idView.student = self.student
+                        DispatchQueue.main.async {
+                            self.present(idView, animated: true, completion: nil)
+                        }
+                    }
                 }, requestRoute: .getRequest)
+            }
+        }
+        
     }
     
     
     override func viewDidLoad() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        NetworkingService.getAllStudents { (students) in
+            if let students = students {
+                self.allStudents = students
+            }
+        }
     }
     
     @objc func tap(gesture: UIGestureRecognizer) {
