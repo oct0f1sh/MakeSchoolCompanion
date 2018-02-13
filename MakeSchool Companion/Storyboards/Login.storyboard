@@ -175,7 +175,7 @@
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="corey.harrilal@students.makeschool.com" placeholder="@students.makeschool.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhE-dT-gFI">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="duncan.macdonald@students.makeschool.com" placeholder="@students.makeschool.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhE-dT-gFI">
                                                         <rect key="frame" x="0.0" y="27" width="285" height="25"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
@@ -208,7 +208,7 @@
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="coreyharrilal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beW-61-Lhj">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="duncanmacdonald" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beW-61-Lhj">
                                                         <rect key="frame" x="0.0" y="27" width="285" height="25"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
