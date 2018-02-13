@@ -23,7 +23,7 @@ class TestLoginViewController: UIViewController {
     let defaults = UserDefaults.standard
     
     var logoTranslation: CGFloat = 125
-    var stackTranslation: CGFloat = 280
+    var stackViewBottomConstraintOffset: CGFloat = 65
     
     var allStudents: [Student] = []
     
@@ -33,6 +33,12 @@ class TestLoginViewController: UIViewController {
     
     
     var keyboardIsPresent = false
+    
+    var keyboardHeight: CGFloat! {
+        didSet {
+            print(keyboardHeight)
+        }
+    }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
         self.emailField.text = ""
@@ -52,36 +58,70 @@ class TestLoginViewController: UIViewController {
         keyboardIsPresent = true
     }
     
-    func animateUp() {
-        if !keyboardIsPresent {
-            UIView.animate(withDuration: 0.25) {
-                self.logoImage.frame.origin.y -= self.logoTranslation
-                self.logoTopConstraint.constant -= self.logoTranslation
-                
-                self.fullStackView.frame.origin.y -= self.stackTranslation
-                self.stackBottomConstraint.constant += self.stackTranslation
-                
-                self.gradient.frame.origin.y -= self.stackTranslation
-                self.gradientBottomConstraint.constant += self.stackTranslation
+    override func viewDidLoad() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        observeKeyboard()
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+            if self.keyboardHeight == nil || !(self.keyboardHeight > 0) {
+                self.keyboardHeight = keyboardFrame.height
             }
         }
     }
     
+    // Shows the keyboard to get the height. Height cannot be gathered unless the keyboard is shown
+    func observeKeyboard() {
+        let field = UITextField()
+        self.view.addSubview(field)
+        field.becomeFirstResponder()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            field.resignFirstResponder()
+            field.removeFromSuperview()
+        }
+    }
+    
+    func animateUp() {
+        print("animate up")
+        if !keyboardIsPresent {
+            UIView.animate(withDuration: 0.35) {
+                self.logoImage.frame.origin.y -= self.logoTranslation
+                self.logoTopConstraint.constant -= self.logoTranslation
+                
+                self.fullStackView.frame.origin.y -= self.keyboardHeight
+                self.stackBottomConstraint.constant += self.keyboardHeight - self.stackViewBottomConstraintOffset
+                
+                self.gradient.frame.origin.y -= self.keyboardHeight
+                self.gradientBottomConstraint.constant += self.keyboardHeight
+            }
+            keyboardIsPresent = true
+        }
+    }
+    
     func animateDown() {
+        print("animate down")
         if keyboardIsPresent {
             UIView.animate(withDuration: 0.1) {
                 self.logoImage.frame.origin.y += self.logoTranslation
                 self.logoTopConstraint.constant += self.logoTranslation
                 
-                self.fullStackView.frame.origin.y += self.stackTranslation
-                self.stackBottomConstraint.constant -= self.stackTranslation
+                self.fullStackView.frame.origin.y += self.keyboardHeight
+                self.stackBottomConstraint.constant -= self.keyboardHeight - self.stackViewBottomConstraintOffset
                 
-                self.gradient.frame.origin.y += self.stackTranslation
-                self.gradientBottomConstraint.constant -= self.stackTranslation
+                self.gradient.frame.origin.y += self.keyboardHeight
+                self.gradientBottomConstraint.constant -= self.keyboardHeight
             }
+            keyboardIsPresent = false
         }
     }
     
+<<<<<<< HEAD
     @IBAction func loginButton(_ sender: Any) {
         EmailandPasswordandToken.email = emailField.text!
         EmailandPasswordandToken.password = passwordField.text!
@@ -142,10 +182,11 @@ class TestLoginViewController: UIViewController {
         }
     }
     
+=======
+>>>>>>> development
     @objc func tap(gesture: UIGestureRecognizer) {
         animateDown()
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
-        keyboardIsPresent = false
     }
 }
