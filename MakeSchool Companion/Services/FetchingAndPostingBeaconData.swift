@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KeychainSwift
 
 struct EmailandPasswordandToken {
     static var email = ""
@@ -54,7 +55,7 @@ class BeaconNetworkingLayer {
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
     func fetchBeaconData(route: Route, student: ActiveUser? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data, Int) -> Void, requestRoute: DifferentHttpVerbs) {
-        
+        let keychain = KeychainSwift()
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
         
 //        fullUrlString?.appendingQueryParameters(["email": "matthew@gmail.com",
@@ -65,7 +66,7 @@ class BeaconNetworkingLayer {
         getRequest.httpMethod = requestRoute.rawValue
         
         if getRequest.httpMethod != "GET" {
-            getRequest.addValue("Token token=\(EmailandPasswordandToken.token)", forHTTPHeaderField: "Authorization")
+            getRequest.addValue("Token token=\(keychain.get("Token"))", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 

@@ -12,6 +12,7 @@
 		1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */; };
 		1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43E202BB71D0087B470 /* Attendance.swift */; };
 		1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D2203256190001F671 /* ActiveUsers.swift */; };
+		1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */; };
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
 		1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */; };
 		1C65B0CF202F449A007AADDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CE202F449A007AADDE /* User.swift */; };
@@ -39,6 +40,7 @@
 		1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingAndPostingBeaconData.swift; sourceTree = "<group>"; };
 		1C24E43E202BB71D0087B470 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
 		1C55D7D2203256190001F671 /* ActiveUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUsers.swift; sourceTree = "<group>"; };
+		1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServiceLayer.swift; sourceTree = "<group>"; };
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
 		1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		1C65B0CE202F449A007AADDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				AEF69FD6200973B300D173B3 /* NetworkingService.swift */,
 				1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */,
 				1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */,
+				1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,
 				1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */,
 				AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */,
+				1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */,
 				AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */,
 				AE48CD6B2024F72700DEB016 /* Style.swift in Sources */,
 			);

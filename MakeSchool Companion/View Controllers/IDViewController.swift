@@ -37,15 +37,6 @@ class IDViewController: UIViewController {
         var beacon = AppDelegate.shared.beaconManager
         
         let keychain = KeychainSwift()
-//        NetworkingService.downloadImage(imgUrl: keychain.get("ImageURL")!) { (img) in
-//            if let img = img {
-//                self.student.image = img
-//
-//                DispatchQueue.main.async {
-//                    self.updateStudent(student: self.student)
-//                }
-//            }
-//        }
         let profileImageURL = URL(string: keychain.get("ImageURL")!)
         let data = try? Data(contentsOf: profileImageURL!)
         profileImageView.image = UIImage(data: data!)
