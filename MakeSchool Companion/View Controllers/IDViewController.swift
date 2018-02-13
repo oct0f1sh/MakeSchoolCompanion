@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import KeychainSwift
 
 class IDViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -35,16 +36,24 @@ class IDViewController: UIViewController {
         AppDelegate.shared.beaconManager.delegate = self
         var beacon = AppDelegate.shared.beaconManager
         
+        let keychain = KeychainSwift()
+//        NetworkingService.downloadImage(imgUrl: keychain.get("ImageURL")!) { (img) in
+//            if let img = img {
+//                self.student.image = img
+//
+//                DispatchQueue.main.async {
+//                    self.updateStudent(student: self.student)
+//                }
+//            }
+//        }
+        let profileImageURL = URL(string: keychain.get("ImageURL")!)
+        let data = try? Data(contentsOf: profileImageURL!)
+        profileImageView.image = UIImage(data: data!)
+        emailLabel.text = keychain.get("email")
+        portfolioLabel.text = keychain.get("portfolio")
+        firstnameLabel.text = keychain.get("firstName")
+        lastnameLabel.text = keychain.get("lastName")
         
-        NetworkingService.downloadImage(imgUrl: student.imageURL) { (img) in
-            if let img = img {
-                self.student.image = img
-
-                DispatchQueue.main.async {
-                    self.updateStudent(student: self.student)
-                }
-            }
-        }
         
         fetchStudentIdentification(target: .myStudents, success: { (success) in
             guard let json = try? success.mapJSON() else {return}

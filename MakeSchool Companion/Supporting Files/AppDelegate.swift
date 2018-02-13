@@ -27,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
         application.registerForRemoteNotifications()
         
+        var mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        if UserDefaults.standard.bool(forKey: "LoggedIn") == true {
+            let idViewController = mainStoryBoard.instantiateViewController(withIdentifier: "IDViewController")
+            window?.rootViewController = idViewController
+        }
+        
         return true
     }
     

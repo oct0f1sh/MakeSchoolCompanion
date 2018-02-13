@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KeychainSwift
 
 class TestLoginViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
@@ -18,6 +19,8 @@ class TestLoginViewController: UIViewController {
     @IBOutlet weak var stackBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var gradientBottomConstraint: NSLayoutConstraint!
+    
+    let defaults = UserDefaults.standard
     
     var logoTranslation: CGFloat = 125
     var stackTranslation: CGFloat = 280
@@ -85,7 +88,7 @@ class TestLoginViewController: UIViewController {
         let beaconLogic = BeaconNetworkingLayer()
         
         let nameString = emailField.text?.components(separatedBy: ".")
-      
+        
         let firstname = nameString![0].lowercased()
         
         var tempLastName = nameString![1].lowercased()
@@ -100,8 +103,22 @@ class TestLoginViewController: UIViewController {
                     if response >= 200 && response < 300 {
                         let json = try? JSONDecoder().decode(User.self, from: data)
                         print("This is the user \(json)")
+                        self.defaults.set(true, forKey: "LoggedIn")
+                        if self.defaults.bool(forKey: "LoggedIn") == true {
+                            print("User has succesfully logged in")
+                        }
+                        
                         let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
                         EmailandPasswordandToken.token = (json?.token)!
+                        
+                        let keychain = KeychainSwift()
+                        keychain.set(EmailandPasswordandToken.token, forKey: "Token")
+                        keychain.set((self.student?.imageURL)!, forKey: "ImageURL")
+                        keychain.set((self.student?.firstname)!, forKey: "firstName")
+                        keychain.set((self.student?.lastname)!, forKey: "lastName")
+                        keychain.set((self.student?.email)!, forKey: "email")
+                        keychain.set((self.student?.portfolio)!, forKey: "portfolio")
+                        
                         idView.student = self.student
                         DispatchQueue.main.async {
                             self.present(idView, animated: true, completion: nil)
