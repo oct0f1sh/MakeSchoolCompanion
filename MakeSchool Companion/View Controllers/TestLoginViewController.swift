@@ -24,7 +24,11 @@ class TestLoginViewController: UIViewController {
     
     var keyboardIsPresent = false
     
-    var keyboardHeight: CGFloat!
+    var keyboardHeight: CGFloat! {
+        didSet {
+            print(keyboardHeight)
+        }
+    }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
         self.emailField.text = ""
@@ -56,10 +60,9 @@ class TestLoginViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            if self.keyboardHeight == nil {
-                self.keyboardHeight = keyboardRectangle.height
+        if let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+            if self.keyboardHeight == nil || !(self.keyboardHeight > 0) {
+                self.keyboardHeight = keyboardFrame.height
             }
         }
     }
@@ -69,7 +72,7 @@ class TestLoginViewController: UIViewController {
         let field = UITextField()
         self.view.addSubview(field)
         field.becomeFirstResponder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             field.resignFirstResponder()
             field.removeFromSuperview()
         }

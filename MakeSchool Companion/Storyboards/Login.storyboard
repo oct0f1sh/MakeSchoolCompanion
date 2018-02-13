@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NDW-lb-0C6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fW7-Kh-KsY">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -242,10 +242,12 @@
                                             <constraint firstAttribute="width" constant="245" id="jJE-B6-XxW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="24"/>
-                                        <state key="normal" title="login"/>
+                                        <state key="normal" title="login">
+                                            <color key="titleColor" red="0.0097658885639999998" green="0.62434595820000005" blue="0.86618465190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.0097658885639999998" green="0.62434595820000005" blue="0.86618465190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -258,7 +260,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                                <color key="value" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.0097658885639999998" green="0.62434595820000005" blue="0.86618465190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
@@ -277,6 +279,14 @@
                                     <constraint firstAttribute="height" constant="80" id="f9L-vI-3IB"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2z-gU-7XC">
+                                <rect key="frame" x="51" y="44" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="sHs-r1-lJG" kind="unwind" unwindAction="unwindToRootWithSegue:" id="8hk-t4-Uyo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -308,6 +318,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5BR-ct-KPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sHs-r1-lJG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1975" y="151"/>
         </scene>
@@ -406,10 +417,12 @@
                                             <constraint firstAttribute="width" constant="245" id="n2C-uw-oep"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="24"/>
-                                        <state key="normal" title="login"/>
+                                        <state key="normal" title="signup">
+                                            <color key="titleColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -422,7 +435,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                                <color key="value" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
@@ -441,6 +454,14 @@
                                     <constraint firstAttribute="height" constant="80" id="F26-vz-FTA"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sC-5m-sal">
+                                <rect key="frame" x="50" y="44" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="OBs-Jl-5qk" kind="unwind" unwindAction="unwindToRootWithSegue:" id="WgB-gM-djZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -472,13 +493,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOg-vJ-EQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OBs-Jl-5qk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1974" y="890"/>
         </scene>
-        <!--Test Login View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="QWI-JF-m2v">
             <objects>
-                <viewController id="fW7-Kh-KsY" customClass="TestLoginViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fW7-Kh-KsY" customClass="RootViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qOg-Ay-4CK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -490,90 +512,21 @@
                                 <rect key="frame" x="0.0" y="518" width="375" height="294"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="SB5-Is-kH5">
-                                <rect key="frame" x="45" y="460" width="285" height="243"/>
+                                <rect key="frame" x="45" y="543" width="285" height="160"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ecu-lB-ic8">
-                                        <rect key="frame" x="0.0" y="0.0" width="285" height="138"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Sx-Nv-Skz">
-                                                <rect key="frame" x="0.0" y="0.0" width="285" height="58"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-p8-27m">
-                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="22"/>
-                                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
-                                                        <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@students.makeschool.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vsw-cN-plA">
-                                                        <rect key="frame" x="0.0" y="27" width="285" height="25"/>
-                                                        <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="emailDidBeginEditing:" destination="fW7-Kh-KsY" eventType="editingDidBegin" id="7QC-Oh-A21"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="m89-dt-jDF">
-                                                        <rect key="frame" x="0.0" y="57" width="285" height="1"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKW-3u-e6H">
-                                                                <rect key="frame" x="0.0" y="0.0" width="285" height="1"/>
-                                                                <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="285" id="NRp-Q9-HaF"/>
-                                                                    <constraint firstAttribute="height" constant="1" id="zey-T8-yJR"/>
-                                                                </constraints>
-                                                            </view>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ta7-yd-ELJ">
-                                                <rect key="frame" x="0.0" y="80" width="285" height="58"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLK-j9-Jra">
-                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="22"/>
-                                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
-                                                        <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XmK-1Y-bgU">
-                                                        <rect key="frame" x="0.0" y="27" width="285" height="25"/>
-                                                        <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                        <connections>
-                                                            <action selector="passwordDidBeginEditing:" destination="fW7-Kh-KsY" eventType="editingDidBegin" id="0R4-xP-fwk"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-k2-fZP">
-                                                        <rect key="frame" x="0.0" y="57" width="285" height="1"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYo-Yt-LYe">
-                                                                <rect key="frame" x="0.0" y="0.0" width="285" height="1"/>
-                                                                <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="1" id="em7-Qq-Zjg"/>
-                                                                    <constraint firstAttribute="width" constant="285" id="gGv-k2-LEO"/>
-                                                                </constraints>
-                                                            </view>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfb-O3-j1U" customClass="PMSuperButton" customModule="PMSuperButton">
-                                        <rect key="frame" x="20" y="188" width="245" height="55"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kld-nT-CLl" customClass="PMSuperButton" customModule="PMSuperButton">
+                                        <rect key="frame" x="20" y="0.0" width="245" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="1J1-2u-iHY"/>
-                                            <constraint firstAttribute="width" constant="245" id="3oa-vr-mZe"/>
+                                            <constraint firstAttribute="height" constant="55" id="Eag-Pj-kaf"/>
+                                            <constraint firstAttribute="width" constant="245" id="VBc-pO-Rfr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="24"/>
-                                        <state key="normal" title="login"/>
+                                        <state key="normal" title="login">
+                                            <color key="titleColor" red="0.0097658885639999998" green="0.62434595820000005" blue="0.86618465190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.0097658885639999998" green="0.62434595820000005" blue="0.86618465190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -582,21 +535,47 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="ripple" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                                <color key="value" red="0.0097658885639999998" green="0.62434595820000005" blue="0.86618465190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="rippleSpeed">
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="NDW-lb-0C6" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="VMd-H0-HGQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swN-di-v41" customClass="PMSuperButton" customModule="PMSuperButton">
+                                        <rect key="frame" x="20" y="105" width="245" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="245" id="6Gi-Je-P6p"/>
+                                            <constraint firstAttribute="height" constant="55" id="ZEJ-0k-H0P"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="24"/>
+                                        <state key="normal" title="signup">
+                                            <color key="titleColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="ripple" value="YES"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                                <color key="value" red="0.090196078430000007" green="0.61176470589999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="TQB-rl-JXg" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="7Nw-4m-5WA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="ecu-lB-ic8" firstAttribute="centerX" secondItem="SB5-Is-kH5" secondAttribute="centerX" id="15J-vD-Y0w"/>
-                                    <constraint firstItem="ecu-lB-ic8" firstAttribute="top" secondItem="SB5-Is-kH5" secondAttribute="top" id="Cov-Dx-yIw"/>
-                                    <constraint firstAttribute="trailing" secondItem="ecu-lB-ic8" secondAttribute="trailing" id="DeY-QD-jfS"/>
-                                    <constraint firstItem="ecu-lB-ic8" firstAttribute="leading" secondItem="SB5-Is-kH5" secondAttribute="leading" id="zTY-9O-DUr"/>
-                                </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logonamewhite" translatesAutoresizingMaskIntoConstraints="NO" id="aMW-BK-15Y">
                                 <rect key="frame" x="44.666666666666657" y="194" width="285" height="80"/>
@@ -624,16 +603,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mmg-sH-PZl"/>
                     </view>
-                    <connections>
-                        <outlet property="emailField" destination="Vsw-cN-plA" id="wiQ-4x-vbx"/>
-                        <outlet property="fullStackView" destination="SB5-Is-kH5" id="YGe-no-Fkc"/>
-                        <outlet property="gradient" destination="dpG-Tc-dHh" id="a9t-N2-FtI"/>
-                        <outlet property="gradientBottomConstraint" destination="vr5-oz-0Az" id="v2m-48-4yW"/>
-                        <outlet property="logoImage" destination="aMW-BK-15Y" id="9s5-6o-Zko"/>
-                        <outlet property="logoTopConstraint" destination="Kbf-eN-Mzb" id="Lpj-Mh-bRt"/>
-                        <outlet property="passwordField" destination="XmK-1Y-bgU" id="NB6-iN-9ry"/>
-                        <outlet property="stackBottomConstraint" destination="jEY-4B-bMJ" id="UIo-Sb-aJS"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Buc-qz-34O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
