@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ActiveUser: NSObject, NSCoding {
+class ActiveUser: NSObject, NSCoding, Codable {
     var email: String!
     var password: String!
     init(email: String, password: String) {

@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MakeSchool Companion/View Controllers/IDViewController.swift"
-            timestampString = "540438141.688506"
+            timestampString = "540515291.922413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "updateStudent(student:)"
             landmarkType = "7">
          </BreakpointContent>
