@@ -18,7 +18,7 @@ class SignUpServicingLayer {
         let session = URLSession.shared
         session.dataTask(with: getRequest) { (data, response, error) in
             let statusCode: Int = (response as! HTTPURLResponse).statusCode
-            completionHandler(data, statusCode)
+            completionHandler(data!, statusCode)
         }
     }
 }

@@ -19,6 +19,7 @@ struct EmailandPasswordandToken {
 enum Route {
     case users
     case attendances
+    case signUp
     
     func path() -> String {
         switch self {
@@ -26,7 +27,10 @@ enum Route {
             return "/attendances"
         case .users:
             return "/active_sessions?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
+        case .signUp:
+            return "/registrations"
         }
+        
     }
     func postBody(users: ActiveUser? = nil, attendances: AttendancesModel?=nil) -> Data? {
         switch self {
@@ -41,7 +45,14 @@ enum Route {
             do {
                 jsonBody = try! JSONEncoder().encode(users)
             }
-        return jsonBody
+            return jsonBody
+            
+        case .signUp:
+            var jsonBody = Data()
+            do {
+                jsonBody = try! JSONEncoder().encode(users)
+            }
+            return jsonBody
         }
     }
 }
@@ -58,29 +69,26 @@ class BeaconNetworkingLayer {
         let keychain = KeychainSwift()
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
         
-//        fullUrlString?.appendingQueryParameters(["email": "matthew@gmail.com",
-//                                                 "password": "matthewharrilal"])
-
+        
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
         getRequest.httpMethod = requestRoute.rawValue
         
-        if getRequest.httpMethod != "GET" {
-            getRequest.addValue("Token token=\(keychain.get("Token"))", forHTTPHeaderField: "Authorization")
+        if getRequest.httpMethod != "GET" && student == nil {
+            getRequest.addValue("Token token=12c2163864befb1d27c1c87cfff3a538", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-
+        
         getRequest.httpMethod = requestRoute.rawValue
         if student != nil {
-//            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
-            getRequest.httpBody = route.postBody(users:student)
+            getRequest.httpBody = route.postBody(users: student)
         }
         
         if attendances != nil {
             getRequest.httpBody = route.postBody(attendances: attendances)
         }
         
-
+        
         let task = session.dataTask(with: getRequest) { (data, response, error) in
             let statusCode: Int = (response as! HTTPURLResponse).statusCode
             print(response)

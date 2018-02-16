@@ -40,6 +40,10 @@ class IDViewController: UIViewController {
         let profileImageURL = URL(string: keychain.get("ImageURL")!)
         let data = try? Data(contentsOf: profileImageURL!)
         profileImageView.image = UIImage(data: data!)
+        self.profileImageView.layer.cornerRadius = 10
+        self.profileImageView.layer.masksToBounds = true
+        self.profileImageView.layer.borderWidth = 5
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
         emailLabel.text = keychain.get("email")
         portfolioLabel.text = keychain.get("portfolio")
         firstnameLabel.text = keychain.get("firstName")
@@ -84,9 +88,10 @@ class IDViewController: UIViewController {
     
     
     func updateStudent(student: Student) {
-        let splitEmail = student.email.components(separatedBy: "@")
-        let emailPrefix = splitEmail[0]
-        let emailDomain = splitEmail[1]
+        let keychain = KeychainSwift()
+        let splitEmail = keychain.get("email")?.components(separatedBy: "@")
+        let emailPrefix = splitEmail![0]
+        let emailDomain = splitEmail![1]
         
         self.profileImageView.image = student.image
         self.profileImageView.layer.cornerRadius = 10
@@ -98,7 +103,8 @@ class IDViewController: UIViewController {
         self.lastnameLabel.text = student.lastname
         
         self.emailLabel.text = emailPrefix
-        self.emailDomain.text = "@\(emailDomain)"
+        
+        self.emailDomain.text = emailDomain
         self.portfolioLabel.text = "portfolio/\(student.portfolio!)"
         
         self.termSeasonLabel.text = "SPRING"
