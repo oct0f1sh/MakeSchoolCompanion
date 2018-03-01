@@ -75,7 +75,7 @@ class BeaconNetworkingLayer {
         getRequest.httpMethod = requestRoute.rawValue
         
         if getRequest.httpMethod != "GET" && student == nil {
-            getRequest.addValue("Token token=12c2163864befb1d27c1c87cfff3a538", forHTTPHeaderField: "Authorization")
+            getRequest.addValue("Token token=\(keychain.get("Token"))", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
