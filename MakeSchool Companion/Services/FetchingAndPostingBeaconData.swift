@@ -16,6 +16,7 @@ struct EmailandPasswordandToken {
     static var token = ""
 }
 
+
 enum Route {
     case users
     case attendances
@@ -63,6 +64,8 @@ enum DifferentHttpVerbs: String {
 }
 
 class BeaconNetworkingLayer {
+    var userTokenString: String!
+
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
     func fetchBeaconData(route: Route, student: ActiveUser? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data, Int) -> Void, requestRoute: DifferentHttpVerbs) {
@@ -73,9 +76,11 @@ class BeaconNetworkingLayer {
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
         getRequest.httpMethod = requestRoute.rawValue
+        var userToken = keychain.get("Token")
+        self.userTokenString = userToken
         
-        if getRequest.httpMethod != "GET" && student == nil {
-            getRequest.addValue("Token token=\(keychain.get("Token"))", forHTTPHeaderField: "Authorization")
+        if getRequest.httpMethod != "GET" {
+            getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
