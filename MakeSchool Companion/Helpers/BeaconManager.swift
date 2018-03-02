@@ -74,9 +74,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         status = .enteredBeaconRange
         var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
         
-                beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data,response) in
-                    print("This is the beacon status \(self.status)")
-                }, requestRoute: .postReuqest)
+              
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
