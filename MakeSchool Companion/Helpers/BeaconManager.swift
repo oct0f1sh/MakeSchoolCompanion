@@ -74,7 +74,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         status = .enteredBeaconRange
         var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
         
-              
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
