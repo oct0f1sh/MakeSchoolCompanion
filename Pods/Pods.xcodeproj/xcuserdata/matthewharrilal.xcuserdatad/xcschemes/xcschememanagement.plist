@@ -12,44 +12,54 @@
 			<integer>0</integer>
 		</dict>
 		<key>KeychainSwift.xcscheme</key>
+<<<<<<< HEAD
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
 		<key>Moya.xcscheme</key>
+=======
+>>>>>>> working-login-matthew
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>PMSuperButton.xcscheme</key>
+		<key>Moya.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Pods-MakeSchool Companion.xcscheme</key>
+		<key>PMSuperButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>Result.xcscheme</key>
+		<key>Pods-MakeSchool Companion.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>SnapKit.xcscheme</key>
+		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>6</integer>
+		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>

@@ -10,4 +10,5 @@ target 'MakeSchool Companion' do
   pod 'PMSuperButton'
   pod 'TextFieldEffects', '~> 1.4'
   pod 'Moya'
+   pod 'KeychainSwift'
 end

@@ -11,8 +11,10 @@
 		1C24E43B202BA2C70087B470 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */; };
 		1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */; };
 		1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43E202BB71D0087B470 /* Attendance.swift */; };
+		1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D2203256190001F671 /* ActiveUsers.swift */; };
+		1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */; };
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
-		1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */; };
+		1C65B0CD202ECAD6007AADDE /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* Alerts.swift */; };
 		1C65B0CF202F449A007AADDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CE202F449A007AADDE /* User.swift */; };
 		AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */; };
 		AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4562A12010083400CC9E13 /* StudentTableViewController.swift */; };
@@ -37,8 +39,10 @@
 		1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
 		1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingAndPostingBeaconData.swift; sourceTree = "<group>"; };
 		1C24E43E202BB71D0087B470 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		1C55D7D2203256190001F671 /* ActiveUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUsers.swift; sourceTree = "<group>"; };
+		1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServiceLayer.swift; sourceTree = "<group>"; };
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
-		1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		1C65B0CC202ECAD6007AADDE /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1C65B0CE202F449A007AADDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		49BA543D8DDB5199BF9EEECF /* Pods-MakeSchool Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.release.xcconfig"; sourceTree = "<group>"; };
 		6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeSchool_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				AE48CD612022836C00DEB016 /* BeaconManager.swift */,
-				1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */,
+				1C65B0CC202ECAD6007AADDE /* Alerts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -191,6 +195,7 @@
 				AEF69FD32009730E00D173B3 /* Student.swift */,
 				1C24E43E202BB71D0087B470 /* Attendance.swift */,
 				1C65B0CE202F449A007AADDE /* User.swift */,
+				1C55D7D2203256190001F671 /* ActiveUsers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				AEF69FD6200973B300D173B3 /* NetworkingService.swift */,
 				1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */,
 				1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */,
+				1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -334,6 +341,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -362,10 +370,12 @@
 				AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */,
 				1C65B0CF202F449A007AADDE /* User.swift in Sources */,
 				AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */,
-				1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */,
+				1C65B0CD202ECAD6007AADDE /* Alerts.swift in Sources */,
+				1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */,
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,
 				1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */,
 				AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */,
+				1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */,
 				AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */,
 				AE48CD6B2024F72700DEB016 /* Style.swift in Sources */,
 			);
@@ -507,11 +517,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MakeSchool Companion/MakeSchool Companion.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4PBGN25JV;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "us.duncanmacdonald.MakeSchool-Companion";
+				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,11 +535,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MakeSchool Companion/MakeSchool Companion.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4PBGN25JV;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "us.duncanmacdonald.MakeSchool-Companion";
+				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -8,20 +8,32 @@
 
 import Foundation
 import UIKit
+import KeychainSwift
+
+struct EmailandPasswordandToken {
+    static var email = ""
+    static var password = ""
+    static var token = ""
+}
+
 
 enum Route {
     case users
     case attendances
+    case signUp
     
     func path() -> String {
         switch self {
         case .attendances:
             return "/attendances"
         case .users:
-            return "/users"
+            return "/active_sessions?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
+        case .signUp:
+            return "/registrations"
         }
+        
     }
-    func postBody(users: Student? = nil, attendances: AttendancesModel?=nil) -> Data? {
+    func postBody(users: ActiveUser? = nil, attendances: AttendancesModel?=nil) -> Data? {
         switch self {
         case .attendances:
             var jsonBody = Data()
@@ -34,7 +46,14 @@ enum Route {
             do {
                 jsonBody = try! JSONEncoder().encode(users)
             }
-        return jsonBody
+            return jsonBody
+            
+        case .signUp:
+            var jsonBody = Data()
+            do {
+                jsonBody = try! JSONEncoder().encode(users)
+            }
+            return jsonBody
         }
     }
 }
@@ -45,33 +64,40 @@ enum DifferentHttpVerbs: String {
 }
 
 class BeaconNetworkingLayer {
+    var userTokenString: String!
+
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, student: Student? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data) -> Void, requestRoute: DifferentHttpVerbs) {
-        
+    func fetchBeaconData(route: Route, student: ActiveUser? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data, Int) -> Void, requestRoute: DifferentHttpVerbs) {
+        let keychain = KeychainSwift()
         var fullUrlString = URL(string: baseUrl.appending(route.path()))
         
-        fullUrlString?.appendingQueryParameters(["id": "1"])
-
+        
         print("This is the full url string \(fullUrlString!)")
         var getRequest = URLRequest(url: fullUrlString!)
+        getRequest.httpMethod = requestRoute.rawValue
+        var userToken = keychain.get("Token")
+        self.userTokenString = userToken
         
-        getRequest.addValue("Token token=89f462208cc4c74cd93c2549811e8da5", forHTTPHeaderField: "Authorization")
+        if getRequest.httpMethod != "GET" {
+            getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
+        }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-
+        
         getRequest.httpMethod = requestRoute.rawValue
         if student != nil {
-            getRequest.httpBody = route.postBody(users: student, attendances: attendances)
+            getRequest.httpBody = route.postBody(users: student)
         }
         
         if attendances != nil {
             getRequest.httpBody = route.postBody(attendances: attendances)
         }
         
-
+        
         let task = session.dataTask(with: getRequest) { (data, response, error) in
+            let statusCode: Int = (response as! HTTPURLResponse).statusCode
             print(response)
-            completionHandler(data!)
+            completionHandler(data!, statusCode)
         }
         task.resume()
     }

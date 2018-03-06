@@ -55,12 +55,12 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
             delegate?.beaconManager(sender: self, isInBeaconRange: region)
             status = .inBeaconRange
             var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
-
-            beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
-            print("This is the beacon status \(self.status)")
+        
+            beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data, response) in
+                print(response)
             }, requestRoute: .postReuqest)
-    
-           
+            
+            
         } else {
             print("not inside beacon region")
             status = .notInBeaconRange
@@ -74,9 +74,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         status = .enteredBeaconRange
         var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
         
-        beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
-            print("This is the beacon status \(self.status)")
-        }, requestRoute: .postReuqest)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -84,10 +82,9 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         status = .exitedBeaconRange
         var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
         
-        beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
-            print("This is the beacon status \(self.status)")
-        }, requestRoute: .postReuqest)
-    }
+        beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data, response) in
+            print(response)
+        }, requestRoute: .postReuqest)    }
 }
 
 protocol BeaconManagerDelegate: class {

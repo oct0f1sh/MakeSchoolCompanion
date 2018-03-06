@@ -100,16 +100,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let firstname = nameString![0].lowercased()
         let lastname = nameString![1].lowercased()
         
-        for student in allStudents {
-            if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastname {
-                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
-                idView.student = student
-                DispatchQueue.main.async {
-                    self.present(idView, animated: true, completion: nil)
-                }
-                return
-            }
-        }
+//        for student in allStudents {
+//            if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastname {
+//                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
+//                idView.student = student
+//                DispatchQueue.main.async {
+//                    self.present(idView, animated: true, completion: nil)
+//                }
+//                return
+//            }
+//        }
+        
         
         errorLabel.text = "user not found"
         errorLabel.isHidden = false
