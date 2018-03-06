@@ -103,8 +103,8 @@ class IDViewController: UIViewController {
         self.lastnameLabel.text = student.lastname
         
         self.emailLabel.text = emailPrefix
-        
         self.emailDomain.text = emailDomain
+        
         self.portfolioLabel.text = "portfolio/\(student.portfolio!)"
         
         self.termSeasonLabel.text = "SPRING"
