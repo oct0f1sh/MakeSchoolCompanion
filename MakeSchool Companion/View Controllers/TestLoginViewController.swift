@@ -31,6 +31,7 @@ class TestLoginViewController: UIViewController {
 
     var user: User? = nil
     var user_id: Int?
+    var profileImageUrl: String?
     
     var roster_identification_numbers = [Int]()
 
@@ -141,19 +142,21 @@ class TestLoginViewController: UIViewController {
             if response >= 200 && response < 300 {
                 guard let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data) else{return}
                 self.user_id = json.id
-            
+                self.profileImageUrl = json.profileImageUrl
                 let keychain = KeychainSwift()
-                keychain.set(String(describing: self.user_id!), forKey: "user_id")
-                
+                keychain.set(self.profileImageUrl!, forKey: "profileImageUrl")
+                keychain.set(json.email, forKey: "email")
+                keychain.set(json.firstName, forKey: "firstName")
+                keychain.set(json.lastName, forKey: "lastName")
+                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
                 for id in self.roster_identification_numbers {
                     if id == self.user_id {
-                        print("Granted Access")
+                        DispatchQueue.main.async {
+                            self.present(idView, animated:true, completion: nil)
+                        }
                     }
                 }
-                
-                // Now that we have the user id what we can do from here is that we can no check the current roster id and see if the id is in there so we can display the users portfolio
-                
-                
+
             }
         }, requestRoute: .postReuqest)
     }

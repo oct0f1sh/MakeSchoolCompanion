@@ -45,25 +45,10 @@ class IDViewController: UIViewController {
         self.profileImageView.layer.borderWidth = 5
         self.profileImageView.layer.borderColor = UIColor.white.cgColor
         emailLabel.text = keychain.get("email")
-        portfolioLabel.text = keychain.get("portfolio")
         firstnameLabel.text = keychain.get("firstName")
         lastnameLabel.text = keychain.get("lastName")
         
-        
-        fetchStudentIdentification(target: .myStudents, success: { (success) in
-            guard let json = try? success.mapJSON() else {return}
-            for element in json as! [AnyObject]{
-                self.identificationNumbers.append(element)
-            }
-            print(self.identificationNumbers)
-            
-            
-        }, error: { (error) in
-            print(error)
-        }, failure: { (moyaError) in
-            print(moyaError)
-        })
-        
+
         switch AppDelegate.shared.beaconManager.status {
         case .enteredBeaconRange:
             testLabel.text = "entered beacon region: \(beacon.beaconRegion.identifier)"
