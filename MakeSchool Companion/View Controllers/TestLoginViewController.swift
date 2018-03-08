@@ -133,7 +133,7 @@ class TestLoginViewController: UIViewController {
             let passwordText = passwordField.text else {return}
         let student = ActiveUser(email: emailText, password: passwordText)
         beaconLogic.fetchBeaconData(route: .users, student: student, completionHandler: { (data, response) in
-            if response > 200 && response < 300 {
+            if response >= 200 && response < 300 {
                 let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data)
                 print("JSON HAS ARRIVED \(json)")
             }
