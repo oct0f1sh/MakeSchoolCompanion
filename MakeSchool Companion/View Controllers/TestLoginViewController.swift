@@ -129,40 +129,15 @@ class TestLoginViewController: UIViewController {
         let tempLastName = nameString![1].lowercased()
         var formattingLastName = tempLastName.components(separatedBy: "@")
         let lastName = formattingLastName[0].lowercased()
-
-
-        for student in allStudents {
-            if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastName {
-                self.student = student
-                beaconLogic.fetchBeaconData(route: .users, completionHandler: { (data, response) in
-                    if response >= 200 && response < 300 {
-                        let json = try? JSONDecoder().decode(User.self, from: data)
-                        print("This is the user \(String(describing: json))")
-                        self.defaults.set(true, forKey: "LoggedIn")
-                        if self.defaults.bool(forKey: "LoggedIn") == true {
-                            print("User has succesfully logged in")
-                        }
-
-                        let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
-                        EmailandPasswordandToken.token = (json?.token)!
-
-                        let keychain = KeychainSwift()
-                        keychain.set(EmailandPasswordandToken.token, forKey: "Token")
-                        keychain.set((self.student?.imageURL)!, forKey: "ImageURL")
-                        keychain.set((self.student?.firstname)!, forKey: "firstName")
-                        keychain.set((self.student?.lastname)!, forKey: "lastName")
-                        keychain.set((self.student?.email)!, forKey: "email")
-                        keychain.set((self.student?.portfolio)!, forKey: "portfolio")
-
-                        idView.student = self.student
-                        DispatchQueue.main.async {
-                            self.present(idView, animated: true, completion: nil)
-                        }
-                    }
-                }, requestRoute: .getRequest)
+        guard let emailText = emailField.text,
+            let passwordText = passwordField.text else {return}
+        let student = ActiveUser(email: emailText, password: passwordText)
+        beaconLogic.fetchBeaconData(route: .users, student: student, completionHandler: { (data, response) in
+            if response > 200 && response < 300 {
+                let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data)
+                print("JSON HAS ARRIVED \(json)")
             }
-        }
-
+        }, requestRoute: .postReuqest)
     }
     
     @IBAction func signUpButton(_ sender: Any) {

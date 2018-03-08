@@ -11,6 +11,7 @@
 		1C24E43B202BA2C70087B470 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */; };
 		1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */; };
 		1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43E202BB71D0087B470 /* Attendance.swift */; };
+		1C333A8C2050CD2700B02AFE /* MSUserObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */; };
 		1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D2203256190001F671 /* ActiveUsers.swift */; };
 		1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */; };
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
@@ -39,6 +40,7 @@
 		1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
 		1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingAndPostingBeaconData.swift; sourceTree = "<group>"; };
 		1C24E43E202BB71D0087B470 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSUserObjectModel.swift; sourceTree = "<group>"; };
 		1C55D7D2203256190001F671 /* ActiveUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUsers.swift; sourceTree = "<group>"; };
 		1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServiceLayer.swift; sourceTree = "<group>"; };
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				1C24E43E202BB71D0087B470 /* Attendance.swift */,
 				1C65B0CE202F449A007AADDE /* User.swift */,
 				1C55D7D2203256190001F671 /* ActiveUsers.swift */,
+				1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */,
 				1C65B0CF202F449A007AADDE /* User.swift in Sources */,
 				AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */,
+				1C333A8C2050CD2700B02AFE /* MSUserObjectModel.swift in Sources */,
 				1C65B0CD202ECAD6007AADDE /* Alerts.swift in Sources */,
 				1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */,
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,
@@ -519,7 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R4WEEFNVWZ;
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,7 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R4WEEFNVWZ;
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
