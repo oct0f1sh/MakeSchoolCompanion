@@ -30,6 +30,9 @@ class TestLoginViewController: UIViewController {
     var student: Student? = nil
 
     var user: User? = nil
+    var user_id: Int?
+    
+    var roster_identification_numbers = [Int]()
 
 
     var keyboardIsPresent = false
@@ -129,13 +132,28 @@ class TestLoginViewController: UIViewController {
         let tempLastName = nameString![1].lowercased()
         var formattingLastName = tempLastName.components(separatedBy: "@")
         let lastName = formattingLastName[0].lowercased()
+        
+        
         guard let emailText = emailField.text,
             let passwordText = passwordField.text else {return}
         let student = ActiveUser(email: emailText, password: passwordText)
         beaconLogic.fetchBeaconData(route: .users, student: student, completionHandler: { (data, response) in
             if response >= 200 && response < 300 {
-                let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data)
-                print("This is the jsons id \(json?.id)")
+                guard let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data) else{return}
+                self.user_id = json.id
+            
+                let keychain = KeychainSwift()
+                keychain.set(String(describing: self.user_id!), forKey: "user_id")
+                
+                for id in self.roster_identification_numbers {
+                    if id == self.user_id {
+                        print("Granted Access")
+                    }
+                }
+                
+                // Now that we have the user id what we can do from here is that we can no check the current roster id and see if the id is in there so we can display the users portfolio
+                
+                
             }
         }, requestRoute: .postReuqest)
     }
@@ -149,6 +167,17 @@ class TestLoginViewController: UIViewController {
             if let students = students {
                 self.allStudents = students
             }
+        }
+        fetchStudentIdentification(target: .myStudents, success: { (response) in
+           guard let studentIds = try? response.mapJSON() else {return}
+            print("These are the student identification numbers \(studentIds)")
+            for id in (studentIds as? [Int])! {
+                self.roster_identification_numbers.append(id)
+            }
+        }, error: { (error) in
+            print(error.localizedDescription)
+        }) { (moyaError) in
+            print(moyaError)
         }
     }
 
