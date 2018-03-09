@@ -26,9 +26,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Change this later</string>
+	<string>Location access is required for attendance tracking.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Change this later</string>
+	<string>Location access is required for attendance tracking.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ProximaNovaBold.otf</string>

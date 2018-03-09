@@ -45,7 +45,7 @@ class IDViewController: UIViewController {
         self.profileImageView.layer.borderWidth = 5
         self.profileImageView.layer.borderColor = UIColor.white.cgColor
         emailLabel.text = keychain.get("email")
-        portfolioLabel.text = keychain.get("portfolio")
+        portfolioLabel.text = "portfolio/\(keychain.get("portfolio")!)"
         firstnameLabel.text = keychain.get("firstName")
         lastnameLabel.text = keychain.get("lastName")
         
