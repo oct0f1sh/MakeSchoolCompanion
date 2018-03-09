@@ -37,7 +37,7 @@ class IDViewController: UIViewController {
         var beacon = AppDelegate.shared.beaconManager
         
         let keychain = KeychainSwift()
-        let profileImageURL = URL(string: keychain.get("ImageURL")!)
+        let profileImageURL = URL(string: keychain.get("profileImageUrl")!)
         let data = try? Data(contentsOf: profileImageURL!)
         profileImageView.image = UIImage(data: data!)
         self.profileImageView.layer.cornerRadius = 10
