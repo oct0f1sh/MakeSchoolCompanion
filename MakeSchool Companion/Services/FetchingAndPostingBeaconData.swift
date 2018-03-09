@@ -27,7 +27,8 @@ enum Route {
         case .attendances:
             return "/attendances"
         case .users:
-            return "/active_sessions?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
+//            return "/active_sessions?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
+            return "/registrations"
         case .signUp:
             return "/registrations"
         }

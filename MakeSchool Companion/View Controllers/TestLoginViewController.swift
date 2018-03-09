@@ -30,6 +30,10 @@ class TestLoginViewController: UIViewController {
     var student: Student? = nil
 
     var user: User? = nil
+    var user_id: Int?
+    var profileImageUrl: String?
+    
+    var roster_identification_numbers = [Int]()
 
 
     var keyboardIsPresent = false
@@ -129,89 +133,35 @@ class TestLoginViewController: UIViewController {
         let tempLastName = nameString![1].lowercased()
         var formattingLastName = tempLastName.components(separatedBy: "@")
         let lastName = formattingLastName[0].lowercased()
-
-
-        for student in allStudents {
-            if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastName {
-                self.student = student
-                beaconLogic.fetchBeaconData(route: .users, completionHandler: { (data, response) in
-                    if response >= 200 && response < 300 {
-                        let json = try? JSONDecoder().decode(User.self, from: data)
-                        print("This is the user \(String(describing: json))")
-                        self.defaults.set(true, forKey: "LoggedIn")
-                        if self.defaults.bool(forKey: "LoggedIn") == true {
-                            print("User has succesfully logged in")
-                        }
-
-                        let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
-                        EmailandPasswordandToken.token = (json?.token)!
-
-                        let keychain = KeychainSwift()
-                        keychain.set(EmailandPasswordandToken.token, forKey: "Token")
-                        keychain.set((self.student?.imageURL)!, forKey: "ImageURL")
-                        keychain.set((self.student?.firstname)!, forKey: "firstName")
-                        keychain.set((self.student?.lastname)!, forKey: "lastName")
-                        keychain.set((self.student?.email)!, forKey: "email")
-                        keychain.set((self.student?.portfolio)!, forKey: "portfolio")
-
-                        idView.student = self.student
+        
+        
+        guard let emailText = emailField.text,
+            let passwordText = passwordField.text else {return}
+        let student = ActiveUser(email: emailText, password: passwordText)
+        beaconLogic.fetchBeaconData(route: .users, student: student, completionHandler: { (data, response) in
+            if response >= 200 && response < 300 {
+                guard let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data) else{return}
+                self.user_id = json.id
+                self.profileImageUrl = json.profileImageUrl
+                let keychain = KeychainSwift()
+                keychain.set(self.profileImageUrl!, forKey: "profileImageUrl")
+                keychain.set(json.email, forKey: "email")
+                keychain.set(json.firstName, forKey: "firstName")
+                keychain.set(json.lastName, forKey: "lastName")
+                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
+                for id in self.roster_identification_numbers {
+                    if id == self.user_id {
                         DispatchQueue.main.async {
-                            self.present(idView, animated: true, completion: nil)
+                            self.present(idView, animated:true, completion: nil)
                         }
                     }
-                }, requestRoute: .getRequest)
-            }
-        }
+                }
 
-    }
-    
-    @IBAction func signUpButton(_ sender: Any) {
-        let beaconLogic = BeaconNetworkingLayer()
-        
-        let nameString = emailField.text?.components(separatedBy: ".")
-        
-        let firstname = nameString![0].lowercased()
-        
-        let tempLastName = nameString![1].lowercased()
-        var formattingLastName = tempLastName.components(separatedBy: "@")
-        let lastName = formattingLastName[0].lowercased()
-        
-        for student in allStudents {
-            if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastName {
-                self.student = student
-                guard let emailText = emailField.text,
-                    let passwordText = passwordField.text else {return}
-                let newUser = ActiveUser(email: emailText, password: passwordText)
-                beaconLogic.fetchBeaconData(route: .signUp, student: newUser, completionHandler: { (data, response) in
-                    if response >= 200 && response < 300 {
-                        let user = try? JSONDecoder().decode(User.self, from: data)
-                        print("This is the user that has just signed up")
-                        self.defaults.set(true, forKey: "SignedUp")
-                        if self.defaults.bool(forKey: "SignedUp") == true {
-                            print("The user has succesfully signed up")
-                        }
-                        let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
-                        EmailandPasswordandToken.token = (user?.token)!
-                        
-                        let keychain = KeychainSwift()
-                        keychain.set(EmailandPasswordandToken.token, forKey: "Token")
-                        keychain.set((self.student?.imageURL)!, forKey: "ImageURL")
-                        keychain.set((self.student?.firstname)!, forKey: "firstName")
-                        keychain.set((self.student?.lastname)!, forKey: "lastName")
-                        keychain.set((self.student?.email)!, forKey: "email")
-                        keychain.set((self.student?.portfolio)!, forKey: "portfolio")
-                        
-                        idView.student = self.student
-                        DispatchQueue.main.async {
-                            self.present(idView, animated: true, completion: nil)
-                        }
-                    }
-                }, requestRoute: .postReuqest)
             }
-        }
+        }, requestRoute: .postReuqest)
     }
     
-    
+  
     override func viewDidLoad() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -220,6 +170,17 @@ class TestLoginViewController: UIViewController {
             if let students = students {
                 self.allStudents = students
             }
+        }
+        fetchStudentIdentification(target: .myStudents, success: { (response) in
+           guard let studentIds = try? response.mapJSON() else {return}
+            print("These are the student identification numbers \(studentIds)")
+            for id in (studentIds as? [Int])! {
+                self.roster_identification_numbers.append(id)
+            }
+        }, error: { (error) in
+            print(error.localizedDescription)
+        }) { (moyaError) in
+            print(moyaError)
         }
     }
 
