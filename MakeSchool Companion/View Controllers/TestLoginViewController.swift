@@ -148,6 +148,7 @@ class TestLoginViewController: UIViewController {
                 keychain.set(json.email, forKey: "email")
                 keychain.set(json.firstName, forKey: "firstName")
                 keychain.set(json.lastName, forKey: "lastName")
+                keychain.set(json)
                 let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
                 for id in self.roster_identification_numbers {
                     if id == self.user_id {
