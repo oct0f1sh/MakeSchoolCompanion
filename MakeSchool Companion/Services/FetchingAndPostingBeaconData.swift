@@ -80,9 +80,9 @@ class BeaconNetworkingLayer {
         guard let userToken = keychain.get("Token") else {return}
         self.userTokenString = userToken
         
-//        if getRequest.httpMethod != "GET" {
-//            getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
-//        }
+        if getRequest.httpMethod != "GET" && student == nil {
+            getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
+        }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         getRequest.httpMethod = requestRoute.rawValue
