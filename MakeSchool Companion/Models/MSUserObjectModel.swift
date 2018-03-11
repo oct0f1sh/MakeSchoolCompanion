@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct MSUserModelObject {
-    var id: Int
+    var id: String
     var email: String
     var token: String
     var createdAt: String
@@ -18,7 +18,7 @@ struct MSUserModelObject {
     var imageUrl: String
     var firstName: String
     var lastName:String
-    init(id: Int, email: String, token: String, createdAt: String, updatedAt: String, imageUrl: String, firstName: String, lastName: String) {
+    init(id: String, email: String, token: String, createdAt: String, updatedAt: String, imageUrl: String, firstName: String, lastName: String) {
         self.id = id
         self.email = email
         self.token = token
@@ -32,7 +32,7 @@ struct MSUserModelObject {
 
 extension MSUserModelObject: Decodable {
     enum FirstLevelKeys: String, CodingKey {
-        case id
+        case id = "user_id"
         case email
         case token
         case createdAt = "created_at"
@@ -44,7 +44,7 @@ extension MSUserModelObject: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: FirstLevelKeys.self)
-        let id = try container.decode(Int.self, forKey: .id)
+        let id = try container.decodeIfPresent(String.self, forKey: .id)
         let email = try container.decode(String.self, forKey: .email)
         let token = try container.decode(String.self, forKey: .token)
         let createdAt = try container.decode(String.self, forKey: .createdAt)
@@ -52,6 +52,6 @@ extension MSUserModelObject: Decodable {
         let imageUrl = try container.decode(String.self, forKey: .imageUrl)
         let firstName = try container.decode(String.self, forKey: .firstName)
         let lastName = try container.decode(String.self, forKey: .lastName)
-        self.init(id: id, email: email, token: token, createdAt: createdAt, updatedAt: updatedAt, imageUrl: imageUrl, firstName: firstName, lastName: lastName)
+        self.init(id: id!, email: email, token: token, createdAt: createdAt, updatedAt: updatedAt, imageUrl: imageUrl, firstName: firstName, lastName: lastName)
     }
 }

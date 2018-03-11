@@ -30,7 +30,7 @@ class TestLoginViewController: UIViewController {
     var student: Student? = nil
 
     var user: User? = nil
-    var user_id: Int?
+    var user_id: String?
     var profileImageUrl: String?
     
     var roster_identification_numbers = [Int]()
@@ -142,16 +142,16 @@ class TestLoginViewController: UIViewController {
             if response >= 200 && response < 300 {
                 guard let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data) else{return}
                 self.user_id = json.id
-                self.profileImageUrl = json.profileImageUrl
+                self.profileImageUrl = json.imageUrl
                 let keychain = KeychainSwift()
                 keychain.set(self.profileImageUrl!, forKey: "profileImageUrl")
                 keychain.set(json.email, forKey: "email")
                 keychain.set(json.firstName, forKey: "firstName")
                 keychain.set(json.lastName, forKey: "lastName")
-                keychain.set(json)
+                keychain.set(json.token, forKey: "Token")
                 let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
                 for id in self.roster_identification_numbers {
-                    if id == self.user_id {
+                    if id == Int(self.user_id!)! {
                         DispatchQueue.main.async {
                             self.present(idView, animated:true, completion: nil)
                         }
