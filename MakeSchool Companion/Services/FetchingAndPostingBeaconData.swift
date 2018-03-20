@@ -18,43 +18,30 @@ struct EmailandPasswordandToken {
 
 
 enum Route {
-    case users
-    case attendances
-    case signUp
+    case users(email: String, password: String)
+    case attendances(beaconID: String, event: String, eventTime: String)
     
     func path() -> String {
         switch self {
         case .attendances:
             return "/attendances"
         case .users:
-//            return "/active_sessions?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
             return "/registrations"
-        case .signUp:
-            return "/registrations"
+        
         }
         
     }
-    func postBody(users: ActiveUser? = nil, attendances: AttendancesModel?=nil) -> Data? {
+    func postBody() -> Data? {
         switch self {
-        case .attendances:
-            var jsonBody = Data()
-            do {
-                jsonBody = try! JSONEncoder().encode(attendances)
-            }
-            return jsonBody
-        case .users:
-            var jsonBody = Data()
-            do {
-                jsonBody = try! JSONEncoder().encode(users)
-            }
-            return jsonBody
+        case let .users(email, password):
+            let json = ["email": email, "password": password]
+            let data = try? JSONSerialization.data(withJSONObject: json, options: [])
+            return data
             
-        case .signUp:
-            var jsonBody = Data()
-            do {
-                jsonBody = try! JSONEncoder().encode(users)
-            }
-            return jsonBody
+        case let .attendances(beaconId, event, eventTime):
+            let json = ["beacon_id": beaconId, "event": event, "event_time": eventTime]
+            let data = try? JSONSerialization.data(withJSONObject: json, options: [])
+            return data
         }
     }
 }
@@ -69,38 +56,43 @@ class BeaconNetworkingLayer {
 
     let session = URLSession.shared
     var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, student: ActiveUser? = nil, attendances: AttendancesModel? = nil, completionHandler: @escaping(Data, Int) -> Void, requestRoute: DifferentHttpVerbs) {
+    func fetchBeaconData(route: Route, completionHandler: @escaping(Decodable?, Int) -> Void, requestRoute: DifferentHttpVerbs) {
         let keychain = KeychainSwift()
-        var fullUrlString = URL(string: baseUrl.appending(route.path()))
+        guard let fullUrlString = URL(string: baseUrl.appending(route.path())) else {return}
         
-        
-        print("This is the full url string \(fullUrlString!)")
-        var getRequest = URLRequest(url: fullUrlString!)
+        var getRequest = URLRequest(url: fullUrlString)
         getRequest.httpMethod = requestRoute.rawValue
         guard let userToken = keychain.get("Token") else {return}
         self.userTokenString = userToken
         
-        if getRequest.httpMethod != "GET" && student == nil {
+        if route.path() != "/registrations" {
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
-        getRequest.httpMethod = requestRoute.rawValue
-        if student != nil {
-            getRequest.httpBody = route.postBody(users: student)
-        }
-        
-        if attendances != nil {
-            getRequest.httpBody = route.postBody(attendances: attendances)
+        if requestRoute.rawValue == "POST" {
+            getRequest.httpBody = route.postBody()
         }
         
         
-        let task = session.dataTask(with: getRequest) { (data, response, error) in
+        
+        session.dataTask(with: getRequest) { (data, response, error) in
             let statusCode: Int = (response as! HTTPURLResponse).statusCode
-            print(response)
-            completionHandler(data!, statusCode)
-        }
-        task.resume()
+            switch route {
+            case .users:
+                guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
+                keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")
+                keychain.set(decodedUser.email, forKey: "email")
+                keychain.set(decodedUser.firstName, forKey: "firstName")
+                keychain.set(decodedUser.lastName, forKey: "lastName")
+                keychain.set(decodedUser.token, forKey: "Token")
+                keychain.set(decodedUser.id, forKey: "id")
+                completionHandler(decodedUser, statusCode)
+            case .attendances:
+                guard let decodedAttendance = try? JSONDecoder().decode(AttendancesModel.self, from: data!) else {return}
+                completionHandler(decodedAttendance, statusCode)
+            }
+        }.resume()
     }
 }
 

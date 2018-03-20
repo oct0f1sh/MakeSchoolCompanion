@@ -111,10 +111,10 @@ extension IDViewController: BeaconManagerDelegate {
     }
     
     func beaconManager(sender: BeaconManager, enteredBeaconRegion region: CLRegion) {
-        testLabel.text = "entered beacon region: \(region.identifier)"
+        testLabel.text = "📡✅"
     }
     
     func beaconManager(sender: BeaconManager, exitedBeaconRegion region: CLRegion) {
-        testLabel.text = "exited beacon region: \(region.identifier)"
+        testLabel.text = "📡❌"
     }
 }

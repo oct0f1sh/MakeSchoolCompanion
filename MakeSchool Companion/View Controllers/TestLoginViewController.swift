@@ -48,12 +48,8 @@ class TestLoginViewController: UIViewController {
         self.emailField.text = ""
         self.passwordField.text = ""
         var loggedInValue = self.defaults.bool(forKey: "LoggedIn")
-        var signUpValue = self.defaults.bool(forKey: "SignedUp")
         if loggedInValue == true {
             self.defaults.set(false, forKey: "LoggedIn")
-        }
-        else if signUpValue == true {
-            self.defaults.set(false, forKey: "SignedUp")
         }
     }
 
@@ -134,39 +130,24 @@ class TestLoginViewController: UIViewController {
         EmailandPasswordandToken.email = emailField.text!
         EmailandPasswordandToken.password = passwordField.text!
         let beaconLogic = BeaconNetworkingLayer()
-
-        let nameString = emailField.text?.components(separatedBy: ".")
-
-        let firstname = nameString![0].lowercased()
-
-        let tempLastName = nameString![1].lowercased()
-        var formattingLastName = tempLastName.components(separatedBy: "@")
-        let lastName = formattingLastName[0].lowercased()
-        
         
         guard let emailText = emailField.text,
             let passwordText = passwordField.text else {return}
-        let student = ActiveUser(email: emailText, password: passwordText)
-        beaconLogic.fetchBeaconData(route: .users, student: student, completionHandler: { (data, response) in
+       
+        
+        beaconLogic.fetchBeaconData(route: .users(email: emailText, password: passwordText), completionHandler: { (user, response) in
+            guard let studentIdentificationNumber = keychain.get("id") else {return}
             if response >= 200 && response < 300 {
-                guard let json = try? JSONDecoder().decode(MSUserModelObject.self, from: data) else{return}
-                self.user_id = json.id
-                self.profileImageUrl = json.imageUrl
-                let keychain = KeychainSwift()
-                keychain.set(self.profileImageUrl!, forKey: "profileImageUrl")
-                keychain.set(json.email, forKey: "email")
-                keychain.set(json.firstName, forKey: "firstName")
-                keychain.set(json.lastName, forKey: "lastName")
-                keychain.set(json.token, forKey: "Token")
-                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
+                let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
                 for id in self.roster_identification_numbers {
-                    if id == Int(self.user_id!)! {
+                    if id == Int(studentIdentificationNumber) {
+                        self.defaults.set(true, forKey: "LoggedIn")
                         DispatchQueue.main.async {
-                            self.present(idView, animated:true, completion: nil)
+                            self.present(idView, animated: true, completion: nil)
                         }
                     }
                 }
-
+                
             }
         }, requestRoute: .postReuqest)
     }
