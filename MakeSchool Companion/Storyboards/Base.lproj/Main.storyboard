@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -125,7 +126,7 @@
                                 </constraints>
                                 <state key="normal" image="logo"/>
                                 <connections>
-                                    <segue destination="WPp-61-15d" kind="unwind" unwindAction="unwindToLoginWithSegue:" id="g85-T8-FYi"/>
+                                    <segue destination="WPp-61-15d" kind="unwind" unwindAction="unwindToLoginFromIdViewControllerWithSegue:" id="JZK-8Q-MyV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STUDENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyn-jh-IdR">

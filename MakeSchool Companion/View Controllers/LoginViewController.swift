@@ -22,11 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var allStudents: [Student] = []
     
-    @IBAction func _unwindToLogin(segue: UIStoryboardSegue) {
-        self.textField.text = ""
-        self.underlineView.backgroundColor = Style.Colors.makeGray
-        self.errorLabel.isHidden = true
-    }
     
     override func viewDidLoad() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))

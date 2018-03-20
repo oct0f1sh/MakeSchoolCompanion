@@ -44,13 +44,20 @@ class TestLoginViewController: UIViewController {
         }
     }
 
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+    @IBAction func unwindToLoginFromIdViewController(segue: UIStoryboardSegue) {
         self.emailField.text = ""
         self.passwordField.text = ""
+        var loggedInValue = self.defaults.bool(forKey: "LoggedIn")
+        var signUpValue = self.defaults.bool(forKey: "SignedUp")
+        if loggedInValue == true {
+            self.defaults.set(false, forKey: "LoggedIn")
+        }
+        else if signUpValue == true {
+            self.defaults.set(false, forKey: "SignedUp")
+        }
     }
 
     @IBAction func emailDidBeginEditing(_ sender: Any) {
-
 
         animateUp()
         keyboardIsPresent = true
@@ -103,6 +110,8 @@ class TestLoginViewController: UIViewController {
             keyboardIsPresent = true
         }
     }
+    
+  
 
     func animateDown() {
         print("animate down")
