@@ -19,14 +19,17 @@ struct EmailandPasswordandToken {
 
 enum Route {
     case users(email: String, password: String)
+    case facebookLogin
     case attendances(beaconID: String, event: String, eventTime: String)
     
     func path() -> String {
         switch self {
+        case .facebookLogin:
+            return "https://www.makeschool.com/users/auth/facebook"
         case .attendances:
-            return "/attendances"
+            return "https://make-school-companion.herokuapp.com/attendances"
         case .users:
-            return "/registrations"
+            return "https://make-school-companion.herokuapp.com/registrations"
         
         }
         
@@ -42,7 +45,11 @@ enum Route {
             let json = ["beacon_id": beaconId, "event": event, "event_time": eventTime]
             let data = try? JSONSerialization.data(withJSONObject: json, options: [])
             return data
+            
+        case .facebookLogin:
+            return nil
         }
+        
     }
 }
 
@@ -55,17 +62,16 @@ class BeaconNetworkingLayer {
     var userTokenString: String!
 
     let session = URLSession.shared
-    var baseUrl = "https://make-school-companion.herokuapp.com"
-    func fetchBeaconData(route: Route, completionHandler: @escaping(Decodable?, Int) -> Void, requestRoute: DifferentHttpVerbs) {
+    func fetchBeaconData(route: Route, completionHandler: @escaping(Any?, Int) -> Void, requestRoute: DifferentHttpVerbs) {
         let keychain = KeychainSwift()
-        guard let fullUrlString = URL(string: baseUrl.appending(route.path())) else {return}
+        guard let fullUrlString = URL(string: route.path()) else {return}
         
         var getRequest = URLRequest(url: fullUrlString)
         getRequest.httpMethod = requestRoute.rawValue
         guard let userToken = keychain.get("Token") else {return}
         self.userTokenString = userToken
         
-        if route.path() != "/registrations" {
+        if route.path() != "https://make-school-companion.herokuapp.com/registrations" || route.path() != "https://www.makeschool.com/users/auth/facebook" {
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -91,6 +97,10 @@ class BeaconNetworkingLayer {
             case .attendances:
                 guard let decodedAttendance = try? JSONDecoder().decode(AttendancesModel.self, from: data!) else {return}
                 completionHandler(decodedAttendance, statusCode)
+                
+            case .facebookLogin:
+                print("The reason that we are able to do this is because this facebook login is a redirect therefore there is nothing to decode")
+                completionHandler(nil, statusCode)
             }
         }.resume()
     }

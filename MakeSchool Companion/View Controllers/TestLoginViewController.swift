@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import KeychainSwift
+import FacebookLogin
+import FacebookCore
 
 class TestLoginViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
@@ -172,6 +174,20 @@ class TestLoginViewController: UIViewController {
             print(error.localizedDescription)
         }) { (moyaError) in
             print(moyaError)
+        }
+    }
+    
+    func facebookLogin() {
+        let loginManager = LoginManager()
+        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { (loginResult) in
+            switch loginResult {
+            case .success( let grantedPermissions, let declinedPermissions, let token):
+                print("Logged in")
+            case .cancelled:
+                print("User canceled the login")
+            case .failed(let error as NSError?):
+                print("There was an error logging in: \(error?.localizedDescription)")
+            }
         }
     }
 
