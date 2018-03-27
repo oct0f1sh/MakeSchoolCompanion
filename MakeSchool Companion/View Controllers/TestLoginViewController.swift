@@ -154,7 +154,10 @@ class TestLoginViewController: UIViewController {
         }, requestRoute: .postReuqest)
     }
     
-  
+    @IBAction func facebookLoginButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "ToWebView", sender: nil)
+    }
+    
     override func viewDidLoad() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -176,31 +179,25 @@ class TestLoginViewController: UIViewController {
             print(moyaError)
         }
         
-        let myLoginButton = UIButton(type: .custom)
-        myLoginButton.backgroundColor = UIColor.darkGray
-        myLoginButton.frame = CGRect(x: 0, y: 0, width: 180, height: 140)
-        myLoginButton.center = view.center
-        myLoginButton.setTitle("My login button", for: .normal)
-        
-        // Handle clicks on the button
-        myLoginButton.addTarget(self, action: #selector(self.facebookLogin), for: .touchUpInside)
-        
-        // Add the button to the view
-        view.addSubview(myLoginButton)
     }
     
-   @objc func facebookLogin() {
-        let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { (loginResult) in
-            switch loginResult {
-            case .success( let grantedPermissions, let declinedPermissions, let token):
-                print("Logged in")
-            case .cancelled:
-                print("User canceled the login")
-            case .failed(let error as NSError?):
-                print("There was an error logging in: \(error?.localizedDescription)")
-            }
-        }
+    func facebookLogin() {
+//        let loginManager = LoginManager()
+//        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { (loginResult) in
+//            switch loginResult {
+//            case .success( let grantedPermissions, let declinedPermissions, let token):
+//                print("Logged in")
+//            case .cancelled:
+//                print("User canceled the login")
+//            case .failed(let error as NSError?):
+//                print("There was an error logging in: \(error?.localizedDescription)")
+//            }
+//        }
+    
+    let networkingLayer = BeaconNetworkingLayer()
+    networkingLayer.fetchBeaconData(route: .facebookLogin, completionHandler: { (user, response) in
+        print(user, response)
+    }, requestRoute: .postReuqest)
     }
 
     @objc func tap(gesture: UIGestureRecognizer) {

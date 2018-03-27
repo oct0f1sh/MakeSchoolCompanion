@@ -290,6 +290,14 @@
                                     <segue destination="sHs-r1-lJG" kind="unwind" unwindAction="unwindToRootWithSegue:" id="8hk-t4-Uyo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcy-oU-BuQ">
+                                <rect key="frame" x="51" y="383" width="228" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Facebook Login"/>
+                                <connections>
+                                    <action selector="facebookLoginButton:" destination="NDW-lb-0C6" eventType="touchUpInside" id="mk5-fL-VCo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -318,12 +326,42 @@
                         <outlet property="logoTopConstraint" destination="5m6-0t-vMx" id="4O8-ep-Vzh"/>
                         <outlet property="passwordField" destination="beW-61-Lhj" id="kDw-PM-Ouz"/>
                         <outlet property="stackBottomConstraint" destination="1LH-3U-CEP" id="01Q-hf-s0T"/>
+                        <segue destination="Zun-wG-JOX" kind="show" identifier="ToWebView" id="VO6-Bc-3dk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5BR-ct-KPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sHs-r1-lJG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="151"/>
+            <point key="canvasLocation" x="1973.5999999999999" y="150.73891625615764"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="lWW-sM-vNY">
+            <objects>
+                <viewController id="Zun-wG-JOX" customClass="WebViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zkd-1W-Uv8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-fv-De5">
+                                <rect key="frame" x="51" y="113" width="273" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8WE-lq-zgG"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="hMa-fv-De5" id="p4T-O9-AQQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8E-HV-Kh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2932" y="171.42857142857144"/>
         </scene>
         <!--Test Login View Controller-->
         <scene sceneID="69F-nS-xBp">

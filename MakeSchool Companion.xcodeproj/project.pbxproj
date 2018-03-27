@@ -14,6 +14,7 @@
 		1C333A8C2050CD2700B02AFE /* MSUserObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */; };
 		1C35A1AD206AED4A00AC0615 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C35A1AB206AED4900AC0615 /* FBSDKLoginKit.framework */; };
 		1C35A1AE206AED4A00AC0615 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C35A1AC206AED4A00AC0615 /* FBSDKCoreKit.framework */; };
+		1C35A1B0206AF4FC00AC0615 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */; };
 		1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D2203256190001F671 /* ActiveUsers.swift */; };
 		1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */; };
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
@@ -45,6 +46,7 @@
 		1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSUserObjectModel.swift; sourceTree = "<group>"; };
 		1C35A1AB206AED4900AC0615 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		1C35A1AC206AED4A00AC0615 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1C55D7D2203256190001F671 /* ActiveUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUsers.swift; sourceTree = "<group>"; };
 		1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServiceLayer.swift; sourceTree = "<group>"; };
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				AE48CD652024ECCD00DEB016 /* LoginViewController.swift */,
 				AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */,
 				AEFF94582033772D000C353F /* RootViewController.swift */,
+				1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */,
 				1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */,
 				AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */,
+				1C35A1B0206AF4FC00AC0615 /* WebViewController.swift in Sources */,
 				AEF69FD42009730E00D173B3 /* Student.swift in Sources */,
 				AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */,
 				AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */,
