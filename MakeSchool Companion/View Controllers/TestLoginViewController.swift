@@ -175,9 +175,21 @@ class TestLoginViewController: UIViewController {
         }) { (moyaError) in
             print(moyaError)
         }
+        
+        let myLoginButton = UIButton(type: .custom)
+        myLoginButton.backgroundColor = UIColor.darkGray
+        myLoginButton.frame = CGRect(x: 0, y: 0, width: 180, height: 140)
+        myLoginButton.center = view.center
+        myLoginButton.setTitle("My login button", for: .normal)
+        
+        // Handle clicks on the button
+        myLoginButton.addTarget(self, action: #selector(self.facebookLogin), for: .touchUpInside)
+        
+        // Add the button to the view
+        view.addSubview(myLoginButton)
     }
     
-    func facebookLogin() {
+   @objc func facebookLogin() {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { (loginResult) in
             switch loginResult {
