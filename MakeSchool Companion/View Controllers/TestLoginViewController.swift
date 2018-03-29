@@ -11,6 +11,7 @@ import UIKit
 import KeychainSwift
 import FacebookLogin
 import FacebookCore
+import FBSDKLoginKit
 
 class TestLoginViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
@@ -191,15 +192,19 @@ class TestLoginViewController: UIViewController {
         
         // Add the button to the view
         view.addSubview(myLoginButton)
+        
     }
     
     @objc func facebookLogin() {
         // This is the function for the default facebook login using their sdk
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { (loginResult) in
+        loginManager.logIn(readPermissions: [.publicProfile, .email, .userHometown], viewController: self) { (loginResult) in
             switch loginResult {
             case .success( let grantedPermissions, let declinedPermissions, let token):
-                print("This is the token \(token.authenticationToken)")
+                let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, email"])
+                graphRequest?.start(completionHandler: { (connection, result, error) in
+                    print(result)
+                })
                 UserDefaults.standard.set(true, forKey: "FacebookLogin")
             case .cancelled:
                 print("User canceled the login")
@@ -207,16 +212,26 @@ class TestLoginViewController: UIViewController {
                 print("There was an error logging in: \(error?.localizedDescription)")
             }
         }
-    
-    let networkingLayer = BeaconNetworkingLayer()
-    networkingLayer.fetchBeaconData(route: .facebookLogin, completionHandler: { (user, response) in
-        print(user, response)
-    }, requestRoute: .postReuqest)
+        
     }
 
     @objc func tap(gesture: UIGestureRecognizer) {
         animateDown()
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
+    }
+    
+    func fetchUserProfiles() {
+        let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, "])
+        
+        graphRequest.start { (connection, result, error) in
+            if error != nil {
+                print("Unresolved Error \(error?.localizedDescription)")
+            }
+            else {
+                print("Entire Fetched Result \(result)")
+                
+            }
+        }
     }
 }
