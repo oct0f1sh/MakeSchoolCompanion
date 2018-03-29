@@ -19,6 +19,8 @@ class WebViewController: UIViewController, WKUIDelegate {
        let url = "https://www.makeschool.com/users/auth/facebook"
         let request = URLRequest(url: URL(string: url)!)
         webView.load(request)
+        
+        
     }
     
     override func loadView() {

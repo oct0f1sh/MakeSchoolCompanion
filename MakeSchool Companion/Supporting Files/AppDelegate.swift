@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         var mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        if UserDefaults.standard.bool(forKey: "LoggedIn") == true {
+        if UserDefaults.standard.bool(forKey: "LoggedIn") == true || UserDefaults.standard.bool(forKey: "FacebookLogin") == true {
             let idViewController = mainStoryBoard.instantiateViewController(withIdentifier: "IDViewController")
             window?.rootViewController = idViewController
         }

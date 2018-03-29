@@ -68,10 +68,10 @@ class BeaconNetworkingLayer {
         
         var getRequest = URLRequest(url: fullUrlString)
         getRequest.httpMethod = requestRoute.rawValue
-        guard let userToken = keychain.get("Token") else {return}
+        let userToken = keychain.get("Token")
         self.userTokenString = userToken
         
-        if route.path() != "https://make-school-companion.herokuapp.com/registrations" || route.path() != "https://www.makeschool.com/users/auth/facebook" {
+        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" {
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")

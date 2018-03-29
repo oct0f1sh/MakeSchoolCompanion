@@ -69,6 +69,7 @@ class IDViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("This is the value for when the user logs in \(keychain.get("LoggedIn"))")
     }
     
     

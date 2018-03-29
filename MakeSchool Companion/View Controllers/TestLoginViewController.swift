@@ -179,20 +179,34 @@ class TestLoginViewController: UIViewController {
             print(moyaError)
         }
         
+        
+        let myLoginButton = UIButton(type: .custom)
+        myLoginButton.backgroundColor = UIColor.darkGray
+        myLoginButton.frame = CGRect(x: 0, y: 0, width: 180, height: 140)
+        myLoginButton.center = view.center
+        myLoginButton.setTitle("Facebook SDK Login", for: .normal)
+        
+        // Handle clicks on the button
+        myLoginButton.addTarget(self, action: #selector(self.facebookLogin), for: .touchUpInside)
+        
+        // Add the button to the view
+        view.addSubview(myLoginButton)
     }
     
-    func facebookLogin() {
-//        let loginManager = LoginManager()
-//        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { (loginResult) in
-//            switch loginResult {
-//            case .success( let grantedPermissions, let declinedPermissions, let token):
-//                print("Logged in")
-//            case .cancelled:
-//                print("User canceled the login")
-//            case .failed(let error as NSError?):
-//                print("There was an error logging in: \(error?.localizedDescription)")
-//            }
-//        }
+    @objc func facebookLogin() {
+        // This is the function for the default facebook login using their sdk
+        let loginManager = LoginManager()
+        loginManager.logIn(readPermissions: [.publicProfile], viewController: self) { (loginResult) in
+            switch loginResult {
+            case .success( let grantedPermissions, let declinedPermissions, let token):
+                print("This is the token \(token.authenticationToken)")
+                UserDefaults.standard.set(true, forKey: "FacebookLogin")
+            case .cancelled:
+                print("User canceled the login")
+            case .failed(let error as NSError?):
+                print("There was an error logging in: \(error?.localizedDescription)")
+            }
+        }
     
     let networkingLayer = BeaconNetworkingLayer()
     networkingLayer.fetchBeaconData(route: .facebookLogin, completionHandler: { (user, response) in
