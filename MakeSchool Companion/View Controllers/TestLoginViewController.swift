@@ -50,7 +50,7 @@ class TestLoginViewController: UIViewController {
     @IBAction func unwindToLoginFromIdViewController(segue: UIStoryboardSegue) {
         self.emailField.text = ""
         self.passwordField.text = ""
-        var loggedInValue = self.defaults.bool(forKey: "LoggedIn")
+        let loggedInValue = self.defaults.bool(forKey: "LoggedIn")
         if loggedInValue == true {
             self.defaults.set(false, forKey: "LoggedIn")
         }
@@ -200,16 +200,17 @@ class TestLoginViewController: UIViewController {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .email, .userHometown], viewController: self) { (loginResult) in
             switch loginResult {
-            case .success( let grantedPermissions, let declinedPermissions, let token):
-                let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, email"])
-                graphRequest?.start(completionHandler: { (connection, result, error) in
-                    print(result)
+            case .success( _,  _,  _):
+                guard let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, email"]) else {return}
+                graphRequest.start(completionHandler: { (connection, result, error) in
+                    guard let resultDictionary = result as? NSDictionary else {return}
+                    print(resultDictionary.value(forKey: "name") ?? "No Name Available")
                 })
                 UserDefaults.standard.set(true, forKey: "FacebookLogin")
             case .cancelled:
                 print("User canceled the login")
             case .failed(let error as NSError?):
-                print("There was an error logging in: \(error?.localizedDescription)")
+                print("There was an error logging in: \(error?.localizedDescription ?? "Error is present")")
             }
         }
         
@@ -221,17 +222,5 @@ class TestLoginViewController: UIViewController {
         passwordField.resignFirstResponder()
     }
     
-    func fetchUserProfiles() {
-        let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, name, "])
-        
-        graphRequest.start { (connection, result, error) in
-            if error != nil {
-                print("Unresolved Error \(error?.localizedDescription)")
-            }
-            else {
-                print("Entire Fetched Result \(result)")
-                
-            }
-        }
-    }
+
 }
