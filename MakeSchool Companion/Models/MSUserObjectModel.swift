@@ -44,14 +44,14 @@ extension MSUserModelObject: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: FirstLevelKeys.self)
-        let id = try container.decodeIfPresent(String.self, forKey: .id)
-        let email = try container.decode(String.self, forKey: .email)
-        let token = try container.decode(String.self, forKey: .token)
-        let createdAt = try container.decode(String.self, forKey: .createdAt)
-        let updatedAt = try container.decode(String.self, forKey: .updatedAt)
-        let imageUrl = try container.decode(String.self, forKey: .imageUrl)
-        let firstName = try container.decode(String.self, forKey: .firstName)
-        let lastName = try container.decode(String.self, forKey: .lastName)
-        self.init(id: id!, email: email, token: token, createdAt: createdAt, updatedAt: updatedAt, imageUrl: imageUrl, firstName: firstName, lastName: lastName)
+        let id = try container.decodeIfPresent(String.self, forKey: .id) ?? "No Id given"
+        let email = try container.decodeIfPresent(String.self, forKey: .email) ?? "No email given"
+        let token = try container.decodeIfPresent(String.self, forKey: .token) ?? "No Token given"
+        let createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt) ?? "No created at given"
+        let updatedAt = try container.decodeIfPresent(String.self, forKey: .updatedAt) ?? "No updated at given"
+        let imageUrl = try container.decodeIfPresent(String.self, forKey: .imageUrl) ?? "No image url given"
+        let firstName = try container.decodeIfPresent(String.self, forKey: .firstName) ?? "No first name given"
+        let lastName = try container.decodeIfPresent(String.self, forKey: .lastName) ?? "No last name given"
+        self.init(id: id, email: email, token: token, createdAt: createdAt, updatedAt: updatedAt, imageUrl: imageUrl, firstName: firstName, lastName: lastName)
     }
 }

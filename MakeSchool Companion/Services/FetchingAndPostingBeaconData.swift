@@ -21,6 +21,7 @@ enum Route {
     case users(email: String, password: String)
     case facebookLogin
     case attendances(beaconID: String, event: String, eventTime: String)
+    case facebookCallback
     
     func path() -> String {
         switch self {
@@ -30,7 +31,8 @@ enum Route {
             return "https://make-school-companion.herokuapp.com/attendances"
         case .users:
             return "https://make-school-companion.herokuapp.com/registrations"
-        
+        case .facebookCallback:
+            return "https://www.makeschool.com/login.json"
         }
         
     }
@@ -48,8 +50,10 @@ enum Route {
             
         case .facebookLogin:
             return nil
+        case .facebookCallback:
+            return Data()
+            
         }
-        
     }
 }
 
@@ -60,7 +64,7 @@ enum DifferentHttpVerbs: String {
 
 class BeaconNetworkingLayer {
     var userTokenString: String!
-
+    
     let session = URLSession.shared
     func fetchBeaconData(route: Route, completionHandler: @escaping(Any?, Int) -> Void, requestRoute: DifferentHttpVerbs) {
         let keychain = KeychainSwift()
@@ -74,7 +78,7 @@ class BeaconNetworkingLayer {
         if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" {
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
-        getRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        getRequest.addValue("text/html; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         if requestRoute.rawValue == "POST" {
             getRequest.httpBody = route.postBody()
@@ -93,6 +97,7 @@ class BeaconNetworkingLayer {
                 keychain.set(decodedUser.lastName, forKey: "lastName")
                 keychain.set(decodedUser.token, forKey: "Token")
                 keychain.set(decodedUser.id, forKey: "id")
+                
                 completionHandler(decodedUser, statusCode)
             case .attendances:
                 guard let decodedAttendance = try? JSONDecoder().decode(AttendancesModel.self, from: data!) else {return}
@@ -101,8 +106,17 @@ class BeaconNetworkingLayer {
             case .facebookLogin:
                 print("The reason that we are able to do this is because this facebook login is a redirect therefore there is nothing to decode")
                 completionHandler(nil, statusCode)
+            case .facebookCallback:
+                guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
+                keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")
+                keychain.set(decodedUser.email, forKey: "email")
+                keychain.set(decodedUser.firstName, forKey: "firstName")
+                keychain.set(decodedUser.lastName, forKey: "lastName")
+                keychain.set(decodedUser.token, forKey: "Token")
+                keychain.set(decodedUser.id, forKey: "id")
+                completionHandler(decodedUser, statusCode)
             }
-        }.resume()
+            }.resume()
     }
 }
 

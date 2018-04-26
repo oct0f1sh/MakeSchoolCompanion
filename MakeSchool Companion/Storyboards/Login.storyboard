@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fW7-Kh-KsY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fW7-Kh-KsY">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Mark Simonson - Proxima Nova Semibold.otf">
             <string>ProximaNova-Semibold</string>
-        </array>
-        <array key="ProximaNovaRegular.otf">
-            <string>ProximaNova-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -162,22 +159,22 @@
                                 <rect key="frame" x="0.0" y="518" width="375" height="294"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="yoD-mb-KGb">
-                                <rect key="frame" x="45" y="460" width="285" height="243"/>
+                                <rect key="frame" x="45" y="464" width="285" height="239"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="vix-5m-sXx">
-                                        <rect key="frame" x="0.0" y="0.0" width="285" height="138"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="134"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NvB-w6-BZz">
-                                                <rect key="frame" x="0.0" y="0.0" width="285" height="58"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTa-SR-f7B">
-                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="21"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="matthewharrilal@gmail.com" placeholder="@students.makeschool.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhE-dT-gFI">
-                                                        <rect key="frame" x="0.0" y="27" width="285" height="25"/>
+                                                        <rect key="frame" x="0.0" y="26" width="285" height="24"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -186,7 +183,7 @@
                                                         </connections>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Sq-XX-iHH">
-                                                        <rect key="frame" x="0.0" y="57" width="285" height="1"/>
+                                                        <rect key="frame" x="0.0" y="55" width="285" height="1"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaW-MS-Wtb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="1"/>
@@ -201,16 +198,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="peF-iE-NuS">
-                                                <rect key="frame" x="0.0" y="80" width="285" height="58"/>
+                                                <rect key="frame" x="0.0" y="78" width="285" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJq-yC-Uep">
-                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="21"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Latchman1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beW-61-Lhj">
-                                                        <rect key="frame" x="0.0" y="27" width="285" height="25"/>
+                                                        <rect key="frame" x="0.0" y="26" width="285" height="24"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -219,7 +216,7 @@
                                                         </connections>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GBz-Mg-dnC">
-                                                        <rect key="frame" x="0.0" y="57" width="285" height="1"/>
+                                                        <rect key="frame" x="0.0" y="55" width="285" height="1"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SS-5h-6F8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="1"/>
@@ -236,7 +233,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuA-EV-Ywt" customClass="PMSuperButton" customModule="PMSuperButton">
-                                        <rect key="frame" x="20" y="188" width="245" height="55"/>
+                                        <rect key="frame" x="20" y="184" width="245" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="OFe-R2-TfL"/>
                                             <constraint firstAttribute="width" constant="245" id="jJE-B6-XxW"/>
@@ -296,6 +293,7 @@
                                 <state key="normal" title="Facebook Login"/>
                                 <connections>
                                     <action selector="facebookLoginButton:" destination="NDW-lb-0C6" eventType="touchUpInside" id="mk5-fL-VCo"/>
+                                    <segue destination="Zun-wG-JOX" kind="show" id="3DR-RL-MP8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -326,18 +324,18 @@
                         <outlet property="logoTopConstraint" destination="5m6-0t-vMx" id="4O8-ep-Vzh"/>
                         <outlet property="passwordField" destination="beW-61-Lhj" id="kDw-PM-Ouz"/>
                         <outlet property="stackBottomConstraint" destination="1LH-3U-CEP" id="01Q-hf-s0T"/>
-                        <segue destination="Zun-wG-JOX" kind="show" identifier="ToWebView" id="VO6-Bc-3dk"/>
+                        <segue destination="Zun-wG-JOX" kind="show" identifier="WebViewController" id="1Rf-TR-pbu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5BR-ct-KPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sHs-r1-lJG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1973.5999999999999" y="150.73891625615764"/>
+            <point key="canvasLocation" x="2916" y="150.73891625615764"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="lWW-sM-vNY">
             <objects>
-                <viewController id="Zun-wG-JOX" customClass="WebViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" id="Zun-wG-JOX" customClass="WebViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zkd-1W-Uv8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8E-HV-Kh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2932" y="171.42857142857144"/>
+            <point key="canvasLocation" x="3874.4000000000001" y="171.42857142857144"/>
         </scene>
         <!--Test Login View Controller-->
         <scene sceneID="69F-nS-xBp">
@@ -378,22 +376,22 @@
                                 <rect key="frame" x="0.0" y="518" width="375" height="294"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="IQp-z2-vFp">
-                                <rect key="frame" x="45" y="460" width="285" height="243"/>
+                                <rect key="frame" x="45" y="464" width="285" height="239"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="vPS-lk-M0f">
-                                        <rect key="frame" x="0.0" y="0.0" width="285" height="138"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="134"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8hX-g7-0PO">
-                                                <rect key="frame" x="0.0" y="0.0" width="285" height="58"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cK6-ei-XmH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="21"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avery.durrant@students.makeschool.com" placeholder="@students.makeschool.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-N5-wIC">
-                                                        <rect key="frame" x="0.0" y="27" width="285" height="25"/>
+                                                        <rect key="frame" x="0.0" y="26" width="285" height="24"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -402,7 +400,7 @@
                                                         </connections>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ab6-4Y-bvy">
-                                                        <rect key="frame" x="0.0" y="57" width="285" height="1"/>
+                                                        <rect key="frame" x="0.0" y="55" width="285" height="1"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5X-Qy-vdx">
                                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="1"/>
@@ -417,16 +415,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-aQ-MZc">
-                                                <rect key="frame" x="0.0" y="80" width="285" height="58"/>
+                                                <rect key="frame" x="0.0" y="78" width="285" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra7-ed-9gF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="285" height="21"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="averydurrant" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BW4-Nv-Hsh">
-                                                        <rect key="frame" x="0.0" y="27" width="285" height="25"/>
+                                                        <rect key="frame" x="0.0" y="26" width="285" height="24"/>
                                                         <color key="textColor" red="0.99999064209999999" green="0.9999936223" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -435,7 +433,7 @@
                                                         </connections>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4lY-Vg-utB">
-                                                        <rect key="frame" x="0.0" y="57" width="285" height="1"/>
+                                                        <rect key="frame" x="0.0" y="55" width="285" height="1"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhR-47-VLc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="1"/>
@@ -452,7 +450,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij7-sX-SrK" customClass="PMSuperButton" customModule="PMSuperButton">
-                                        <rect key="frame" x="20" y="188" width="245" height="55"/>
+                                        <rect key="frame" x="20" y="184" width="245" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="hN9-lr-yOD"/>
                                             <constraint firstAttribute="width" constant="245" id="n2C-uw-oep"/>
@@ -539,7 +537,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOg-vJ-EQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="OBs-Jl-5qk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="890"/>
+            <point key="canvasLocation" x="2916" y="889.65517241379314"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="QWI-JF-m2v">
@@ -647,10 +645,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mmg-sH-PZl"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lj0-6w-iAq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Buc-qz-34O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="565"/>
+            <point key="canvasLocation" x="1228" y="564.53201970443354"/>
         </scene>
     </scenes>
     <resources>
@@ -659,4 +658,7 @@
         <image name="logonamewhite" width="450" height="124"/>
         <image name="san francisco" width="1116" height="835"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1Rf-TR-pbu"/>
+    </inferredMetricsTieBreakers>
 </document>

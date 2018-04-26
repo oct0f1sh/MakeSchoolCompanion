@@ -72,6 +72,28 @@ class TestLoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         observeKeyboard()
+        let beaconLogic = BeaconNetworkingLayer()
+//        
+//        guard let emailText = emailField.text,
+//            let passwordText = passwordField.text else {return}
+//        
+//        
+//        beaconLogic.fetchBeaconData(route: .users(email: emailText, password: passwordText), completionHandler: { (user, response) in
+//            guard let studentIdentificationNumber = keychain.get("id") else {return}
+//            if response >= 200 && response < 300 {
+//                let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
+//                for id in self.roster_identification_numbers {
+//                    if id == Int(studentIdentificationNumber) {
+//                        self.defaults.set(true, forKey: "LoggedIn")
+//                        DispatchQueue.main.async {
+//                            self.present(idView, animated: true, completion: nil)
+//                        }
+//                    }
+//                }
+//                
+//            }
+//        }, requestRoute: .postReuqest)
+        print("User has left the web vieww")
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -156,7 +178,8 @@ class TestLoginViewController: UIViewController {
     }
     
     @IBAction func facebookLoginButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "ToWebView", sender: nil)
+        print("User has been directed to facebook login")
+        self.navigationController?.performSegue(withIdentifier: "WebViewController", sender: self)
     }
     
     override func viewDidLoad() {
@@ -181,17 +204,17 @@ class TestLoginViewController: UIViewController {
         }
         
         
-        let myLoginButton = UIButton(type: .custom)
-        myLoginButton.backgroundColor = UIColor.darkGray
-        myLoginButton.frame = CGRect(x: 0, y: 0, width: 180, height: 140)
-        myLoginButton.center = view.center
-        myLoginButton.setTitle("Facebook SDK Login", for: .normal)
-        
-        // Handle clicks on the button
-        myLoginButton.addTarget(self, action: #selector(self.facebookLogin), for: .touchUpInside)
-        
-        // Add the button to the view
-        view.addSubview(myLoginButton)
+//        let myLoginButton = UIButton(type: .custom)
+//        myLoginButton.backgroundColor = UIColor.darkGray
+//        myLoginButton.frame = CGRect(x: 0, y: 0, width: 180, height: 140)
+//        myLoginButton.center = view.center
+//        myLoginButton.setTitle("Facebook SDK Login", for: .normal)
+//        
+//        // Handle clicks on the button
+//        myLoginButton.addTarget(self, action: #selector(self.facebookLogin), for: .touchUpInside)
+//        
+//        // Add the button to the view
+//        view.addSubview(myLoginButton)
         
     }
     
