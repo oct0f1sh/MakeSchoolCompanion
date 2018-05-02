@@ -37,7 +37,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
                 session.dataTask(with: getRequest, completionHandler: { (data, response, error) in
 
                     print(data?.base64EncodedString(), response)
-                    guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
+                    guard let decodedUser = try? JSONDecoder().decode(FacebookUser.self, from: data!) else {return}
                     print("This is the decoded user \(decodedUser)")
                 }).resume()
                 

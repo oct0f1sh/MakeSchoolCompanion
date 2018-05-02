@@ -34,7 +34,12 @@ extension FacebookUser: Decodable {
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: FacebookUser.self)
-        let firstName = try container.decode
+        let container = try decoder.container(keyedBy: FirstLevelKeys.self)
+        let firstName = try container.decode(String.self, forKey: .firstName)
+        let lastName = try container.decode(String.self, forKey: .lastName)
+        let email = try container.decode(String.self, forKey: .email)
+        let role = try container.decode(String.self, forKey: .role)
+        let profileImageUrl = try container.decode(String.self, forKey: .profileImageUrl)
+        self.init(firstName: firstName, lastName: lastName, email: email, role: role, profileImageUrl: profileImageUrl)
     }
 }
