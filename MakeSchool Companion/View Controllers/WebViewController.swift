@@ -18,7 +18,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         
         backButton()
     
-        var timer = Timer.scheduledTimer(withTimeInterval: 20.0, repeats: false) { (timer) in
+        var timer = Timer.scheduledTimer(withTimeInterval: 27.0, repeats: false) { (timer) in
              print(timer.timeInterval)
             if timer.timeInterval == 0 {
                

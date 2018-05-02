@@ -16,6 +16,7 @@
 		1C35A1AE206AED4A00AC0615 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C35A1AC206AED4A00AC0615 /* FBSDKCoreKit.framework */; };
 		1C35A1B0206AF4FC00AC0615 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */; };
 		1C4AA5E5209A440B00382C49 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4AA5E4209A440A00382C49 /* icon-back.png */; };
+		1C4AA5E7209A5BAA00382C49 /* FacebookUserObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4AA5E6209A5BAA00382C49 /* FacebookUserObjectModel.swift */; };
 		1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D2203256190001F671 /* ActiveUsers.swift */; };
 		1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */; };
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
@@ -50,6 +51,7 @@
 		1C35A1AC206AED4A00AC0615 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1C4AA5E4209A440A00382C49 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
+		1C4AA5E6209A5BAA00382C49 /* FacebookUserObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUserObjectModel.swift; sourceTree = "<group>"; };
 		1C55D7D2203256190001F671 /* ActiveUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUsers.swift; sourceTree = "<group>"; };
 		1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServiceLayer.swift; sourceTree = "<group>"; };
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				1C65B0CE202F449A007AADDE /* User.swift */,
 				1C55D7D2203256190001F671 /* ActiveUsers.swift */,
 				1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */,
+				1C4AA5E6209A5BAA00382C49 /* FacebookUserObjectModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			files = (
 				1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */,
 				1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */,
+				1C4AA5E7209A5BAA00382C49 /* FacebookUserObjectModel.swift in Sources */,
 				AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */,
 				1C35A1B0206AF4FC00AC0615 /* WebViewController.swift in Sources */,
 				AEF69FD42009730E00D173B3 /* Student.swift in Sources */,
