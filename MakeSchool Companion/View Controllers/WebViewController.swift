@@ -18,7 +18,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         
         backButton()
     
-        var timer = Timer.scheduledTimer(withTimeInterval: 27.0, repeats: false) { (timer) in
+        var timer = Timer.scheduledTimer(withTimeInterval: 40.0, repeats: false) { (timer) in
              print(timer.timeInterval)
             if timer.timeInterval == 0 {
                
@@ -38,6 +38,15 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
                     print(data?.base64EncodedString(), response)
                     guard let decodedUser = try? JSONDecoder().decode(FacebookUser.self, from: data!) else {return}
+                    keychain.set(decodedUser.email, forKey: "email")
+                    keychain.set(decodedUser.firstName, forKey: "firstName")
+                    keychain.set(decodedUser.lastName, forKey: "lastName")
+                    keychain.set(decodedUser.role, forKey: "role")
+                    keychain.set(decodedUser.profileImageUrl, forKey: "profileImageUrl")
+                    let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
+                    DispatchQueue.main.async {
+                        self.present(idView, animated: true, completion: nil)
+                    }
                     print("This is the decoded user \(decodedUser)")
                 }).resume()
                 
