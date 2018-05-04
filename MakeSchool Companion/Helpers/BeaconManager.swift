@@ -110,6 +110,6 @@ enum BeaconStatus {
 
 
 func printTimestamp() -> String {
-    let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .long)
+    let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
     return timestamp
 }

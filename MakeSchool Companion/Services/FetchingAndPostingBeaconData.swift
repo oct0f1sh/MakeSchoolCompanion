@@ -31,7 +31,7 @@ enum Route {
         case .facebookLogin:
             return "https://www.makeschool.com/users/auth/facebook"
         case .attendances:
-            return "https://make-school-companion.herokuapp.com/attendances?event=\(EmailandPasswordandToken.event)?event_time=\(EmailandPasswordandToken.eventTime)?event_time=\(EmailandPasswordandToken.eventTime)"
+            return "https://make-school-companion.herokuapp.com/attendances?event=\(EmailandPasswordandToken.event)&event_time=\(EmailandPasswordandToken.eventTime)&beacon_id=\(EmailandPasswordandToken.beaconId)"
         case .users:
             return "https://make-school-companion.herokuapp.com/registrations"
         case .facebookCallback:
@@ -72,9 +72,9 @@ class BeaconNetworkingLayer {
     let session = URLSession.shared
     func fetchBeaconData(route: Route, completionHandler: @escaping(Any?, Int) -> Void, requestRoute: DifferentHttpVerbs) {
         let keychain = KeychainSwift()
-        guard let fullUrlString = URL(string: route.path()) else {return}
+        let fullUrlString = URL(string: route.path().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) 
         
-        var getRequest = URLRequest(url: fullUrlString)
+        var getRequest = URLRequest(url: fullUrlString!)
         getRequest.httpMethod = requestRoute.rawValue
         let userToken = keychain.get("Token")
         self.userTokenString = userToken
