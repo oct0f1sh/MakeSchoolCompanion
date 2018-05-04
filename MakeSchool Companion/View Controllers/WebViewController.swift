@@ -48,9 +48,12 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
                         keychain.set(cookie.domain, forKey: "cookieDomain")
                         keychain.set(cookie.name, forKey: "cookieName")
                         HTTPCookieStorage.shared.setCookie(cookie)
-                        showFacebookUserProfile()
+                        
                     }
                 }
+                showFacebookUserProfile()
+                let beaconNetworkingLayer = BeaconNetworkingLayer()
+                beaconNetworkingLayer.
             }
             print("This is the value for the make school cookie \(storage)")
         }
