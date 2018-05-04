@@ -13,6 +13,11 @@ import WebKit
 class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     
+    var email = String()
+    var firstName = String()
+    var lastName = String()
+    var imageString = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,9 +56,21 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
                         
                     }
                 }
-                showFacebookUserProfile()
-                let beaconNetworkingLayer = BeaconNetworkingLayer()
-                beaconNetworkingLayer.
+                showFacebookUserProfile(controller: self, completionHandler: { (response) in
+                    let beaconNetworkingLayer = BeaconNetworkingLayer()
+                    beaconNetworkingLayer.fetchBeaconData(route: .facebookCallback(email: StaticProperties.email, firstName: StaticProperties.firstName, lastName: StaticProperties.lastName, imageUrl: StaticProperties.imageUrl), completionHandler: { (user, response) in
+                        print("This is the response of the callback we made from facebook \(response)")
+                
+                        let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
+                        UserDefaults.standard.set(true, forKey: "LoggedIn")
+                        DispatchQueue.main.async {
+                            self.present(idView, animated: true, completion: nil)
+                        }
+                    }, requestRoute: .postReuqest)
+                })
+    
+              
+             
             }
             print("This is the value for the make school cookie \(storage)")
         }

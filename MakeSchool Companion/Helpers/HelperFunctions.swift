@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+struct StaticProperties {
+    static var email = ""
+    static var firstName = ""
+    static var lastName = ""
+    static var role = ""
+    static var imageUrl = ""
+}
 
 func loginAlert(controller: UIViewController) {
     let alert = UIAlertController(title: "Log In Error", message: "Please Try Logging In Again At A Later Time", preferredStyle: .alert)
@@ -24,7 +31,7 @@ func signUpAlert(controller: UIViewController) {
     controller.present(alert, animated: true, completion: nil)
 }
 
-func showFacebookUserProfile() {
+func showFacebookUserProfile(controller: UIViewController, completionHandler: @escaping(Int) -> Void) {
     let url = URL(string: "https://www.makeschool.com/login.json")
     
     let session = URLSession.shared
@@ -38,18 +45,21 @@ func showFacebookUserProfile() {
     getRequest.httpShouldHandleCookies = true
     
     session.dataTask(with: getRequest, completionHandler: { (data, response, error) in
-        
+        let statusCode: Int = (response as! HTTPURLResponse).statusCode
         print(data?.base64EncodedString(), response)
         guard let decodedUser = try? JSONDecoder().decode(FacebookUser.self, from: data!) else {return}
-        keychain.set(decodedUser.email, forKey: "email")
-        keychain.set(decodedUser.firstName, forKey: "firstName")
-        keychain.set(decodedUser.lastName, forKey: "lastName")
-        keychain.set(decodedUser.role, forKey: "role")
-        keychain.set(decodedUser.profileImageUrl, forKey: "profileImageUrl")
-        let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
-        DispatchQueue.main.async {
-            self.present(idView, animated: true, completion: nil)
-        }
+//        keychain.set(decodedUser.email, forKey: "email")
+//        keychain.set(decodedUser.firstName, forKey: "firstName")
+//        keychain.set(decodedUser.lastName, forKey: "lastName")
+//        keychain.set(decodedUser.role, forKey: "role")
+//        keychain.set(decodedUser.profileImageUrl, forKey: "profileImageUrl")
+          StaticProperties.email = decodedUser.email
+          StaticProperties.firstName = decodedUser.firstName
+          StaticProperties.lastName = decodedUser.lastName
+          StaticProperties.imageUrl = decodedUser.profileImageUrl
+          StaticProperties.role = decodedUser.role
+        completionHandler(statusCode)
+       
         print("This is the decoded user \(decodedUser)")
     }).resume()
 }

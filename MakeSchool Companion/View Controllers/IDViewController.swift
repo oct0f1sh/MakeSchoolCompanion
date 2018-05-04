@@ -33,11 +33,19 @@ class IDViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+     
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         AppDelegate.shared.beaconManager.delegate = self
         var beacon = AppDelegate.shared.beaconManager
         
         let keychain = KeychainSwift()
-        let profileImageURL = URL(string: keychain.get("profileImageUrl")!)
+        let profileString = keychain.get("profileImageUrl")! ?? "No image given"
+        let profileImageURL = URL(string: profileString)
         let data = try? Data(contentsOf: profileImageURL!)
         profileImageView.image = UIImage(data: data!)
         self.profileImageView.layer.cornerRadius = 10
@@ -48,7 +56,7 @@ class IDViewController: UIViewController {
         firstnameLabel.text = keychain.get("firstName")
         lastnameLabel.text = keychain.get("lastName")
         
-
+        
         switch AppDelegate.shared.beaconManager.status {
         case .enteredBeaconRange:
             testLabel.text = "entered beacon region: \(beacon.beaconRegion.identifier)"
@@ -63,13 +71,6 @@ class IDViewController: UIViewController {
         case .started:
             testLabel.text = "started beacon manager"
         }
-        
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("This is the value for when the user logs in \(keychain.get("LoggedIn"))")
     }
     
     

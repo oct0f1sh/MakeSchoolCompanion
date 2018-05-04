@@ -14,6 +14,9 @@ struct EmailandPasswordandToken {
     static var email = ""
     static var password = ""
     static var token = ""
+    static var event = ""
+    static var eventTime = ""
+    static var beaconId = ""
 }
 
 
@@ -21,18 +24,18 @@ enum Route {
     case users(email: String, password: String)
     case facebookLogin
     case attendances(beaconID: String, event: String, eventTime: String)
-    case facebookCallback
+    case facebookCallback(email: String, firstName: String, lastName: String, imageUrl: String)
     
     func path() -> String {
         switch self {
         case .facebookLogin:
             return "https://www.makeschool.com/users/auth/facebook"
         case .attendances:
-            return "https://make-school-companion.herokuapp.com/attendances"
+            return "https://make-school-companion.herokuapp.com/attendances?event=\(EmailandPasswordandToken.event)?event_time=\(EmailandPasswordandToken.eventTime)?event_time=\(EmailandPasswordandToken.eventTime)"
         case .users:
             return "https://make-school-companion.herokuapp.com/registrations"
         case .facebookCallback:
-            return "https://www.makeschool.com/login.json"
+            return "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)"
         }
         
     }
@@ -50,9 +53,10 @@ enum Route {
             
         case .facebookLogin:
             return nil
-        case .facebookCallback:
+        case let .facebookCallback(email, firstName, lastName, imageUrl):
+//            let json = ["email": email, "first_name": firstName, "last_name": lastName, "image_url": imageUrl]
+//            let data = try? JSONSerialization.data(withJSONObject: json, options: [])
             return Data()
-            
         }
     }
 }
@@ -75,14 +79,14 @@ class BeaconNetworkingLayer {
         let userToken = keychain.get("Token")
         self.userTokenString = userToken
         
-        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" {
+        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)" {
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("text/html; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
-        if requestRoute.rawValue == "POST" {
-            getRequest.httpBody = route.postBody()
-        }
+//        if requestRoute.rawValue == "POST" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)" {
+//            getRequest.httpBody = route.postBody()
+//        }
         
         
         
