@@ -22,14 +22,11 @@ struct EmailandPasswordandToken {
 
 enum Route {
     case users(email: String, password: String)
-    case facebookLogin
     case attendances(beaconID: String, event: String, eventTime: String)
     case facebookCallback(email: String, firstName: String, lastName: String, imageUrl: String)
     
     func path() -> String {
         switch self {
-        case .facebookLogin:
-            return "https://www.makeschool.com/users/auth/facebook"
         case .attendances:
             return "https://make-school-companion.herokuapp.com/attendances?event=\(EmailandPasswordandToken.event)&event_time=\(EmailandPasswordandToken.eventTime)&beacon_id=\(EmailandPasswordandToken.beaconId)"
         case .users:
@@ -51,8 +48,6 @@ enum Route {
             let data = try? JSONSerialization.data(withJSONObject: json, options: [])
             return data
             
-        case .facebookLogin:
-            return nil
         case let .facebookCallback(email, firstName, lastName, imageUrl):
 //            let json = ["email": email, "first_name": firstName, "last_name": lastName, "image_url": imageUrl]
 //            let data = try? JSONSerialization.data(withJSONObject: json, options: [])
@@ -72,7 +67,7 @@ class BeaconNetworkingLayer {
     let session = URLSession.shared
     func fetchBeaconData(route: Route, completionHandler: @escaping(Any?, Int) -> Void, requestRoute: DifferentHttpVerbs) {
         let keychain = KeychainSwift()
-        let fullUrlString = URL(string: route.path().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) 
+        let fullUrlString = URL(string: route.path().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         
         var getRequest = URLRequest(url: fullUrlString!)
         getRequest.httpMethod = requestRoute.rawValue
@@ -107,9 +102,6 @@ class BeaconNetworkingLayer {
                 guard let decodedAttendance = try? JSONDecoder().decode(AttendancesModel.self, from: data!) else {return}
                 completionHandler(decodedAttendance, statusCode)
                 
-            case .facebookLogin:
-                print("The reason that we are able to do this is because this facebook login is a redirect therefore there is nothing to decode")
-                completionHandler(nil, statusCode)
             case .facebookCallback:
                 guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
                 keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")

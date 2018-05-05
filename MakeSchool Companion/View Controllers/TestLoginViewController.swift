@@ -202,43 +202,8 @@ class TestLoginViewController: UIViewController {
         }) { (moyaError) in
             print(moyaError)
         }
-        
-        
-//        let myLoginButton = UIButton(type: .custom)
-//        myLoginButton.backgroundColor = UIColor.darkGray
-//        myLoginButton.frame = CGRect(x: 0, y: 0, width: 180, height: 140)
-//        myLoginButton.center = view.center
-//        myLoginButton.setTitle("Facebook SDK Login", for: .normal)
-//        
-//        // Handle clicks on the button
-//        myLoginButton.addTarget(self, action: #selector(self.facebookLogin), for: .touchUpInside)
-//        
-//        // Add the button to the view
-//        view.addSubview(myLoginButton)
-        
     }
     
-    @objc func facebookLogin() {
-        // This is the function for the default facebook login using their sdk
-        let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.publicProfile, .email, .userHometown], viewController: self) { (loginResult) in
-            switch loginResult {
-            case .success( _,  _,  _):
-                guard let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, email"]) else {return}
-                graphRequest.start(completionHandler: { (connection, result, error) in
-                    guard let resultDictionary = result as? NSDictionary else {return}
-                    print(resultDictionary.value(forKey: "name") ?? "No Name Available")
-                })
-                UserDefaults.standard.set(true, forKey: "FacebookLogin")
-            case .cancelled:
-                print("User canceled the login")
-            case .failed(let error as NSError?):
-                print("There was an error logging in: \(error?.localizedDescription ?? "Error is present")")
-            }
-        }
-        
-    }
-
     @objc func tap(gesture: UIGestureRecognizer) {
         animateDown()
         emailField.resignFirstResponder()
