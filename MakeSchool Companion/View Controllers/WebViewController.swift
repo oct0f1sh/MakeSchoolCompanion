@@ -13,14 +13,6 @@ import WebKit
 class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     
-    var email = String()
-    var firstName = String()
-    var lastName = String()
-    var imageString = String()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-            }
  
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
@@ -88,6 +80,3 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
 }
 
-extension WebViewController: UIWebViewDelegate {
-    
-}

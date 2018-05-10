@@ -19,5 +19,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/Services/FetchingAndPostingBeaconData.swift"
+            timestampString = "547672212.508514"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "fetchBeaconData(route:completionHandler:requestRoute:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/Services/FetchingAndPostingBeaconData.swift"
+            timestampString = "547672212.508978"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "fetchBeaconData(route:completionHandler:requestRoute:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MakeSchool_Companion.BeaconNetworkingLayer.fetchBeaconData(route: MakeSchool_Companion.Route, completionHandler: (Swift.Optional&lt;Any&gt;, Swift.Int) -&gt; (), requestRoute: MakeSchool_Companion.DifferentHttpVerbs) -&gt; ()"
+                  moduleName = "MakeSchool Companion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/Services/FetchingAndPostingBeaconData.swift"
+                  timestampString = "547671978.148165"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "6744">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MakeSchool_Companion.BeaconNetworkingLayer.fetchBeaconData(route: MakeSchool_Companion.Route, completionHandler: (Swift.Optional&lt;Any&gt;, Swift.Int) -&gt; (), requestRoute: MakeSchool_Companion.DifferentHttpVerbs) -&gt; ()"
+                  moduleName = "MakeSchool Companion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/Services/FetchingAndPostingBeaconData.swift"
+                  timestampString = "547671978.149895"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/Services/FetchingAndPostingBeaconData.swift"
+            timestampString = "547672212.509279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "fetchBeaconData(route:completionHandler:requestRoute:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/Services/FetchingAndPostingBeaconData.swift"
+            timestampString = "547672212.5095741"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "fetchBeaconData(route:completionHandler:requestRoute:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
