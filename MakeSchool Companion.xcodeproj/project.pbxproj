@@ -11,9 +11,18 @@
 		1C24E43B202BA2C70087B470 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */; };
 		1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */; };
 		1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C24E43E202BB71D0087B470 /* Attendance.swift */; };
+		1C333A8C2050CD2700B02AFE /* MSUserObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */; };
+		1C35A1AD206AED4A00AC0615 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C35A1AB206AED4900AC0615 /* FBSDKLoginKit.framework */; };
+		1C35A1AE206AED4A00AC0615 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C35A1AC206AED4A00AC0615 /* FBSDKCoreKit.framework */; };
+		1C35A1B0206AF4FC00AC0615 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */; };
+		1C4AA5E5209A440B00382C49 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4AA5E4209A440A00382C49 /* icon-back.png */; };
+		1C4AA5E7209A5BAA00382C49 /* FacebookUserObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4AA5E6209A5BAA00382C49 /* FacebookUserObjectModel.swift */; };
+		1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D2203256190001F671 /* ActiveUsers.swift */; };
+		1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */; };
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
 		1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */; };
 		1C65B0CF202F449A007AADDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CE202F449A007AADDE /* User.swift */; };
+		1C74C2CD208FDC290038EF76 /* icons8-Compass-3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C74C2CC208FDC290038EF76 /* icons8-Compass-3x.png */; };
 		AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */; };
 		1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */; };
 		1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */; };
@@ -30,6 +39,7 @@
 		AEF69FC32009305800D173B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF69FC12009305800D173B3 /* LaunchScreen.storyboard */; };
 		AEF69FD42009730E00D173B3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FD32009730E00D173B3 /* Student.swift */; };
 		AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF69FD6200973B300D173B3 /* NetworkingService.swift */; };
+		AEFF94592033772D000C353F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFF94582033772D000C353F /* RootViewController.swift */; };
 		C61A292D93E54AF0ABA181F9 /* Pods_MakeSchool_Companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,11 +48,20 @@
 		1C24E439202BA2C60087B470 /* Mark Simonson - Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
 		1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingAndPostingBeaconData.swift; sourceTree = "<group>"; };
 		1C24E43E202BB71D0087B470 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSUserObjectModel.swift; sourceTree = "<group>"; };
+		1C35A1AB206AED4900AC0615 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		1C35A1AC206AED4A00AC0615 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		1C4AA5E4209A440A00382C49 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
+		1C4AA5E6209A5BAA00382C49 /* FacebookUserObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUserObjectModel.swift; sourceTree = "<group>"; };
+		1C55D7D2203256190001F671 /* ActiveUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUsers.swift; sourceTree = "<group>"; };
+		1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServiceLayer.swift; sourceTree = "<group>"; };
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
 		1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		1C65B0CE202F449A007AADDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUserUp.swift; sourceTree = "<group>"; };
+		1C74C2CC208FDC290038EF76 /* icons8-Compass-3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Compass-3x.png"; sourceTree = "<group>"; };
 		49BA543D8DDB5199BF9EEECF /* Pods-MakeSchool Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.release.xcconfig"; sourceTree = "<group>"; };
 		6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeSchool_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC997D73A52790601BFDE8C /* Pods-MakeSchool Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +82,7 @@
 		AEF69FC42009305800D173B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEF69FD32009730E00D173B3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		AEF69FD6200973B300D173B3 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		AEFF94582033772D000C353F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C35A1AD206AED4A00AC0615 /* FBSDKLoginKit.framework in Frameworks */,
+				1C35A1AE206AED4A00AC0615 /* FBSDKCoreKit.framework in Frameworks */,
 				C61A292D93E54AF0ABA181F9 /* Pods_MakeSchool_Companion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +155,8 @@
 		AEF69FAC2009305700D173B3 = {
 			isa = PBXGroup;
 			children = (
+				1C35A1AC206AED4A00AC0615 /* FBSDKCoreKit.framework */,
+				1C35A1AB206AED4900AC0615 /* FBSDKLoginKit.framework */,
 				AEF69FB72009305800D173B3 /* MakeSchool Companion */,
 				AEF69FB62009305800D173B3 /* Products */,
 				63513C4BD0B79A7DDF7E316A /* Pods */,
@@ -181,11 +205,12 @@
 				AEF69FBA2009305800D173B3 /* IDViewController.swift */,
 				AE4562A12010083400CC9E13 /* StudentTableViewController.swift */,
 				AE48CD652024ECCD00DEB016 /* LoginViewController.swift */,
-<<<<<<< HEAD
 				1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */,
-=======
 				AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */,
->>>>>>> 5893153e90ec6a4bf8405b54209a9bf82d2ca648
+				AEFF94582033772D000C353F /* RootViewController.swift */,
+				1C4AA5E4209A440A00382C49 /* icon-back.png */,
+				1C74C2CC208FDC290038EF76 /* icons8-Compass-3x.png */,
+				1C35A1AF206AF4FC00AC0615 /* WebViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -197,6 +222,9 @@
 				1C24E43E202BB71D0087B470 /* Attendance.swift */,
 				1C65B0CE202F449A007AADDE /* User.swift */,
 				1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */,
+				1C55D7D2203256190001F671 /* ActiveUsers.swift */,
+				1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */,
+				1C4AA5E6209A5BAA00382C49 /* FacebookUserObjectModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +235,7 @@
 				AEF69FD6200973B300D173B3 /* NetworkingService.swift */,
 				1C24E43C202BA6540087B470 /* FetchingAndPostingBeaconData.swift */,
 				1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */,
+				1C55D7D42033A0440001F671 /* SignUpServiceLayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -281,9 +310,11 @@
 				AEF69FC32009305800D173B3 /* LaunchScreen.storyboard in Resources */,
 				1C24E43B202BA2C70087B470 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */,
 				1C24E43A202BA2C70087B470 /* Mark Simonson - Proxima Nova Thin.otf in Resources */,
+				1C74C2CD208FDC290038EF76 /* icons8-Compass-3x.png in Resources */,
 				AE48CD642024E62400DEB016 /* Login.storyboard in Resources */,
 				AEF69FC02009305800D173B3 /* Assets.xcassets in Resources */,
 				AEF69FBE2009305800D173B3 /* Main.storyboard in Resources */,
+				1C4AA5E5209A440B00382C49 /* icon-back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +362,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -340,6 +377,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -361,18 +404,24 @@
 				1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */,
 				1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */,
 				1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */,
+				1C4AA5E7209A5BAA00382C49 /* FacebookUserObjectModel.swift in Sources */,
 				AEF69FBB2009305800D173B3 /* IDViewController.swift in Sources */,
+				1C35A1B0206AF4FC00AC0615 /* WebViewController.swift in Sources */,
 				AEF69FD42009730E00D173B3 /* Student.swift in Sources */,
 				AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */,
 				AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */,
+				AEFF94592033772D000C353F /* RootViewController.swift in Sources */,
 				AE75D4F720100744007B0D69 /* NameCellView.swift in Sources */,
 				1C65B0CF202F449A007AADDE /* User.swift in Sources */,
 				AE48CD662024ECCD00DEB016 /* LoginViewController.swift in Sources */,
+				1C333A8C2050CD2700B02AFE /* MSUserObjectModel.swift in Sources */,
 				1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */,
 				1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */,
+				1C55D7D3203256190001F671 /* ActiveUsers.swift in Sources */,
 				AEF69FB92009305800D173B3 /* AppDelegate.swift in Sources */,
 				1C24E43D202BA6540087B470 /* FetchingAndPostingBeaconData.swift in Sources */,
 				AEF69FD7200973B300D173B3 /* NetworkingService.swift in Sources */,
+				1C55D7D52033A0440001F671 /* SignUpServiceLayer.swift in Sources */,
 				AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */,
 				AE48CD6B2024F72700DEB016 /* Style.swift in Sources */,
 			);
@@ -514,11 +563,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MakeSchool Companion/MakeSchool Companion.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4PBGN25JV;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "us.duncanmacdonald.MakeSchool-Companion";
+				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -532,11 +585,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MakeSchool Companion/MakeSchool Companion.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4PBGN25JV;
+				DEVELOPMENT_TEAM = R4WEEFNVWZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "us.duncanmacdonald.MakeSchool-Companion";
+				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

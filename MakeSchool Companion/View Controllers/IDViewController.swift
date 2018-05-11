@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import KeychainSwift
 
 class IDViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -32,33 +33,29 @@ class IDViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+     
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         AppDelegate.shared.beaconManager.delegate = self
         var beacon = AppDelegate.shared.beaconManager
         
+        let keychain = KeychainSwift()
+        let profileString = keychain.get("profileImageUrl")! ?? "No image given"
+        let profileImageURL = URL(string: profileString)
+        let data = try? Data(contentsOf: profileImageURL!)
+        profileImageView.image = UIImage(data: data!)
+        self.profileImageView.layer.cornerRadius = 10
+        self.profileImageView.layer.masksToBounds = true
+        self.profileImageView.layer.borderWidth = 5
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
+        emailLabel.text = keychain.get("email")
+        firstnameLabel.text = keychain.get("firstName")
+        lastnameLabel.text = keychain.get("lastName")
         
-        NetworkingService.downloadImage(imgUrl: student.imageURL) { (img) in
-            if let img = img {
-                self.student.image = img
-
-                DispatchQueue.main.async {
-                    self.updateStudent(student: self.student)
-                }
-            }
-        }
-        
-        fetchStudentIdentification(target: .myStudents, success: { (success) in
-            guard let json = try? success.mapJSON() else {return}
-            for element in json as! [AnyObject]{
-                self.identificationNumbers.append(element)
-            }
-            print(self.identificationNumbers)
-            
-            
-        }, error: { (error) in
-            print(error)
-        }, failure: { (moyaError) in
-            print(moyaError)
-        })
         
         switch AppDelegate.shared.beaconManager.status {
         case .enteredBeaconRange:
@@ -74,19 +71,14 @@ class IDViewController: UIViewController {
         case .started:
             testLabel.text = "started beacon manager"
         }
-        
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     
     func updateStudent(student: Student) {
-        let splitEmail = student.email.components(separatedBy: "@")
-        let emailPrefix = splitEmail[0]
-        let emailDomain = splitEmail[1]
+        let keychain = KeychainSwift()
+        let splitEmail = keychain.get("email")?.components(separatedBy: "@")
+        let emailPrefix = splitEmail![0]
+        let emailDomain = splitEmail![1]
         
         self.profileImageView.image = student.image
         self.profileImageView.layer.cornerRadius = 10
@@ -98,7 +90,8 @@ class IDViewController: UIViewController {
         self.lastnameLabel.text = student.lastname
         
         self.emailLabel.text = emailPrefix
-        self.emailDomain.text = "@\(emailDomain)"
+        
+        self.emailDomain.text = emailDomain
         self.portfolioLabel.text = "portfolio/\(student.portfolio!)"
         
         self.termSeasonLabel.text = "SPRING"
@@ -120,10 +113,10 @@ extension IDViewController: BeaconManagerDelegate {
     }
     
     func beaconManager(sender: BeaconManager, enteredBeaconRegion region: CLRegion) {
-        testLabel.text = "entered beacon region: \(region.identifier)"
+        testLabel.text = "📡✅"
     }
     
     func beaconManager(sender: BeaconManager, exitedBeaconRegion region: CLRegion) {
-        testLabel.text = "exited beacon region: \(region.identifier)"
+        testLabel.text = "📡❌"
     }
 }

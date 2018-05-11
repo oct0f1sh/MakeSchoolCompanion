@@ -41,7 +41,6 @@ struct Student: Decodable {
         self.portfolio = portfolio
         
         self.userID = userID
-        
 
     }
     

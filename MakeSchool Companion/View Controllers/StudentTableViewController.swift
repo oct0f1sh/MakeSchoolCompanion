@@ -13,7 +13,7 @@ class StudentTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func unwindToTableView(segue: UIStoryboardSegue) {
-    
+        print("The user tapped on the make school logos")
     }
     
     var students: [Student] = []

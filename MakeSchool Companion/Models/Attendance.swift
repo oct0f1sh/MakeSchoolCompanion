@@ -29,10 +29,10 @@ extension AttendancesModel {
     }
     
     init(from decoder: Decoder) throws {
-        let container = try? decoder.container(keyedBy: TopLevelKeys.self)
-        let event = try container?.decodeIfPresent(String.self, forKey: .event)
-        let event_time = try? container?.decodeIfPresent(String.self, forKey: .event_time)
-        let beacon_id = try? container?.decodeIfPresent(String.self, forKey: .beacon_id)
-        self.init(beacon_id: beacon_id as! String, event: event!, event_time: event_time as! String)
+        let container = try decoder.container(keyedBy: TopLevelKeys.self)
+        let event = try container.decodeIfPresent(String.self, forKey: .event) ?? "No event present"
+        let event_time = try container.decodeIfPresent(String.self, forKey: .event_time) ?? "No event time given"
+        let beacon_id = try container.decodeIfPresent(String.self, forKey: .beacon_id) ?? "No beacon id given"
+        self.init(beacon_id: beacon_id , event: event, event_time: event_time )
     }
 }

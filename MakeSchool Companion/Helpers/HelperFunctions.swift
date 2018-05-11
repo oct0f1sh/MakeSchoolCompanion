@@ -8,31 +8,58 @@
 
 import Foundation
 import UIKit
-import Moya
 
-var student: Student! = nil
+struct StaticProperties {
+    static var email = ""
+    static var firstName = ""
+    static var lastName = ""
+    static var role = ""
+    static var imageUrl = ""
+}
 
+func loginAlert(controller: UIViewController) {
+    let alert = UIAlertController(title: "Log In Error", message: "Please Try Logging In Again At A Later Time", preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    alert.addAction(cancelAction)
+    controller.present(alert, animated: true, completion: nil)
+}
 
-//func fetchIdentification () -> [Int] {
-//    fetchStudentIdentification(target: .myStudents, success: { (success) in
-//        var json = try? success.mapJSON()
-//    }, error: { (error) in
-//        print(error)
-//    }, failure: { (moyaError) in
-//        print(moyaError)
-//    })
-//    return json
-//}
+func signUpAlert(controller: UIViewController) {
+    let alert = UIAlertController(title: " Sign Up Error", message: "Please Try Signing Up At A Later Time", preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    alert.addAction(cancelAction)
+    controller.present(alert, animated: true, completion: nil)
+}
 
-//func downloadPortfolioImage() {
-//    NetworkingService.downloadImage(imgUrl: student.imageURL) { (img) in
-//        if let img = img {
-//            student.image = img
-//            
-//            DispatchQueue.main.async {
-//                updateStudent(student: student)
-//            }
-//        }
-//    }
-//}
-
+func showFacebookUserProfile(controller: UIViewController, completionHandler: @escaping(Int) -> Void) {
+    let url = URL(string: "https://www.makeschool.com/login.json")
+    
+    let session = URLSession.shared
+    //                let cookieHeaderField = ["Set-Cookie":"_makeschool_session=\(keychain.get("cookieValue")!)"]
+    //                let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: url!)
+    //                HTTPCookieStorage.shared.setCookies(cookies, for: url, mainDocumentURL: url)
+    
+    var getRequest = URLRequest(url: url!)
+    getRequest.setValue("_makeschool_session=\(keychain.get("cookieValue")!)", forHTTPHeaderField: "Cookie")
+    getRequest.httpMethod = "POST"
+    getRequest.httpShouldHandleCookies = true
+    
+    session.dataTask(with: getRequest, completionHandler: { (data, response, error) in
+        let statusCode: Int = (response as! HTTPURLResponse).statusCode
+        print(data?.base64EncodedString(), response)
+        guard let decodedUser = try? JSONDecoder().decode(FacebookUser.self, from: data!) else {return}
+//        keychain.set(decodedUser.email, forKey: "email")
+//        keychain.set(decodedUser.firstName, forKey: "firstName")
+//        keychain.set(decodedUser.lastName, forKey: "lastName")
+//        keychain.set(decodedUser.role, forKey: "role")
+//        keychain.set(decodedUser.profileImageUrl, forKey: "profileImageUrl")
+          StaticProperties.email = decodedUser.email
+          StaticProperties.firstName = decodedUser.firstName
+          StaticProperties.lastName = decodedUser.lastName
+          StaticProperties.imageUrl = decodedUser.profileImageUrl
+          StaticProperties.role = decodedUser.role
+        completionHandler(statusCode)
+       
+        print("This is the decoded user \(decodedUser)")
+    }).resume()
+}

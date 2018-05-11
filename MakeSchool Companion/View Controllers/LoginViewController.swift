@@ -25,11 +25,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var allUsers: [User] = []
     var allStudents: [Student] = []
     
-    @IBAction func _unwindToLogin(segue: UIStoryboardSegue) {
-        self.textField.text = ""
-        self.underlineView.backgroundColor = Style.Colors.makeGray
-        self.errorLabel.isHidden = true
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -109,30 +104,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let firstname = nameString![0].lowercased()
         let lastname = nameString![1].lowercased()
         
-//
-        let beaconLogic = BeaconNetworkingLayer()
-        
-        beaconLogic.fetchBeaconData(route: .users, completionHandler: { (students) in
-            guard let student = try? JSONDecoder().decode([User].self, from: students) else {return}
-            self.allUsers = student
-            for element in self.allUsers {
-                DynamicToken.token = element.token
-                print("This is the token \(DynamicToken.token)")
-            }
-            
-            print(DynamicToken.token)
-//            for student in self.allStudents {
-//                if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastname && DynamicToken.token != nil {
-//                    let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
-//                    idView.student = student
-//                    DispatchQueue.main.async {
-//                        self.present(idView, animated: true, completion: nil)
-//                    }
+//        for student in allStudents {
+//            if student.firstname.lowercased() == firstname && student.lastname.lowercased() == lastname {
+//                let idView = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as! IDViewController
+//                idView.student = student
+//                DispatchQueue.main.async {
+//                    self.present(idView, animated: true, completion: nil)
 //                }
+//                return
 //            }
-            
-            
-        }, requestRoute: .getRequest)
+//        }
+        
         
 //        errorLabel.text = "user not found"
 //        errorLabel.isHidden = false

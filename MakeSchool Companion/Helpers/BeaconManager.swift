@@ -42,6 +42,18 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         print(error.localizedDescription)
     }
     
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        print("The user is in the beacon range")
+        EmailandPasswordandToken.beaconId = "Test Beacon"
+        EmailandPasswordandToken.event = String(describing: status)
+        EmailandPasswordandToken.eventTime = printTimestamp()
+        
+        beaconLogic.fetchBeaconData(route: .attendances(beaconID: EmailandPasswordandToken.beaconId, event: String(describing: status), eventTime: printTimestamp()), completionHandler: { (attendance, response) in
+            print("This is the response from the user entering the beacon region \(response)")
+        }, requestRoute: .postReuqest)
+        
+    }
+    
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         locationManager.requestState(for: beaconRegion)
         delegate?.beaconManager(sender: self, searchingInRegion: region)
@@ -50,46 +62,35 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
-        if state == CLRegionState.inside {
-            print("device is inside beacon region \(state.rawValue)")
-            delegate?.beaconManager(sender: self, isInBeaconRange: region)
-            status = .inBeaconRange
-            var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
-
-//            beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
-//            print("This is the beacon status \(self.status)")
-//            }, requestRoute: .postReuqest)
-//    
-           
-        } else {
-            print("not inside beacon region")
-            status = .notInBeaconRange
-            delegate?.beaconManager(sender: self, isNotInBeaconRange: region)
-        }
+     
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         delegate?.beaconManager(sender: self, enteredBeaconRegion: region)
         print(region)
         status = .enteredBeaconRange
-        var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
+        EmailandPasswordandToken.beaconId = "Test Beacon"
+        EmailandPasswordandToken.event = String(describing: status)
+        EmailandPasswordandToken.eventTime = printTimestamp()
+        print("The user has entered the beacon range")
+        beaconLogic.fetchBeaconData(route: .attendances(beaconID: "Test Beacon", event: String(describing: status), eventTime: printTimestamp()), completionHandler: { (attendance, response) in
+            print("This is the response from the user entering the beacon region \(response)")
+        }, requestRoute: .postReuqest)
         
-//        beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
-//            print("This is the beacon status \(self.status)")
-//        }, requestRoute: .postReuqest)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         delegate?.beaconManager(sender: self, exitedBeaconRegion: region)
         status = .exitedBeaconRange
-        var attendance = AttendancesModel(beacon_id: "Test Beacon", event: String(describing: status), event_time: printTimestamp())
-        
-//        beaconLogic.fetchBeaconData(route: .attendances, attendances: attendance, completionHandler: { (data) in
-//            print("This is the beacon status \(self.status)")
-//        }, requestRoute: .postReuqest)
+        EmailandPasswordandToken.beaconId = "Test Beacon"
+        EmailandPasswordandToken.event = String(describing: status)
+        EmailandPasswordandToken.eventTime = printTimestamp()
+        print("The user exited the beacon range")
+        beaconLogic.fetchBeaconData(route: .attendances(beaconID: "Test Beacon", event: String(describing: status), eventTime: printTimestamp()), completionHandler: { (attendance, response) in
+            print("This is the response from the user exiting the beacon region \(response)")
+        }, requestRoute: .postReuqest)
     }
 }
-
 protocol BeaconManagerDelegate: class {
     func beaconManager(sender: BeaconManager, isInBeaconRange region: CLRegion)
     func beaconManager(sender: BeaconManager, isNotInBeaconRange region: CLRegion)
@@ -109,6 +110,6 @@ enum BeaconStatus {
 
 
 func printTimestamp() -> String {
-    let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .long)
+    let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
     return timestamp
 }
