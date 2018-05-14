@@ -7,5 +7,10 @@ target 'MakeSchool Companion' do
 
   # Pods for MakeSchool Companion
   pod 'SnapKit', '~> 4.0.0'
-
+  pod 'PMSuperButton'
+  pod 'TextFieldEffects', '~> 1.4'
+  pod 'Moya'
+   pod 'KeychainSwift'
+   pod 'FacebookLogin'
+   pod 'FacebookCore'
 end

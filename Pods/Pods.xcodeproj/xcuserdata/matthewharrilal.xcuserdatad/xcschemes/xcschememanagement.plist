@@ -6,11 +6,17 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
+=======
+			<key>isShown</key>
+			<false/>
+>>>>>>> e50b4348bfa27be6dbd9e6e10fac4ce1188e239c
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -51,11 +57,72 @@
 		</dict>
 		<key>Pods-MakeSchool Companion.xcscheme</key>
 		<dict>
+=======
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>FacebookCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>FacebookLogin.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>KeychainSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Moya.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>PMSuperButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>Pods-MakeSchool Companion.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+>>>>>>> e50b4348bfa27be6dbd9e6e10fac4ce1188e239c
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
 		<key>Result.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
@@ -66,9 +133,32 @@
 		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>
+=======
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>TextFieldEffects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+>>>>>>> e50b4348bfa27be6dbd9e6e10fac4ce1188e239c
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
 	</dict>
+<<<<<<< HEAD
+=======
+	<key>SuppressBuildableAutocreation</key>
+	<dict/>
+>>>>>>> e50b4348bfa27be6dbd9e6e10fac4ce1188e239c
 </dict>
 </plist>

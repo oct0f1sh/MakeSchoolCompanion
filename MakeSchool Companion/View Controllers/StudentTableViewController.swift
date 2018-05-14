@@ -13,7 +13,7 @@ class StudentTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func unwindToTableView(segue: UIStoryboardSegue) {
-    
+        print("The user tapped on the make school logos")
     }
     
     var students: [Student] = []
@@ -24,6 +24,7 @@ class StudentTableViewController: UIViewController {
                 self.students = studentsFromAPI
                 
                 DispatchQueue.main.async {
+                    self.tableView.rowHeight = 40
                     self.tableView.reloadData()
                 }
             }
@@ -52,5 +53,11 @@ extension StudentTableViewController: UITableViewDataSource {
         cell.nameLabel.text = "\(student.firstname!) \(student.lastname!)"
         
         return cell
+    }
+}
+
+extension StudentTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
     }
 }

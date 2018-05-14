@@ -7,7 +7,11 @@
 		<key>MakeSchool Companion.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>0</integer>
+=======
+			<integer>13</integer>
+>>>>>>> e50b4348bfa27be6dbd9e6e10fac4ce1188e239c
 		</dict>
 	</dict>
 </dict>

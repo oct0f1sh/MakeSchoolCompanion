@@ -19,9 +19,7 @@ struct Student: Decodable {
     let email: String!
     let portfolio: String!
     
-//    let termSeason: String!
-//    let termYear: Int!
-    
+    var userID: Int?
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
@@ -30,9 +28,10 @@ struct Student: Decodable {
         case portfolio = "slug"
         case termSeason
         case termYear
+        case user_id
     }
     
-    init(firstname: String, lastname: String, imageURL: String, email: String, portfolio: String) {
+    init(firstname: String, lastname: String, imageURL: String, email: String, portfolio: String, userID: Int?) {
         self.firstname = firstname
         self.lastname = lastname
         
@@ -41,8 +40,8 @@ struct Student: Decodable {
         self.email = email
         self.portfolio = portfolio
         
-//        self.termSeason = termSeason
-//        self.termYear = termYear
+        self.userID = userID
+
     }
     
     init(from decoder: Decoder) throws {
@@ -54,9 +53,7 @@ struct Student: Decodable {
         let imageURL = try container.decode(String.self, forKey: .imageURL)
         let email = try container.decode(String.self, forKey: .email)
         let portfolio = try container.decode(String.self, forKey: .portfolio)
-//        let termSeason = try container.decode(String.self, forKey: .termSeason)
-//        let termYear = try container.decode(Int.self, forKey: .termYear)
-        
-        self.init(firstname: firstname, lastname: lastname, imageURL: imageURL, email: email, portfolio: portfolio)
+        let user_id = try? container.decodeIfPresent(Int.self, forKey: .user_id)
+        self.init(firstname: firstname, lastname: lastname, imageURL: imageURL, email: email, portfolio: portfolio, userID: user_id!)
     }
 }

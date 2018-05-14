@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import KeychainSwift
 
 class IDViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -21,36 +23,75 @@ class IDViewController: UIViewController {
     @IBOutlet weak var termSeasonLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     
+    @IBOutlet weak var testLabel: UILabel!
+    
     var student: Student! = nil
     
+    var identificationNumbers = [Any]()
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+     
+        
+        
+    }
+    
     override func viewDidLoad() {
-        NetworkingService.downloadImage(imgUrl: student.imageURL) { (img) in
-            if let img = img {
-                self.student.image = img
-                
-                DispatchQueue.main.async {
-                    self.updateStudent(student: self.student)
-                }
-            }
+        super.viewDidLoad()
+        AppDelegate.shared.beaconManager.delegate = self
+        var beacon = AppDelegate.shared.beaconManager
+        
+        let keychain = KeychainSwift()
+        let profileString = keychain.get("profileImageUrl")! ?? "No image given"
+        let profileImageURL = URL(string: profileString)
+        let data = try? Data(contentsOf: profileImageURL!)
+        profileImageView.image = UIImage(data: data!)
+        self.profileImageView.layer.cornerRadius = 10
+        self.profileImageView.layer.masksToBounds = true
+        self.profileImageView.layer.borderWidth = 5
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
+        emailLabel.text = keychain.get("email")
+        firstnameLabel.text = keychain.get("firstName")
+        lastnameLabel.text = keychain.get("lastName")
+        
+        
+        switch AppDelegate.shared.beaconManager.status {
+        case .enteredBeaconRange:
+            testLabel.text = "entered beacon region: \(beacon.beaconRegion.identifier)"
+        case .exitedBeaconRange:
+            testLabel.text = "exited beacon region: \(beacon.beaconRegion.identifier)"
+        case .inBeaconRange:
+            testLabel.text = "📡✅"
+        case .notInBeaconRange:
+            testLabel.text = "📡❌"
+        case .searching:
+            testLabel.text = "📡🌀"
+        case .started:
+            testLabel.text = "started beacon manager"
         }
     }
     
+    
     func updateStudent(student: Student) {
-        let splitEmail = student.email.components(separatedBy: "@")
-        let emailPrefix = splitEmail[0]
-        let emailDomain = splitEmail[1]
+        let keychain = KeychainSwift()
+        let splitEmail = keychain.get("email")?.components(separatedBy: "@")
+        let emailPrefix = splitEmail![0]
+        let emailDomain = splitEmail![1]
         
         self.profileImageView.image = student.image
         self.profileImageView.layer.cornerRadius = 10
         self.profileImageView.layer.masksToBounds = true
         self.profileImageView.layer.borderWidth = 5
-        self.profileImageView.layer.borderColor = UIColor(red: 74, green: 74, blue: 74, alpha: 74).cgColor
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
         
         self.firstnameLabel.text = student.firstname
         self.lastnameLabel.text = student.lastname
         
         self.emailLabel.text = emailPrefix
-        self.emailDomain.text = "@\(emailDomain)"
+        
+        self.emailDomain.text = emailDomain
         self.portfolioLabel.text = "portfolio/\(student.portfolio!)"
         
         self.termSeasonLabel.text = "SPRING"
@@ -58,3 +99,24 @@ class IDViewController: UIViewController {
     }
 }
 
+extension IDViewController: BeaconManagerDelegate {
+    func beaconManager(sender: BeaconManager, isInBeaconRange region: CLRegion) {
+        testLabel.text = "📡✅"
+    }
+    
+    func beaconManager(sender: BeaconManager, isNotInBeaconRange region: CLRegion) {
+        testLabel.text = "📡❌"
+    }
+    
+    func beaconManager(sender: BeaconManager, searchingInRegion region: CLRegion) {
+        testLabel.text = "📡🌀"
+    }
+    
+    func beaconManager(sender: BeaconManager, enteredBeaconRegion region: CLRegion) {
+        testLabel.text = "📡✅"
+    }
+    
+    func beaconManager(sender: BeaconManager, exitedBeaconRegion region: CLRegion) {
+        testLabel.text = "📡❌"
+    }
+}
