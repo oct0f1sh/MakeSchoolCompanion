@@ -20,6 +20,10 @@ struct EmailandPasswordandToken {
 }
 
 
+struct DynamicToken {
+    static var token = ""
+}
+
 enum Route {
     case users(email: String, password: String)
     case attendances(beaconID: String, event: String, eventTime: String)
