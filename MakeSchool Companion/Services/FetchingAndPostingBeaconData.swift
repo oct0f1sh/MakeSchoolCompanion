@@ -24,6 +24,7 @@ enum Route {
     case users(email: String, password: String)
     case attendances(beaconID: String, event: String, eventTime: String)
     case facebookCallback(email: String, firstName: String, lastName: String, imageUrl: String)
+    case searchUsers(email: String)
     
     func path() -> String {
         switch self {
@@ -33,6 +34,8 @@ enum Route {
             return "https://make-school-companion.herokuapp.com/registrations/?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
         case .facebookCallback:
             return "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)"
+        case .searchUsers:
+            return "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)"
         }
         
     }
@@ -51,6 +54,8 @@ enum Route {
         case let .facebookCallback(email, firstName, lastName, imageUrl):
 //            let json = ["email": email, "first_name": firstName, "last_name": lastName, "image_url": imageUrl]
 //            let data = try? JSONSerialization.data(withJSONObject: json, options: [])
+            return Data()
+        case .searchUsers(let email):
             return Data()
         }
     }
@@ -75,7 +80,7 @@ class BeaconNetworkingLayer {
         self.userTokenString = userToken
         getRequest.httpBody = route.postBody()
         
-        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)" {
+        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)" {
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("text/html; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -112,6 +117,14 @@ class BeaconNetworkingLayer {
                 keychain.set(decodedUser.token, forKey: "Token")
                 keychain.set(decodedUser.id, forKey: "id")
                 completionHandler(decodedUser, statusCode)
+            case .searchUsers:
+                guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
+                keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")
+                keychain.set(decodedUser.email, forKey: "email")
+                keychain.set(decodedUser.firstName, forKey: "firstName")
+                keychain.set(decodedUser.lastName, forKey: "lastName")
+                keychain.set(decodedUser.token, forKey: "Token")
+                keychain.set(decodedUser.id, forKey: "id")
             }
             }.resume()
     }

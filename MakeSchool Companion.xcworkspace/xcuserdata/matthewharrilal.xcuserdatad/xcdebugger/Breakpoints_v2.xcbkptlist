@@ -9,14 +9,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MakeSchool Companion/Helpers/BeaconManager.swift"
-            timestampString = "547230156.975072"
+            filePath = "MakeSchool Companion/View Controllers/LoginViewController.swift"
+            timestampString = "540001665.638301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "locationManager(_:didEnterRegion:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "loginTapped(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MakeSchool_Companion.LoginViewController.loginTapped(Any) -&gt; ()"
+                  moduleName = "MakeSchool Companion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/View%20Controllers/LoginViewController.swift"
+                  timestampString = "540001665.755675"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "3792">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Data) -&gt; () in MakeSchool_Companion.LoginViewController.loginTapped(Any) -&gt; ()"
+                  moduleName = "MakeSchool Companion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/View%20Controllers/LoginViewController.swift"
+                  timestampString = "540001665.760558"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
