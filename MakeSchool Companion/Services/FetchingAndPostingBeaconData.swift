@@ -118,13 +118,23 @@ class BeaconNetworkingLayer {
                 keychain.set(decodedUser.id, forKey: "id")
                 completionHandler(decodedUser, statusCode)
             case .searchUsers:
-                guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
-                keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")
-                keychain.set(decodedUser.email, forKey: "email")
-                keychain.set(decodedUser.firstName, forKey: "firstName")
-                keychain.set(decodedUser.lastName, forKey: "lastName")
-                keychain.set(decodedUser.token, forKey: "Token")
-                keychain.set(decodedUser.id, forKey: "id")
+                if let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) {
+                    keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")
+                    keychain.set(decodedUser.email, forKey: "email")
+                    keychain.set(decodedUser.firstName, forKey: "firstName")
+                    keychain.set(decodedUser.lastName, forKey: "lastName")
+                    keychain.set(decodedUser.token, forKey: "Token")
+                    keychain.set(decodedUser.id, forKey: "id")
+                }
+                
+                else {
+                    keychain.set("", forKey: "profileImageUrl")
+                    keychain.set("", forKey: "email")
+                    keychain.set("", forKey: "firstName")
+                    keychain.set("", forKey: "lastName")
+                    keychain.set("", forKey: "Token")
+                    keychain.set("", forKey: "id")
+                }
             }
             }.resume()
     }
