@@ -66,6 +66,22 @@ func showFacebookUserProfile(controller: UIViewController, completionHandler: @e
 
 
 func searchUsers(controller: UIViewController) {
-    let beacoNetworkingLayer = BeaconNetworkingLayer()
-    beacoNetworkingLayer.fetchBeaconData(route:, completionHandler: <#T##(Any?, Int) -> Void#>, requestRoute: <#T##DifferentHttpVerbs#>)
+    let beaconNetworkingLayer = BeaconNetworkingLayer()
+    beaconNetworkingLayer.fetchBeaconData(route: .searchUsers(email: StaticProperties.email), completionHandler: { (user, response) in
+        if response >= 200 && response < 300 {
+            print("The user was successfully found in the search")
+        }
+        else {
+            
+            beaconNetworkingLayer.fetchBeaconData(route: .facebookCallback(email: StaticProperties.email, firstName: StaticProperties.firstName, lastName: StaticProperties.lastName, imageUrl: StaticProperties.imageUrl), completionHandler: { (user, response) in
+                print("This is the response of the callback we made from facebook \(response)")
+                
+                let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
+                UserDefaults.standard.set(true, forKey: "LoggedIn")
+                DispatchQueue.main.async {
+                    controller.present(idView, animated: true, completion: nil)
+                }
+            }, requestRoute: .postReuqest)
+        }
+    }, requestRoute: .postReuqest)
 }
