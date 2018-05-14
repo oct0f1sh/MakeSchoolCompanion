@@ -63,3 +63,9 @@ func showFacebookUserProfile(controller: UIViewController, completionHandler: @e
         print("This is the decoded user \(decodedUser)")
     }).resume()
 }
+
+
+func searchUsers(controller: UIViewController) {
+    let beacoNetworkingLayer = BeaconNetworkingLayer()
+    beacoNetworkingLayer.fetchBeaconData(route:, completionHandler: <#T##(Any?, Int) -> Void#>, requestRoute: <#T##DifferentHttpVerbs#>)
+}
