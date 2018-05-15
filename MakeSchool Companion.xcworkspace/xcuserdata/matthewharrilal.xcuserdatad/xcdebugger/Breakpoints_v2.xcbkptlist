@@ -10,30 +10,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MakeSchool Companion/Helpers/HelperFunctions.swift"
-            timestampString = "548016214.867463"
+            timestampString = "548045675.679558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "searchUsers(controller:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MakeSchool Companion/Helpers/HelperFunctions.swift"
-            timestampString = "548016214.867743"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "searchUsers(controller:)"
             landmarkType = "9">
             <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MakeSchool_Companion.searchUsers(controller: __ObjC.UIViewController) -&gt; ()"
+                  moduleName = "MakeSchool Companion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/Helpers/HelperFunctions.swift"
+                  timestampString = "548045545.821014"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "37">
+               </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
@@ -42,26 +41,11 @@
                   moduleName = "MakeSchool Companion"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/Helpers/HelperFunctions.swift"
-                  timestampString = "548016853.523226"
+                  timestampString = "548045545.824158"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "1302">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Any&gt;, Swift.Int) -&gt; () in closure #1 (Swift.Optional&lt;Any&gt;, Swift.Int) -&gt; () in MakeSchool_Companion.searchUsers(controller: __ObjC.UIViewController) -&gt; ()"
-                  moduleName = "MakeSchool Companion"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/Helpers/HelperFunctions.swift"
-                  timestampString = "548016853.528244"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
                   offsetFromSymbolStart = "33">
                </Location>
             </Locations>
@@ -74,11 +58,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MakeSchool Companion/Services/FetchingAndPostingBeaconData.swift"
-            timestampString = "548016853.4671789"
+            timestampString = "548045675.6799541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "fetchBeaconData(route:completionHandler:requestRoute:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/Services/FetchingAndPostingBeaconData.swift"
+            timestampString = "548045675.680016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "fetchBeaconData(route:completionHandler:requestRoute:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MakeSchool_Companion.BeaconNetworkingLayer.fetchBeaconData(route: MakeSchool_Companion.Route, completionHandler: (Swift.Optional&lt;Any&gt;, Swift.Int) -&gt; (), requestRoute: MakeSchool_Companion.DifferentHttpVerbs) -&gt; ()"
+                  moduleName = "MakeSchool Companion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/Services/FetchingAndPostingBeaconData.swift"
+                  timestampString = "548045549.125054"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "13628">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MakeSchool_Companion.BeaconNetworkingLayer.fetchBeaconData(route: MakeSchool_Companion.Route, completionHandler: (Swift.Optional&lt;Any&gt;, Swift.Int) -&gt; (), requestRoute: MakeSchool_Companion.DifferentHttpVerbs) -&gt; ()"
+                  moduleName = "MakeSchool Companion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewharrilal/Desktop/MakeSchoolCompanion/MakeSchool%20Companion/Services/FetchingAndPostingBeaconData.swift"
+                  timestampString = "548045549.127435"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "94">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/Services/FetchingAndPostingBeaconData.swift"
+            timestampString = "548045675.680068"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "fetchBeaconData(route:completionHandler:requestRoute:)"
             landmarkType = "7">
          </BreakpointContent>

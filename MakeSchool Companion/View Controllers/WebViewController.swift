@@ -38,10 +38,8 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
                     
                     
                     showFacebookUserProfile(controller: self, completionHandler: { (response) in
-                      searchUsers(controller: self)
+                        searchUsers(controller: self)
                     })
-                    
-                    
                     
                 }
             }
