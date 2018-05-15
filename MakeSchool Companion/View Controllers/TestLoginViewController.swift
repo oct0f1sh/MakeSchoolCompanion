@@ -54,8 +54,6 @@ class TestLoginViewController: UIViewController {
         let loggedInValue = self.defaults.bool(forKey: "LoggedIn")
         if loggedInValue == true {
             self.defaults.set(false, forKey: "LoggedIn")
-            let webViewController = WebViewController()
-          
         }
     }
 
