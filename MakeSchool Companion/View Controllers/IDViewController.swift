@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import KeychainSwift
+import WebKit
 
 class IDViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -36,6 +37,17 @@ class IDViewController: UIViewController {
      
         
         
+    }
+    @IBAction func logoutButton(_ sender: UIButton) {
+        print("The user has pressed the log out button")
+        self.navigationController?.popViewController(animated: true)
+        UserDefaults.standard.set(false, forKey: "LoggedIn")
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+            dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: records, completionHandler: {
+                print("Deleted records \(records)")
+            })
+        }
     }
     
     override func viewDidLoad() {

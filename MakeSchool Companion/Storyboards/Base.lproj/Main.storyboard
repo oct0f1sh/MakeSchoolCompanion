@@ -123,7 +123,7 @@
                                 </constraints>
                                 <state key="normal" image="logo"/>
                                 <connections>
-                                    <segue destination="WPp-61-15d" kind="unwind" unwindAction="unwindToLoginFromIdViewControllerWithSegue:" id="JZK-8Q-MyV"/>
+                                    <action selector="logoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ckw-dr-JrY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STUDENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyn-jh-IdR">
@@ -176,6 +176,7 @@
                         <outlet property="termSeasonLabel" destination="Aby-dl-iaM" id="AqT-gp-Xp6"/>
                         <outlet property="testLabel" destination="kc0-Mo-wIw" id="apy-fv-hGp"/>
                         <outlet property="yearLabel" destination="W7O-JU-fUB" id="TP4-lk-iXS"/>
+                        <segue destination="WPp-61-15d" kind="unwind" unwindAction="unwindToLoginFromIdViewControllerWithSegue:" id="nY8-m5-LMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

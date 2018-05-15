@@ -12,6 +12,7 @@ import KeychainSwift
 import FacebookLogin
 import FacebookCore
 import FBSDKLoginKit
+import WebKit
 
 class TestLoginViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
@@ -53,6 +54,8 @@ class TestLoginViewController: UIViewController {
         let loggedInValue = self.defaults.bool(forKey: "LoggedIn")
         if loggedInValue == true {
             self.defaults.set(false, forKey: "LoggedIn")
+            let webViewController = WebViewController()
+          
         }
     }
 
