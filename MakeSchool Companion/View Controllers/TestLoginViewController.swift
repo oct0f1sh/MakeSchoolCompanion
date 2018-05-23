@@ -93,7 +93,7 @@ class TestLoginViewController: UIViewController {
 //                
 //            }
 //        }, requestRoute: .postReuqest)
-        print("User has left the web vieww")
+        print("User has left the web view")
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
