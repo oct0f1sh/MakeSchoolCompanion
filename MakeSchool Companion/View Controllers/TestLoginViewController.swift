@@ -12,6 +12,7 @@ import KeychainSwift
 import FacebookLogin
 import FacebookCore
 import FBSDKLoginKit
+import WebKit
 
 class TestLoginViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!

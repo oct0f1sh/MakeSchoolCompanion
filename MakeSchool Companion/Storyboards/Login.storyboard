@@ -321,7 +321,7 @@
         <!--Test Login View Controller-->
         <scene sceneID="rzn-zI-0pf">
             <objects>
-                <viewController id="NDW-lb-0C6" customClass="TestLoginViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestLogInViewController" id="NDW-lb-0C6" customClass="TestLoginViewController" customModule="MakeSchool_Companion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YVl-Gx-2x8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

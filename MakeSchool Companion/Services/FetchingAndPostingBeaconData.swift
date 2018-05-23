@@ -37,6 +37,7 @@ enum Route {
             return "https://make-school-companion.herokuapp.com/registrations/?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
         case .facebookCallback:
             return "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)"
+
         }
         
     }
@@ -79,7 +80,7 @@ class BeaconNetworkingLayer {
         self.userTokenString = userToken
         getRequest.httpBody = route.postBody()
         
-        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)" {
+        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)"  {
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("text/html; charset=utf-8", forHTTPHeaderField: "Content-Type")

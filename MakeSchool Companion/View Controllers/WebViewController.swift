@@ -38,19 +38,8 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
                     
                     
                     showFacebookUserProfile(controller: self, completionHandler: { (response) in
-                        let beaconNetworkingLayer = BeaconNetworkingLayer()
-                        beaconNetworkingLayer.fetchBeaconData(route: .facebookCallback(email: StaticProperties.email, firstName: StaticProperties.firstName, lastName: StaticProperties.lastName, imageUrl: StaticProperties.imageUrl), completionHandler: { (user, response) in
-                            print("This is the response of the callback we made from facebook \(response)")
-                            
-                            let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
-                            UserDefaults.standard.set(true, forKey: "LoggedIn")
-                            DispatchQueue.main.async {
-                                self.present(idView, animated: true, completion: nil)
-                            }
-                        }, requestRoute: .postReuqest)
+                        searchUsers(controller: self)
                     })
-                    
-                    
                     
                 }
             }

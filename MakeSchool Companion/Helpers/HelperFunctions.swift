@@ -48,18 +48,35 @@ func showFacebookUserProfile(controller: UIViewController, completionHandler: @e
         let statusCode: Int = (response as! HTTPURLResponse).statusCode
         print(data?.base64EncodedString(), response)
         guard let decodedUser = try? JSONDecoder().decode(FacebookUser.self, from: data!) else {return}
-//        keychain.set(decodedUser.email, forKey: "email")
-//        keychain.set(decodedUser.firstName, forKey: "firstName")
-//        keychain.set(decodedUser.lastName, forKey: "lastName")
-//        keychain.set(decodedUser.role, forKey: "role")
-//        keychain.set(decodedUser.profileImageUrl, forKey: "profileImageUrl")
-          StaticProperties.email = decodedUser.email
-          StaticProperties.firstName = decodedUser.firstName
-          StaticProperties.lastName = decodedUser.lastName
-          StaticProperties.imageUrl = decodedUser.profileImageUrl
-          StaticProperties.role = decodedUser.role
+        //        keychain.set(decodedUser.email, forKey: "email")
+        //        keychain.set(decodedUser.firstName, forKey: "firstName")
+        //        keychain.set(decodedUser.lastName, forKey: "lastName")
+        //        keychain.set(decodedUser.role, forKey: "role")
+        //        keychain.set(decodedUser.profileImageUrl, forKey: "profileImageUrl")
+        StaticProperties.email = decodedUser.email
+        StaticProperties.firstName = decodedUser.firstName
+        StaticProperties.lastName = decodedUser.lastName
+        StaticProperties.imageUrl = decodedUser.profileImageUrl
+        StaticProperties.role = decodedUser.role
         completionHandler(statusCode)
-       
+        
         print("This is the decoded user \(decodedUser)")
     }).resume()
+}
+
+
+func searchUsers(controller: UIViewController) {
+    let beaconNetworkingLayer = BeaconNetworkingLayer()
+    
+    
+    beaconNetworkingLayer.fetchBeaconData(route: .facebookCallback(email: StaticProperties.email, firstName: StaticProperties.firstName, lastName: StaticProperties.lastName, imageUrl: StaticProperties.imageUrl), completionHandler: { (user, response) in
+        print("This is the response of the callback we made from facebook \(response)")
+        
+        let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
+        UserDefaults.standard.set(true, forKey: "LoggedIn")
+        DispatchQueue.main.async {
+            controller.present(idView, animated: true, completion: nil)
+        }
+    }, requestRoute: .postReuqest)
+    
 }
