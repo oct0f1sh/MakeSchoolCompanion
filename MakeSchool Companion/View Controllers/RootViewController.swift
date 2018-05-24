@@ -20,14 +20,14 @@ class RootViewController: UIViewController {
         
         switch self.stackView.frame.origin.x {
         case -1000...0:
-            self.animateStackView(nil, .right)
+            self.animateStackView(.right, shouldPerformSegue: false)
         default:
-            self.animateStackView(nil, .left)
+//            self.animateStackView(.left, shouldPerformSegue: false)
+            break
         }
     }
     
-    func animateStackView(_ sender: UIButton?, _ direction: AnimationDirection) {
-        
+    func animateStackView(_ direction: AnimationDirection, shouldPerformSegue: Bool) {
         UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
             if direction == .left {
                 self.stackView.frame.origin.x -= 400
@@ -35,21 +35,19 @@ class RootViewController: UIViewController {
                 self.stackView.frame.origin.x += 400
             }
         }) { _ in
-            if let button = sender {
-            switch button.tag {
-                case 0:
-                    self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
-                case 1:
-                    self.performSegue(withIdentifier: "emailLoginSegue", sender: self)
-                default:
-                    break
-                }
+            if shouldPerformSegue {
+                self.performSegue(withIdentifier: "emailLoginSegue", sender: self)
             }
         }
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        self.animateStackView(sender, .left)
+        switch sender.tag {
+        case 0:
+            self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
+        default:
+            self.animateStackView(.left, shouldPerformSegue: true)
+        }
     }
 }
 

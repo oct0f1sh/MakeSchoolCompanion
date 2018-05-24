@@ -290,7 +290,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonTapped:" destination="fW7-Kh-KsY" eventType="touchUpInside" id="AHM-Un-0Ny"/>
-                                            <segue destination="Zun-wG-JOX" kind="show" identifier="facebookLoginSegue" id="UfA-KY-aNX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swN-di-v41" customClass="PMSuperButton" customModule="PMSuperButton">
@@ -354,6 +353,7 @@
                     <connections>
                         <outlet property="stackView" destination="SB5-Is-kH5" id="nK8-Ce-9uE"/>
                         <segue destination="NDW-lb-0C6" kind="show" identifier="emailLoginSegue" animates="NO" id="p84-Ly-KHV"/>
+                        <segue destination="Zun-wG-JOX" kind="show" identifier="facebookLoginSegue" id="2nx-Wp-7jI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Buc-qz-34O" userLabel="First Responder" sceneMemberID="firstResponder"/>

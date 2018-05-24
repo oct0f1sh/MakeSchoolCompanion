@@ -50,7 +50,7 @@ class TestLoginViewController: UIViewController {
     }
     
     func animateStackView(_ direction: AnimationDirection, popView: Bool = false) {
-        UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
             if direction == .left {
                 self.fullStackView.frame.origin.x -= 400
                 if !popView {
@@ -95,7 +95,7 @@ class TestLoginViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-//        observeKeyboard()
+        observeKeyboard()
         let beaconLogic = BeaconNetworkingLayer()
 //        
 //        guard let emailText = emailField.text,
@@ -137,7 +137,7 @@ class TestLoginViewController: UIViewController {
         let field = UITextField()
         self.view.addSubview(field)
         field.becomeFirstResponder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             field.resignFirstResponder()
             field.removeFromSuperview()
         }
