@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>MakeSchool Companion</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -45,9 +47,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Change this later</string>
+	<string>MakeSchool Companion relies on your location permission to determine proximity to campus.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Change this later</string>
+	<string>MakeSchool Companion relies on your location permission to determine proximity to campus.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ProximaNovaBold.otf</string>

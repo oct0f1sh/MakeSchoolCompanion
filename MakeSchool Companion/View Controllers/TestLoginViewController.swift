@@ -23,6 +23,7 @@ class TestLoginViewController: UIViewController {
     @IBOutlet weak var stackBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var gradientBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cancelButton: UIButton!
 
     let defaults = UserDefaults.standard
 
@@ -48,8 +49,26 @@ class TestLoginViewController: UIViewController {
         }
     }
     
+    func animateStackView(_ direction: AnimationDirection, popView: Bool = false) {
+        UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
+            if direction == .left {
+                self.fullStackView.frame.origin.x -= 400
+                if !popView {
+                    self.cancelButton.alpha = 1
+                }
+            } else if direction == .right {
+                self.fullStackView.frame.origin.x += 400
+                self.cancelButton.alpha = 0
+            }
+        }) { _ in
+            if popView {
+                self.navigationController?.popViewController(animated: false)
+            }
+            }
+    }
+    
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.animateStackView(.right, popView: true)
     }
 
     @IBAction func unwindToLoginFromIdViewController(segue: UIStoryboardSegue) {
@@ -99,6 +118,10 @@ class TestLoginViewController: UIViewController {
 //            }
 //        }, requestRoute: .postReuqest)
         print("User has left the web view")
+        self.fullStackView.frame.origin.x += 400
+        self.cancelButton.alpha = 0
+        
+        self.animateStackView(.left)
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {

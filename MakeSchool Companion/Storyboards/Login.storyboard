@@ -191,6 +191,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="cancelButton" destination="Z2z-gU-7XC" id="Qdh-QN-Ucl"/>
                         <outlet property="emailField" destination="nhE-dT-gFI" id="wJt-uA-Yde"/>
                         <outlet property="fullStackView" destination="yoD-mb-KGb" id="yS3-HQ-JgZ"/>
                         <outlet property="gradient" destination="0dC-lh-gwi" id="MoD-GJ-I8O"/>
@@ -203,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5BR-ct-KPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4476" y="-99.01477832512316"/>
+            <point key="canvasLocation" x="4273" y="1422"/>
         </scene>
         <!--Login with Facebook-->
         <scene sceneID="lWW-sM-vNY">
@@ -288,10 +289,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="Zun-wG-JOX" kind="show" id="UfA-KY-aNX"/>
+                                            <action selector="buttonTapped:" destination="fW7-Kh-KsY" eventType="touchUpInside" id="AHM-Un-0Ny"/>
+                                            <segue destination="Zun-wG-JOX" kind="show" identifier="facebookLoginSegue" id="UfA-KY-aNX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swN-di-v41" customClass="PMSuperButton" customModule="PMSuperButton">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swN-di-v41" customClass="PMSuperButton" customModule="PMSuperButton">
                                         <rect key="frame" x="20" y="105" width="245" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="245" id="6Gi-Je-P6p"/>
@@ -317,7 +319,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="NDW-lb-0C6" kind="show" id="6z9-4P-UIr"/>
+                                            <action selector="buttonTapped:" destination="fW7-Kh-KsY" eventType="touchUpInside" id="Fvf-gj-bPb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -349,6 +351,10 @@
                         <viewLayoutGuide key="safeArea" id="Mmg-sH-PZl"/>
                     </view>
                     <navigationItem key="navigationItem" id="lj0-6w-iAq"/>
+                    <connections>
+                        <outlet property="stackView" destination="SB5-Is-kH5" id="nK8-Ce-9uE"/>
+                        <segue destination="NDW-lb-0C6" kind="show" identifier="emailLoginSegue" animates="NO" id="p84-Ly-KHV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Buc-qz-34O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
