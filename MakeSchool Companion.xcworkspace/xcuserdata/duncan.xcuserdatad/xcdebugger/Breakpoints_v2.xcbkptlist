@@ -9,24 +9,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MakeSchool Companion/View Controllers/TestLoginViewController.swift"
-            timestampString = "548011679.467515"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MakeSchool Companion/View Controllers/WebViewController.swift"
-            timestampString = "548011679.467966"
+            timestampString = "548877915.104157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -42,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MakeSchool Companion/View Controllers/WebViewController.swift"
-            timestampString = "548011679.468029"
+            timestampString = "548877915.104266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -58,7 +42,7 @@
                   moduleName = "MakeSchool Companion"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/duncan/Desktop/MakeSchool/MakeSchool%20Companion/MakeSchool%20Companion/View%20Controllers/WebViewController.swift"
-                  timestampString = "548011642.872439"
+                  timestampString = "548877915.570455"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "40"
@@ -73,14 +57,46 @@
                   moduleName = "MakeSchool Companion"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/duncan/Desktop/MakeSchool/MakeSchool%20Companion/MakeSchool%20Companion/View%20Controllers/WebViewController.swift"
-                  timestampString = "548011642.87509"
+                  timestampString = "548877915.57248"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
                   endingLineNumber = "41"
-                  offsetFromSymbolStart = "21">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/View Controllers/WebViewController.swift"
+            timestampString = "548877915.104341"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MakeSchool Companion/View Controllers/WebViewController.swift"
+            timestampString = "548877915.10439"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "loadWebView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

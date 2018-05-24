@@ -26,7 +26,7 @@ class TestLoginViewController: UIViewController {
 
     let defaults = UserDefaults.standard
 
-    var logoTranslation: CGFloat = 125
+    var logoTranslation: CGFloat = 100
     var stackViewBottomConstraintOffset: CGFloat = 65
 
     var allStudents: [Student] = []
@@ -46,6 +46,10 @@ class TestLoginViewController: UIViewController {
         didSet {
             print(keyboardHeight)
         }
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func unwindToLoginFromIdViewController(segue: UIStoryboardSegue) {
@@ -72,7 +76,7 @@ class TestLoginViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        observeKeyboard()
+//        observeKeyboard()
         let beaconLogic = BeaconNetworkingLayer()
 //        
 //        guard let emailText = emailField.text,
@@ -113,6 +117,17 @@ class TestLoginViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             field.resignFirstResponder()
             field.removeFromSuperview()
+        }
+    }
+    
+    var heightKeyboard : CGFloat?
+    
+    @objc func keyboardShown(notification: NSNotification) {
+        if let infoKey  = notification.userInfo?[UIKeyboardFrameEndUserInfoKey],
+            let rawFrame = (infoKey as AnyObject).cgRectValue {
+            let keyboardFrame = view.convert(rawFrame, from: nil)
+            self.heightKeyboard = keyboardFrame.size.height
+            // Now is stored in your heightKeyboard variable
         }
     }
 
@@ -184,6 +199,8 @@ class TestLoginViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShown(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         self.view.addGestureRecognizer(tapGesture)
 

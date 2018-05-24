@@ -53,19 +53,26 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         let url = "https://www.makeschool.com/users/auth/facebook"
         var request = URLRequest(url: URL(string: url)!)
         webView.load(request)
+        
+        loadWebView()
     }
     
     func webViewDidClose(_ webView: WKWebView) {
         print("The web view did close")
     }
     
-    override func loadView() {
+    func loadWebView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        view = webView
-     
+        view.addSubview(webView)
+        view.layoutSubviews()
+        
+    }
+    
+    override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 

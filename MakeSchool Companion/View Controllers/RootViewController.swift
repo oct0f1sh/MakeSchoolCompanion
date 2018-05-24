@@ -12,4 +12,8 @@ import UIKit
 class RootViewController: UIViewController {
     @IBAction func unwindToRoot(segue: UIStoryboardSegue) {
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 }
