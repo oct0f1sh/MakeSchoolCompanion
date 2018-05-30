@@ -39,9 +39,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
                             return
                         }
                     }
-                    
-                    
-                    
+
                 }
             }
         }
@@ -68,7 +66,5 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         self.view = self.webView
         
     }
-    
-   
 }
 
