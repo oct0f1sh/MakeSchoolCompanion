@@ -127,6 +127,7 @@ class BeaconNetworkingLayer {
                 keychain.set(decodedUser.firstName, forKey: "firstName")
                 keychain.set(decodedUser.lastName, forKey: "lastName")
                 keychain.set(decodedUser.token, forKey: "Token")
+                completionHandler(decodedUser, statusCode)
             }
             }.resume()
     }

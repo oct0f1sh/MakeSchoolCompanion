@@ -70,6 +70,12 @@ func searchUsers(controller: UIViewController) {
     beaconNetworkingLayer.fetchBeaconData(route: .searchUsers(email: StaticProperties.email), completionHandler: { (user, response) in
         if response >= 200 && response < 300 {
             print("The user was successfully found in the search")
+            
+            let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
+            UserDefaults.standard.set(true, forKey: "LoggedIn")
+            DispatchQueue.main.async {
+                controller.present(idView, animated: true, completion: nil)
+            }
         }
         else {
 
