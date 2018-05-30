@@ -33,17 +33,17 @@ func signUpAlert(controller: UIViewController) {
 
 func showFacebookUserProfile(controller: UIViewController, completionHandler: @escaping(Int) -> Void) {
     let url = URL(string: "https://www.makeschool.com/login.json")
-    
+
     let session = URLSession.shared
     //                let cookieHeaderField = ["Set-Cookie":"_makeschool_session=\(keychain.get("cookieValue")!)"]
     //                let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: url!)
     //                HTTPCookieStorage.shared.setCookies(cookies, for: url, mainDocumentURL: url)
-    
+
     var getRequest = URLRequest(url: url!)
     getRequest.setValue("_makeschool_session=\(keychain.get("cookieValue")!)", forHTTPHeaderField: "Cookie")
     getRequest.httpMethod = "POST"
     getRequest.httpShouldHandleCookies = true
-    
+
     session.dataTask(with: getRequest, completionHandler: { (data, response, error) in
         let statusCode: Int = (response as! HTTPURLResponse).statusCode
         print(data?.base64EncodedString(), response)
@@ -59,7 +59,7 @@ func showFacebookUserProfile(controller: UIViewController, completionHandler: @e
         StaticProperties.imageUrl = decodedUser.profileImageUrl
         StaticProperties.role = decodedUser.role
         completionHandler(statusCode)
-        
+
         print("This is the decoded user \(decodedUser)")
     }).resume()
 }
@@ -67,16 +67,21 @@ func showFacebookUserProfile(controller: UIViewController, completionHandler: @e
 
 func searchUsers(controller: UIViewController) {
     let beaconNetworkingLayer = BeaconNetworkingLayer()
-    
-    
-    beaconNetworkingLayer.fetchBeaconData(route: .facebookCallback(email: StaticProperties.email, firstName: StaticProperties.firstName, lastName: StaticProperties.lastName, imageUrl: StaticProperties.imageUrl), completionHandler: { (user, response) in
-        print("This is the response of the callback we made from facebook \(response)")
-        
-        let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
-        UserDefaults.standard.set(true, forKey: "LoggedIn")
-        DispatchQueue.main.async {
-            controller.present(idView, animated: true, completion: nil)
+    beaconNetworkingLayer.fetchBeaconData(route: .searchUsers(email: StaticProperties.email), completionHandler: { (user, response) in
+        if response >= 200 && response < 300 {
+            print("The user was successfully found in the search")
+        }
+        else {
+
+            beaconNetworkingLayer.fetchBeaconData(route: .facebookCallback(email: StaticProperties.email, firstName: StaticProperties.firstName, lastName: StaticProperties.lastName, imageUrl: StaticProperties.imageUrl), completionHandler: { (user, response) in
+                print("This is the response of the callback we made from facebook \(response)")
+
+                let idView = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! IDViewController
+                UserDefaults.standard.set(true, forKey: "LoggedIn")
+                DispatchQueue.main.async {
+                    controller.present(idView, animated: true, completion: nil)
+                }
+            }, requestRoute: .postReuqest)
         }
     }, requestRoute: .postReuqest)
-    
 }
