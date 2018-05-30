@@ -68,7 +68,6 @@ func showFacebookUserProfile(controller: UIViewController, completionHandler: @e
 func searchUsers(controller: UIViewController) {
     let beaconNetworkingLayer = BeaconNetworkingLayer()
     
-    
     beaconNetworkingLayer.fetchBeaconData(route: .facebookCallback(email: StaticProperties.email, firstName: StaticProperties.firstName, lastName: StaticProperties.lastName, imageUrl: StaticProperties.imageUrl), completionHandler: { (user, response) in
         print("This is the response of the callback we made from facebook \(response)")
         
