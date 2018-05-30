@@ -13,7 +13,7 @@ import WebKit
 class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     
- 
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
         if (navigationAction.navigationType == .linkActivated){
@@ -33,46 +33,42 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
                             keychain.set(cookie.name, forKey: "cookieName")
                             HTTPCookieStorage.shared.setCookie(cookie)
                             
+                            showFacebookUserProfile(controller: self, completionHandler: { (response) in
+                                searchUsers(controller: self)
+                            })
+                            return
                         }
                     }
                     
                     
-                    showFacebookUserProfile(controller: self, completionHandler: { (response) in
-                        searchUsers(controller: self)
-                    })
                     
                 }
             }
         }
-       
+        
     }
-   
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let url = "https://www.makeschool.com/users/auth/facebook"
         var request = URLRequest(url: URL(string: url)!)
         webView.load(request)
-        
-        loadWebView()
     }
     
     func webViewDidClose(_ webView: WKWebView) {
         print("The web view did close")
     }
     
-    func loadWebView() {
+    override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        view.addSubview(webView)
-        view.layoutSubviews()
+        self.view = self.webView
         
     }
     
-    override func viewDidLoad() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+   
 }
 
