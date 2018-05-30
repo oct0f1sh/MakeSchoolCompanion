@@ -12,6 +12,7 @@ import KeychainSwift
 import FacebookLogin
 import FacebookCore
 import FBSDKLoginKit
+import WebKit
 
 class TestLoginViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
@@ -22,10 +23,11 @@ class TestLoginViewController: UIViewController {
     @IBOutlet weak var stackBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var gradientBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cancelButton: UIButton!
 
     let defaults = UserDefaults.standard
 
-    var logoTranslation: CGFloat = 125
+    var logoTranslation: CGFloat = 100
     var stackViewBottomConstraintOffset: CGFloat = 65
 
     var allStudents: [Student] = []
@@ -45,6 +47,28 @@ class TestLoginViewController: UIViewController {
         didSet {
             print(keyboardHeight)
         }
+    }
+    
+    func animateStackView(_ direction: AnimationDirection, popView: Bool = false) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
+            if direction == .left {
+                self.fullStackView.frame.origin.x -= 400
+                if !popView {
+                    self.cancelButton.alpha = 1
+                }
+            } else if direction == .right {
+                self.fullStackView.frame.origin.x += 400
+                self.cancelButton.alpha = 0
+            }
+        }) { _ in
+            if popView {
+                self.navigationController?.popViewController(animated: false)
+            }
+            }
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        self.animateStackView(.right, popView: true)
     }
 
     @IBAction func unwindToLoginFromIdViewController(segue: UIStoryboardSegue) {
@@ -93,7 +117,11 @@ class TestLoginViewController: UIViewController {
 //                
 //            }
 //        }, requestRoute: .postReuqest)
-        print("User has left the web vieww")
+        print("User has left the web view")
+        self.fullStackView.frame.origin.x += 400
+        self.cancelButton.alpha = 0
+        
+        self.animateStackView(.left)
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -109,9 +137,20 @@ class TestLoginViewController: UIViewController {
         let field = UITextField()
         self.view.addSubview(field)
         field.becomeFirstResponder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             field.resignFirstResponder()
             field.removeFromSuperview()
+        }
+    }
+    
+    var heightKeyboard : CGFloat?
+    
+    @objc func keyboardShown(notification: NSNotification) {
+        if let infoKey  = notification.userInfo?[UIKeyboardFrameEndUserInfoKey],
+            let rawFrame = (infoKey as AnyObject).cgRectValue {
+            let keyboardFrame = view.convert(rawFrame, from: nil)
+            self.heightKeyboard = keyboardFrame.size.height
+            // Now is stored in your heightKeyboard variable
         }
     }
 
@@ -183,6 +222,8 @@ class TestLoginViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardShown(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         self.view.addGestureRecognizer(tapGesture)
 

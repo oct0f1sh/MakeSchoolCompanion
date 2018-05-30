@@ -22,10 +22,10 @@
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
 		1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */; };
 		1C65B0CF202F449A007AADDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CE202F449A007AADDE /* User.swift */; };
-		1C74C2CD208FDC290038EF76 /* icons8-Compass-3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C74C2CC208FDC290038EF76 /* icons8-Compass-3x.png */; };
-		AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */; };
 		1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */; };
 		1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */; };
+		1C74C2CD208FDC290038EF76 /* icons8-Compass-3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C74C2CC208FDC290038EF76 /* icons8-Compass-3x.png */; };
+		AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */; };
 		AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4562A12010083400CC9E13 /* StudentTableViewController.swift */; };
 		AE48CD622022836C00DEB016 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CD612022836C00DEB016 /* BeaconManager.swift */; };
 		AE48CD642024E62400DEB016 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE48CD632024E62400DEB016 /* Login.storyboard */; };
@@ -42,6 +42,23 @@
 		AEFF94592033772D000C353F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFF94582033772D000C353F /* RootViewController.swift */; };
 		C61A292D93E54AF0ABA181F9 /* Pods_MakeSchool_Companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE01C6FB20B76BAD0006A1A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE8DBF3820B36E54004602C3 /* PyLEDClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE01C6F020B626E30006A1A8;
+			remoteInfo = PyLEDClientTests;
+		};
+		AE8DBF3C20B36E54004602C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE8DBF3820B36E54004602C3 /* PyLEDClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE8DBF0920ACDCE1004602C3;
+			remoteInfo = PyLEDClient;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1C24E438202BA2C60087B470 /* Mark Simonson - Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Thin.otf"; sourceTree = "<group>"; };
@@ -73,6 +90,7 @@
 		AE48CD652024ECCD00DEB016 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE48CD6A2024F72700DEB016 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		AE75D4F620100744007B0D69 /* NameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCellView.swift; sourceTree = "<group>"; };
+		AE8DBF3820B36E54004602C3 /* PyLEDClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PyLEDClient.xcodeproj; path = ../PyLEDClient/PyLEDClient.xcodeproj; sourceTree = "<group>"; };
 		AEF69FB52009305800D173B3 /* MakeSchool Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MakeSchool Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF69FB82009305800D173B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEF69FBA2009305800D173B3 /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +120,7 @@
 		4C12915634A4FDA41A5D74B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE8DBF3820B36E54004602C3 /* PyLEDClient.xcodeproj */,
 				6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */,
 			);
 			name = Frameworks;
@@ -150,6 +169,15 @@
 				AE75D4F620100744007B0D69 /* NameCellView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AE8DBF3920B36E54004602C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE8DBF3D20B36E54004602C3 /* PyLEDClient.app */,
+				AE01C6FC20B76BAD0006A1A8 /* PyLEDClientTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		AEF69FAC2009305700D173B3 = {
@@ -295,12 +323,35 @@
 			mainGroup = AEF69FAC2009305700D173B3;
 			productRefGroup = AEF69FB62009305800D173B3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AE8DBF3920B36E54004602C3 /* Products */;
+					ProjectRef = AE8DBF3820B36E54004602C3 /* PyLEDClient.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AEF69FB42009305800D173B3 /* MakeSchool Companion */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AE01C6FC20B76BAD0006A1A8 /* PyLEDClientTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PyLEDClientTests.xctest;
+			remoteRef = AE01C6FB20B76BAD0006A1A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AE8DBF3D20B36E54004602C3 /* PyLEDClient.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PyLEDClient.app;
+			remoteRef = AE8DBF3C20B36E54004602C3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AEF69FB32009305800D173B3 /* Resources */ = {
@@ -569,7 +620,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -591,7 +642,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "MakeSchool Companion/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "m.duncanmacdonald.MakeSchool-Companion";
 				PRODUCT_NAME = "$(TARGET_NAME)";

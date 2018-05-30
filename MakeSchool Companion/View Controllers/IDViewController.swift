@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import KeychainSwift
+import WebKit
 
 class IDViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -36,6 +37,23 @@ class IDViewController: UIViewController {
      
         
         
+    }
+    @IBAction func logoutButton(_ sender: UIButton) {
+        print("The user has pressed the log out button")
+       
+//        self.present(testLoginViewContoller, animated: true, completion: nil)
+        print("These are the navigation controllers \(self.navigationController?.viewControllers)")
+        UserDefaults.standard.set(false, forKey: "LoggedIn")
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+            dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: records, completionHandler: {
+                print("Deleted records \(records)") // Clearing cookies so when the user logs back into facebook they are not logged into their dashboard already
+                let testLoginViewContoller = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "TestLogInViewController") as! TestLoginViewController
+                self.dismiss(animated: true) {
+                    print("The view was dismissed")
+                } // Then present the new view
+            })
+        }
     }
     
     override func viewDidLoad() {

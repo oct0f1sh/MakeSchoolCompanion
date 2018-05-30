@@ -11,7 +11,7 @@
 //import PMSuperButton
 //
 //class SignUpViewController: UIViewController {
-//    
+//
 //    @IBOutlet weak var textField: UITextField!
 //    @IBOutlet weak var loginButton: PMSuperButton!
 //    @IBOutlet weak var errorLabel: UILabel!
@@ -22,10 +22,10 @@
 //    @IBOutlet weak var makeLogo: UIImageView!
 //    @IBOutlet weak var passwordUnderlineView: UIView!
 //    @IBOutlet weak var passwordTextField: UITextField!
-//    
+//
 //    var allStudents: [Student] = []
-//    
-//    
+//
+//
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        self.navigationController?.navigationBar.isHidden = true
@@ -42,7 +42,7 @@
 //            }
 //        }
 //    }
-//    
+//
 //    func animate() {
 //        self.textField.alpha = 0
 //        self.textField.isUserInteractionEnabled = false
@@ -55,13 +55,13 @@
 //        self.domainLabel.alpha = 0
 //        self.atLabel.alpha = 0
 //        self.makeLogo.alpha = 0
-//        
+//
 //        UIView.animate(withDuration: 0.8, delay: 1, options: [], animations: {
 //            self.animLogo.frame.origin.x = 36
 //            self.animLogo.frame.origin.y = 181
 //            self.animLogo.bounds = CGRect(x: 67, y: 207, width: 88, height: 99)
 //        }, completion: nil)
-//        
+//
 //        UIView.animate(withDuration: 0.8, delay: 1.8, options: [], animations: {
 //            self.textField.alpha = 1
 //            self.passwordTextField.alpha = 1
@@ -77,13 +77,13 @@
 //            self.loginButton.isUserInteractionEnabled = true
 //        })
 //    }
-//    
+//
 //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 //        self.textField.resignFirstResponder()
 //        self.passwordTextField.resignFirstResponder()
 //        return true
 //    }
-//    
+//
 //    @IBAction func loginTapped(_ sender: Any) {
 //        //        if !(textField.text?.contains("."))! && textField.text != "" ||  (!(passwordTextField.text?.contains("."))! && (passwordTextField.text != "")){
 //        //
@@ -99,16 +99,16 @@
 //            errorLabel.text = "please enter required fields"
 //            underlineView.backgroundColor = Style.Colors.makeRed
 //            passwordUnderlineView.backgroundColor = Style.Colors.makeRed
-//            
+//
 //            return
 //        }
-//        
+//
 //        let nameString = textField.text?.components(separatedBy: ".")
 //        let firstname = nameString![0].lowercased()
 //        let lastname = nameString![1].lowercased()
-//        
-//        
-//        
+//
+//
+//
 //        let beaconLogic = BeaconNetworkingLayer()
 //        let user = SignUserUp(email: "\(firstname).\(lastname)@students.makeschool.com", password: passwordTextField.text!)
 //        beaconLogic.fetchBeaconData(route: .users, user: user, completionHandler: { (data) in
@@ -123,7 +123,7 @@
 //            }
 //        }
 //    }
-//    
+//
 //    @objc func tap(gesture: UIGestureRecognizer) {
 //        textField.resignFirstResponder()
 //        passwordTextField.resignFirstResponder()
