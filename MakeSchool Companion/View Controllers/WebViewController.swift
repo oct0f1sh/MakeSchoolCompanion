@@ -59,11 +59,22 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
 
     override func loadView() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
         let webConfiguration = WKWebViewConfiguration()
+        
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         self.view = self.webView
 
+    }
+    
+    override func viewDidLoad() {
+        let navHeight: CGFloat = (self.navigationController?.navigationBar.bounds.height)!
+        
+        view.frame = CGRect(x: 0, y: navHeight, width: view.frame.width, height: view.frame.height - navHeight)
+        
+        view.setNeedsLayout()
     }
 }
