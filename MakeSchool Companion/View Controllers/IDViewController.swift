@@ -60,7 +60,7 @@ class IDViewController: UIViewController {
         super.viewDidLoad()
         AppDelegate.shared.beaconManager.delegate = self
         var beacon = AppDelegate.shared.beaconManager
-        
+        let beaconManager = BeaconManager()
         let keychain = KeychainSwift()
         let profileString = keychain.get("profileImageUrl")! ?? "No image given"
         let profileImageURL = URL(string: profileString)
