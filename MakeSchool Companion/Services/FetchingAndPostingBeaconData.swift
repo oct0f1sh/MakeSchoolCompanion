@@ -28,7 +28,7 @@ enum Route {
     case users(email: String, password: String)
     case attendances(beaconID: String, event: String, eventTime: String)
     case facebookCallback(email: String, firstName: String, lastName: String, imageUrl: String)
-    
+    case searchUsers(email: String)
     func path() -> String {
         switch self {
         case .attendances:
@@ -37,9 +37,10 @@ enum Route {
             return "https://make-school-companion.herokuapp.com/registrations/?email=\(EmailandPasswordandToken.email)&password=\(EmailandPasswordandToken.password)"
         case .facebookCallback:
             return "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)"
-
+        case .searchUsers(let email):
+            return "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)"
         }
-        
+
     }
     func postBody() -> Data? {
         switch self {
@@ -47,15 +48,17 @@ enum Route {
             let json = ["email": email, "password": password]
             let data = try? JSONSerialization.data(withJSONObject: json, options: [])
             return data
-            
+
         case let .attendances(beaconId, event, eventTime):
             let json = ["beacon_id": beaconId, "event": event, "event_time": eventTime]
             let data = try? JSONSerialization.data(withJSONObject: json, options: [])
             return data
-            
+
         case let .facebookCallback(email, firstName, lastName, imageUrl):
 //            let json = ["email": email, "first_name": firstName, "last_name": lastName, "image_url": imageUrl]
 //            let data = try? JSONSerialization.data(withJSONObject: json, options: [])
+            return Data()
+        case .searchUsers(let email):
             return Data()
         }
     }
@@ -68,29 +71,29 @@ enum DifferentHttpVerbs: String {
 
 class BeaconNetworkingLayer {
     var userTokenString: String!
-    
+
     let session = URLSession.shared
     func fetchBeaconData(route: Route, completionHandler: @escaping(Any?, Int) -> Void, requestRoute: DifferentHttpVerbs) {
         let keychain = KeychainSwift()
         let fullUrlString = URL(string: route.path().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-        
+
         var getRequest = URLRequest(url: fullUrlString!)
         getRequest.httpMethod = requestRoute.rawValue
         let userToken = keychain.get("Token")
         self.userTokenString = userToken
         getRequest.httpBody = route.postBody()
-        
-        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)"  {
+
+        if route.path() != "https://make-school-companion.herokuapp.com/registrations" && route.path() != "https://www.makeschool.com/users/auth/facebook" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)"  && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)"{
             getRequest.addValue("Token token=\(self.userTokenString!)", forHTTPHeaderField: "Authorization")
         }
         getRequest.addValue("text/html; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        
+
 //        if requestRoute.rawValue == "POST" && route.path() != "https://make-school-companion.herokuapp.com/users?email=\(StaticProperties.email)&first_name=\(StaticProperties.firstName)&last_name=\(StaticProperties.lastName)&image_url=\(StaticProperties.imageUrl)" {
 //            getRequest.httpBody = route.postBody()
 //        }
-        
-        
-        
+
+
+
         session.dataTask(with: getRequest) { (data, response, error) in
             let statusCode: Int = (response as! HTTPURLResponse).statusCode
             switch route {
@@ -102,12 +105,12 @@ class BeaconNetworkingLayer {
                 keychain.set(decodedUser.lastName, forKey: "lastName")
                 keychain.set(decodedUser.token, forKey: "Token")
                 keychain.set(decodedUser.id, forKey: "id")
-                
+
                 completionHandler(decodedUser, statusCode)
             case .attendances:
                 guard let decodedAttendance = try? JSONDecoder().decode(AttendancesModel.self, from: data!) else {return}
                 completionHandler(decodedAttendance, statusCode)
-                
+
             case .facebookCallback:
                 guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
                 keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")
@@ -116,6 +119,14 @@ class BeaconNetworkingLayer {
                 keychain.set(decodedUser.lastName, forKey: "lastName")
                 keychain.set(decodedUser.token, forKey: "Token")
                 keychain.set(decodedUser.id, forKey: "id")
+                completionHandler(decodedUser, statusCode)
+            case .searchUsers:
+                guard let decodedUser = try? JSONDecoder().decode(MSUserModelObject.self, from: data!) else {return}
+                keychain.set(decodedUser.imageUrl, forKey: "profileImageUrl")
+                keychain.set(decodedUser.email, forKey: "email")
+                keychain.set(decodedUser.firstName, forKey: "firstName")
+                keychain.set(decodedUser.lastName, forKey: "lastName")
+                keychain.set(decodedUser.token, forKey: "Token")
                 completionHandler(decodedUser, statusCode)
             }
             }.resume()
@@ -144,7 +155,7 @@ extension Dictionary : URLQueryParameterStringConvertible {
         }
         return parts.joined(separator: "&")
     }
-    
+
 }
 
 extension URL {
@@ -158,6 +169,3 @@ extension URL {
         return URL(string: URLString)!
     }
 }
-
-
-
