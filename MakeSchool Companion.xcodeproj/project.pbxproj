@@ -44,13 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AE01C6FB20B76BAD0006A1A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AE8DBF3820B36E54004602C3 /* PyLEDClient.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AE01C6F020B626E30006A1A8;
-			remoteInfo = PyLEDClientTests;
-		};
 		AE8DBF3C20B36E54004602C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE8DBF3820B36E54004602C3 /* PyLEDClient.xcodeproj */;
@@ -175,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				AE8DBF3D20B36E54004602C3 /* PyLEDClient.app */,
-				AE01C6FC20B76BAD0006A1A8 /* PyLEDClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,7 +291,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Duncan MacDonald";
+				ORGANIZATIONNAME = "Make School";
 				TargetAttributes = {
 					AEF69FB42009305800D173B3 = {
 						CreatedOnToolsVersion = 9.2;
@@ -337,13 +329,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AE01C6FC20B76BAD0006A1A8 /* PyLEDClientTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PyLEDClientTests.xctest;
-			remoteRef = AE01C6FB20B76BAD0006A1A8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		AE8DBF3D20B36E54004602C3 /* PyLEDClient.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
