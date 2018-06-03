@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var token: String?
     
-    var allUsers: [User] = []
     var allStudents: [Student] = []
     
     

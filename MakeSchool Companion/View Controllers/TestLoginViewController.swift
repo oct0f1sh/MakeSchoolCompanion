@@ -34,7 +34,6 @@ class TestLoginViewController: UIViewController {
 
     var student: Student? = nil
 
-    var user: User? = nil
     var user_id: String?
     var profileImageUrl: String?
     
@@ -194,6 +193,7 @@ class TestLoginViewController: UIViewController {
         EmailandPasswordandToken.email = emailField.text!
         EmailandPasswordandToken.password = passwordField.text!
         let beaconLogic = BeaconNetworkingLayer()
+        let keychain = KeychainSwift()
         
         guard let emailText = emailField.text,
             let passwordText = passwordField.text else {return}

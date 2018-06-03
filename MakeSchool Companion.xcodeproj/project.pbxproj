@@ -20,7 +20,6 @@
 		1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */; };
 		1C65B0CD202ECAD6007AADDE /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */; };
 		1C65B0D1202FACF6007AADDE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */; };
-		1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */; };
 		1C74C2CD208FDC290038EF76 /* icons8-Compass-3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C74C2CC208FDC290038EF76 /* icons8-Compass-3x.png */; };
 		AE256FF9202E317E00A588D0 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE256FF8202E317E00A588D0 /* TestLoginViewController.swift */; };
 		AE4562A22010083400CC9E13 /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4562A12010083400CC9E13 /* StudentTableViewController.swift */; };
@@ -64,7 +63,6 @@
 		1C65B0CA202EC527007AADDE /* FetchingRosterID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingRosterID.swift; sourceTree = "<group>"; };
 		1C65B0CC202ECAD6007AADDE /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		1C65B0D0202FACF6007AADDE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUserUp.swift; sourceTree = "<group>"; };
 		1C74C2CC208FDC290038EF76 /* icons8-Compass-3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Compass-3x.png"; sourceTree = "<group>"; };
 		49BA543D8DDB5199BF9EEECF /* Pods-MakeSchool Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakeSchool Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakeSchool Companion/Pods-MakeSchool Companion.release.xcconfig"; sourceTree = "<group>"; };
 		6E8AA1D82A1B03BF7FC416D3 /* Pods_MakeSchool_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakeSchool_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,7 +232,6 @@
 			children = (
 				AEF69FD32009730E00D173B3 /* Student.swift */,
 				1C24E43E202BB71D0087B470 /* Attendance.swift */,
-				1C65B0D2202FB1B9007AADDE /* SignUserUp.swift */,
 				1C333A8B2050CD2700B02AFE /* MSUserObjectModel.swift */,
 				1C4AA5E6209A5BAA00382C49 /* FacebookUserObjectModel.swift */,
 			);
@@ -428,7 +425,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C65B0D3202FB1B9007AADDE /* SignUserUp.swift in Sources */,
 				1C24E43F202BB71D0087B470 /* Attendance.swift in Sources */,
 				1C65B0CB202EC527007AADDE /* FetchingRosterID.swift in Sources */,
 				1C4AA5E7209A5BAA00382C49 /* FacebookUserObjectModel.swift in Sources */,

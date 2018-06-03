@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 import WebKit
+import KeychainSwift
 
 class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
 
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-
+        let keychain = KeychainSwift()
         if (navigationAction.navigationType == .linkActivated){
             decisionHandler(.cancel)
         } else {
