@@ -60,7 +60,7 @@ class IDViewController: UIViewController {
         super.viewDidLoad()
         AppDelegate.shared.beaconManager.delegate = self
         var beacon = AppDelegate.shared.beaconManager
-        
+        let beaconManager = BeaconManager()
         let keychain = KeychainSwift()
         let profileString = keychain.get("profileImageUrl")! ?? "No image given"
         let profileImageURL = URL(string: profileString)
@@ -70,7 +70,13 @@ class IDViewController: UIViewController {
         self.profileImageView.layer.masksToBounds = true
         self.profileImageView.layer.borderWidth = 5
         self.profileImageView.layer.borderColor = UIColor.white.cgColor
-        emailLabel.text = keychain.get("email")
+        
+        let emailContents = keychain.get("email")?.split(separator: "@")
+        let emailUsernameSubstring = emailContents![0]
+        let emailDomainSubstring = emailContents![1]
+        
+//        emailLabel.text = String(emailUsernameSubstring)
+//        emailDomain.text = String("@" + emailDomainSubstring)
         firstnameLabel.text = keychain.get("firstName")
         lastnameLabel.text = keychain.get("lastName")
         

@@ -13,7 +13,6 @@ import UIKit
 class BeaconManager: NSObject, CLLocationManagerDelegate {
     var beaconRegion: CLBeaconRegion!
     var locationManager: CLLocationManager!
-    var isSearchingForBeacons = true
     var status: BeaconStatus = .started
     
     weak var delegate: BeaconManagerDelegate?
@@ -31,7 +30,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         beaconRegion.notifyOnEntry = true
         beaconRegion.notifyOnExit = true
         
-        if isSearchingForBeacons {
+        if UserDefaults.standard.bool(forKey: "LoggedIn") == true {
             locationManager.requestAlwaysAuthorization()
             locationManager.startMonitoring(for: beaconRegion)
             locationManager.startUpdatingLocation()

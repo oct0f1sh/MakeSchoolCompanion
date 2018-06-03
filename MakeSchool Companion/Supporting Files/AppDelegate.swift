@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+
     var beaconManager = BeaconManager()
     
     class var shared: AppDelegate {
