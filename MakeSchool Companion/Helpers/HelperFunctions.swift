@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KeychainSwift
 
 struct StaticProperties {
     static var email = ""
@@ -33,7 +34,7 @@ func signUpAlert(controller: UIViewController) {
 
 func showFacebookUserProfile(controller: UIViewController, completionHandler: @escaping(Int) -> Void) {
     let url = URL(string: "https://www.makeschool.com/login.json")
-
+    let keychain = KeychainSwift()
     let session = URLSession.shared
     //                let cookieHeaderField = ["Set-Cookie":"_makeschool_session=\(keychain.get("cookieValue")!)"]
     //                let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: url!)

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class NetworkingService {
-    static func getAllStudents(completion: @escaping ([Student]?) -> Void) {
+    static func getAllStudents(completion: @escaping ([Student]) -> Void) {
         let url = URL(string: "https://www.makeschool.com/portfolios.json")!
         
         var request = URLRequest(url: url)
@@ -20,13 +20,12 @@ class NetworkingService {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "Error thrown when fetching all students")
                 return
             }
             
             if let data = data {
-                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                let students = try? JSONDecoder().decode([Student].self, from: data)
+                guard let students = try? JSONDecoder().decode([Student].self, from: data) else {return}
                 completion(students)
             }
         }

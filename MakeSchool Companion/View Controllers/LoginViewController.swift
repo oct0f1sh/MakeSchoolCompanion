@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var token: String?
     
-    var allUsers: [User] = []
     var allStudents: [Student] = []
     
     
@@ -41,13 +40,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.showLoader(userInteraction: false)
         
         NetworkingService.getAllStudents { (students) in
-            if let students = students {
                 self.allStudents = students
                 print("These are the students \(students)")
                 DispatchQueue.main.async {
                     self.loginButton.hideLoader()
                 }
-            }
+            
         }
         
         self.navigationController?.navigationBar.isHidden = true
